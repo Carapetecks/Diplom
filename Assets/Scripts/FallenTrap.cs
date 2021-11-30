@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FallenTrap : MonoBehaviour
+
+public class FallenTrap : Monster
 {
     Rigidbody2D rb;
     
@@ -10,8 +11,6 @@ public class FallenTrap : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        
-       
     }
 
     private void OnTriggerEnter2D(Collider2D collider)
@@ -20,19 +19,25 @@ public class FallenTrap : MonoBehaviour
         if (unit && unit is Character)
         {
             rb.isKinematic = false;
+            
+        }
+        if(rb.isKinematic == false)
+        {
+            Destroy(gameObject, 1f);
         }
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        
+       
         if (collision.gameObject.name.Equals("Character"))
         {
-             //unit.reciveDamage();
-             Destroy(gameObject, 0.2f);
-
+            Destroy(gameObject);
         }
+        //if (collision.gameObject.name.Equals("Character"))
+        //{          
+        //    Destroy(gameObject, 0.2f);
+        //}
         //collision.gameObject.name.Equals("Character")
-
     }
     void Update()
     {

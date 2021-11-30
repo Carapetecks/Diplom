@@ -47,7 +47,7 @@ public class Character : Unit
         
         lifes--;
         rigidbody.velocity = Vector3.zero;
-        rigidbody.AddForce(transform.up * 5.0f +transform.right+(-direction) * 4.0f , ForceMode2D.Impulse);
+        rigidbody.AddForce(transform.up * 2.5f +transform.right+(-direction) * 2.5f , ForceMode2D.Impulse);
         Debug.Log(lifes);
         if (lifes <= 0)
         {         
@@ -69,12 +69,13 @@ public class Character : Unit
         isGrounded = colliders.Length > 1;
     }
 
-    //private void OnCollisionEnter2D(Collision2D collision)
-    //{
-    //    Unit unit = collision.gameObject.GetComponent<Unit>();
-    //    if(unit)
-    //    {
-    //        reciveDamage();
-    //    }
-    //}
+   
+    private void OnCollisionEnter2D(Collision2D collision)
+    {      
+        if (collision.gameObject.tag.Equals("DroppedTrap"))
+        {
+            reciveDamage();
+        }
+        //collision.gameObject.name.Equals("Character")
+    }
 }
