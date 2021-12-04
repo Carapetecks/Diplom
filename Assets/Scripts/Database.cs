@@ -1,0 +1,16 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.UI;
+
+public class Database : MonoBehaviour
+{
+    public Dictionary<int, Item> items = new Dictionary<int, Item>();
+}
+[System.Serializable]
+public class Item
+{
+    public int id;
+    public string name;
+    public Sprite image;
+}
