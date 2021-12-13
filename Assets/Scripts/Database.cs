@@ -5,12 +5,13 @@ using UnityEngine.UI;
 
 public class Database : MonoBehaviour
 {
-    public Dictionary<int, Item> items = new Dictionary<int, Item>();
+    //public Dictionary<int, Item> items = new Dictionary<int, Item>();
+    public List<Item> items = new List<Item>();
 }
 [System.Serializable]
 public class Item
 {
-    public int id;
-    public string name;
-    public Sprite image;
+     public int id;
+     public string name;
+     public Sprite image;
 }
