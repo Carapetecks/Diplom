@@ -4375,6 +4375,24 @@ Tilemap:
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
       m_AllTileFlags: 1073741825
+  - first: {x: -41, y: -5, z: 0}
+    second:
+      serializedVersion: 2
+      m_TileIndex: 5
+      m_TileSpriteIndex: 0
+      m_TileMatrixIndex: 0
+      m_TileColorIndex: 0
+      m_TileObjectToInstantiateIndex: 65535
+      m_AllTileFlags: 1073741825
+  - first: {x: -40, y: -5, z: 0}
+    second:
+      serializedVersion: 2
+      m_TileIndex: 5
+      m_TileSpriteIndex: 0
+      m_TileMatrixIndex: 0
+      m_TileColorIndex: 0
+      m_TileObjectToInstantiateIndex: 65535
+      m_AllTileFlags: 1073741825
   - first: {x: -39, y: -5, z: 0}
     second:
       serializedVersion: 2
@@ -4488,6 +4506,24 @@ Tilemap:
       serializedVersion: 2
       m_TileIndex: 8
       m_TileSpriteIndex: 8
+      m_TileMatrixIndex: 0
+      m_TileColorIndex: 0
+      m_TileObjectToInstantiateIndex: 65535
+      m_AllTileFlags: 1073741825
+  - first: {x: -43, y: -3, z: 0}
+    second:
+      serializedVersion: 2
+      m_TileIndex: 5
+      m_TileSpriteIndex: 0
+      m_TileMatrixIndex: 0
+      m_TileColorIndex: 0
+      m_TileObjectToInstantiateIndex: 65535
+      m_AllTileFlags: 1073741825
+  - first: {x: -42, y: -3, z: 0}
+    second:
+      serializedVersion: 2
+      m_TileIndex: 5
+      m_TileSpriteIndex: 0
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -5656,8 +5692,8 @@ Tilemap:
     m_Data: {fileID: 0}
   - m_RefCount: 0
     m_Data: {fileID: 0}
-  - m_RefCount: 0
-    m_Data: {fileID: 0}
+  - m_RefCount: 4
+    m_Data: {fileID: 11400000, guid: 20d0e485578917d419c2dc653e9341f3, type: 2}
   - m_RefCount: 5
     m_Data: {fileID: 11400000, guid: d20a6333457d1cd4c93ff580b4302681, type: 2}
   - m_RefCount: 74
@@ -5665,7 +5701,7 @@ Tilemap:
   - m_RefCount: 285
     m_Data: {fileID: 11400000, guid: 7cefef9b84d4c4d4e9d385dfe1fca473, type: 2}
   m_TileSpriteArray:
-  - m_RefCount: 119
+  - m_RefCount: 123
     m_Data: {fileID: -4499037332521830253, guid: c63aea817c997324a8ae58c0352cd4e6,
       type: 3}
   - m_RefCount: 0
@@ -5688,7 +5724,7 @@ Tilemap:
     m_Data: {fileID: -7015889219209994848, guid: c63aea817c997324a8ae58c0352cd4e6,
       type: 3}
   m_TileMatrixArray:
-  - m_RefCount: 483
+  - m_RefCount: 487
     m_Data:
       e00: 1
       e01: 0
@@ -5707,13 +5743,13 @@ Tilemap:
       e32: 0
       e33: 1
   m_TileColorArray:
-  - m_RefCount: 483
+  - m_RefCount: 487
     m_Data: {r: 1, g: 1, b: 1, a: 1}
   m_TileObjectToInstantiateArray: []
   m_AnimationFrameRate: 1
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Origin: {x: -39, y: -17, z: 0}
-  m_Size: {x: 62, y: 21, z: 1}
+  m_Origin: {x: -43, y: -17, z: 0}
+  m_Size: {x: 66, y: 21, z: 1}
   m_TileAnchor: {x: 0.5, y: 0.5, z: 0}
   m_TileOrientation: 0
   m_TileOrientationMatrix:
@@ -9657,6 +9693,7 @@ GameObject:
   - component: {fileID: 787166999}
   - component: {fileID: 787166998}
   - component: {fileID: 787166997}
+  - component: {fileID: 787167001}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -9671,7 +9708,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 787166996}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 52cadf40c3d743a429f8f9ad430d797b, type: 3}
   m_Name: 
@@ -9743,6 +9780,24 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &787167001
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 787166996}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cceaf9ebc9ca6b94588165e8a0b9b000, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 5
+  target: {fileID: 1699722630}
+  bottomLimit: 2.72
+  rightLimit: 4.68
+  leftLimit: -11.68
+  upperLimit: -7.98
 --- !u!1 &808364692
 GameObject:
   m_ObjectHideFlags: 0
@@ -15079,6 +15134,12 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.8577306, y: 0.24123001}
   m_EdgeRadius: 0
+--- !u!4 &1699722630 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5508198809484698566, guid: 3c70fc0675d4d2841a39644de429d68b,
+    type: 3}
+  m_PrefabInstance: {fileID: 1174847083370922923}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1731877666
 GameObject:
   m_ObjectHideFlags: 0

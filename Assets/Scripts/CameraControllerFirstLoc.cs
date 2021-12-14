@@ -4,10 +4,12 @@ using UnityEngine;
 
 public class CameraControllerFirstLoc : MonoBehaviour
 {
-    [SerializeField]
-    private float speed = 5.0f;
-    [SerializeField]
-    private Transform target;
+    [SerializeField]  private float speed = 5.0f;
+    [SerializeField]  private Transform target;
+    [SerializeField]  float bottomLimit;
+    [SerializeField]  float rightLimit;
+    [SerializeField]  float leftLimit;
+    [SerializeField]  float upperLimit;
     private void Awake()
     {
         if (!target) target = FindObjectOfType<Character>().transform;
@@ -19,6 +21,10 @@ public class CameraControllerFirstLoc : MonoBehaviour
         position.z = -10.0f;
         position.y += 1f;
         transform.position = Vector3.Lerp(transform.position, position, speed * Time.deltaTime);
+        transform.position = new Vector3(
+            Mathf.Clamp(transform.position.x, leftLimit, rightLimit),
+            Mathf.Clamp(transform.position.y, upperLimit, bottomLimit),
+            transform.position.z);
     }
 
 }

@@ -57,16 +57,21 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\Bullet.cs" />
     <Compile Include="Assets\Scripts\CameraController.cs" />
     <Compile Include="Assets\Scripts\CameraControllerFirstLoc.cs" />
     <Compile Include="Assets\Scripts\Character.cs" />
+    <Compile Include="Assets\Scripts\Database.cs" />
     <Compile Include="Assets\Scripts\DestroyablePlate.cs" />
     <Compile Include="Assets\Scripts\FallenTrap.cs" />
+    <Compile Include="Assets\Scripts\Inventory.cs" />
+    <Compile Include="Assets\Scripts\Main_menu.cs" />
     <Compile Include="Assets\Scripts\Monster.cs" />
     <Compile Include="Assets\Scripts\MonsterMovable.cs" />
     <Compile Include="Assets\Scripts\Parallax\ParallaxBackground.cs" />
     <Compile Include="Assets\Scripts\Parallax\ParallaxCamera.cs" />
     <Compile Include="Assets\Scripts\Parallax\ParallaxLayer.cs" />
+    <Compile Include="Assets\Scripts\Pause_menu.cs" />
     <Compile Include="Assets\Scripts\Trap.cs" />
     <Compile Include="Assets\Scripts\Unit.cs" />
     <Reference Include="UnityEngine">

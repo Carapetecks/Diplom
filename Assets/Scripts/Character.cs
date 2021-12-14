@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using System.Threading.Tasks;
 
 public class Character : Unit
 {
@@ -51,11 +52,11 @@ public class Character : Unit
         Debug.Log(lifes);
         if (lifes <= 0)
         {         
-            base.reciveDamage();
-            Debug.Log("You are dead 8====0");
-            //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            base.reciveDamage();                  
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
             
         }
+        //Task.Delay(5000).GetAwaiter().GetResult(); //выражение дает урон каждые 5 сек, но останавливает процесс игры
     }
 
     private void Jump()
@@ -76,6 +77,13 @@ public class Character : Unit
         {
             reciveDamage();
         }
-        //collision.gameObject.name.Equals("Character")
+        else if (collision.gameObject.tag.Equals("Borov"))
+        {
+            reciveDamage();
+        }
     }
+    
+   
+        
+    
 }
