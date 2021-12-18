@@ -13,6 +13,7 @@ public class Character : Unit
     [SerializeField]
     private int lifes = 5;
     private bool isGrounded = false;
+    public bool faceRight = true;
     Vector3 direction;
     new private Rigidbody2D rigidbody;
     private Animator animator;
@@ -34,28 +35,36 @@ public class Character : Unit
     {
         if (Input.GetButton("Horizontal")) Run();
         if (isGrounded && Input.GetButtonDown("Jump")) Jump();
+        Reflect();
     }
     private void Run()
     {
         direction = transform.right * Input.GetAxis("Horizontal");
-        transform.position = Vector3.MoveTowards(transform.position, transform.position + direction, speed * Time.deltaTime);
-
-        sprite.flipX = direction.x < 0.0f;
-        
+        transform.position = Vector3.MoveTowards(transform.position, transform.position + direction, speed * Time.deltaTime);             
+    }
+    void Reflect()
+    {
+        if ((direction.x > 0 && !faceRight) || (direction.x < 0 && faceRight))
+        {
+            Vector3 temp = transform.localScale;
+            temp.x *= -1;
+            transform.localScale = temp;
+            faceRight = !faceRight;
+        }
     }
     public override void reciveDamage()
     {
-        
         lifes--;
         rigidbody.velocity = Vector3.zero;
-        rigidbody.AddForce(transform.up * 2.5f +transform.right+(-direction) * 2.5f , ForceMode2D.Impulse);
+        rigidbody.AddForce(transform.up * 2.5f + transform.right + (-direction) * 2.5f, ForceMode2D.Impulse);
         Debug.Log(lifes);
         if (lifes <= 0)
         {         
-            base.reciveDamage();                  
+            base.Die();                  
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-            
+        
         }
+
         //Task.Delay(5000).GetAwaiter().GetResult(); //выражение дает урон каждые 5 сек, но останавливает процесс игры
     }
 
@@ -76,12 +85,9 @@ public class Character : Unit
         if (collision.gameObject.tag.Equals("DroppedTrap"))
         {
             reciveDamage();
-        }
-        else if (collision.gameObject.tag.Equals("Borov"))
-        {
-            reciveDamage();
-        }
+        }       
     }
+
     
    
         

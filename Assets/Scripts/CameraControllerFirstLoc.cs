@@ -17,6 +17,8 @@ public class CameraControllerFirstLoc : MonoBehaviour
     }
     private void Update()
     {
+        if (!target) return;
+
         Vector3 position = target.position;
         position.z = -10.0f;
         position.y += 1f;

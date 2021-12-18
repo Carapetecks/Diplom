@@ -5,10 +5,16 @@ using System.Linq;
 
 public class MonsterMovable : Monster
 {
-    [SerializeField]
-    private float speed = 1.0f;
-    Vector3 direction;
+    [SerializeField] private float speed = 1.0f; 
+    [SerializeField] private float timeToAttack = 1f;
     private SpriteRenderer sprite;
+    private float currentTimeToAttack = 0;
+    private bool canAttack => currentTimeToAttack == 0;   
+    private Character mainCharacter;
+    Vector3 direction;
+    private Monster monster;
+    public bool faceRight = true;
+    
 
     protected override void Awake()
     {
@@ -20,6 +26,12 @@ public class MonsterMovable : Monster
     }
     protected override void Update()
     {
+        if (currentTimeToAttack != 0)
+            currentTimeToAttack -= Time.deltaTime;
+        if (currentTimeToAttack < 0)
+            currentTimeToAttack = 0;
+        if (mainCharacter && Vector2.Distance(transform.position, mainCharacter.transform.position) > 1)
+            currentTimeToAttack = 0;
         Move();
     }
 
@@ -28,14 +40,39 @@ public class MonsterMovable : Monster
         Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position+ transform.up * 0.5f + transform.right * direction.x * 0.35f,  0.01f);
         if (colliders.Length > 0 && colliders.All(x => !x.GetComponent<Character>())) direction *= -1.0f; 
         transform.position = Vector3.MoveTowards(transform.position, transform.position + direction, speed * Time.deltaTime);
-        sprite.flipX = direction.x > 0.0f;
-    }
-    protected virtual void OnTriggerEnter2D(Collider2D collider)
-    {
-        Unit unit = collider.GetComponent<Unit>();
-        if(unit && unit is Character)
-        {
-            unit.reciveDamage();
+        //sprite.flipX = direction.x > 0.0f;
+        if((direction.x < 0 && !faceRight) || (direction.x > 0 && faceRight))
+        { 
+            Vector3 temp = transform.localScale;
+            temp.x *= -1;
+            transform.localScale = temp;
+            faceRight = !faceRight;
         }
     }
+    protected virtual void OnTriggerStay2D(Collider2D collider)
+    {
+     
+        Unit unit = collider.GetComponent<Unit>();
+        if (unit && unit is Character && canAttack)
+            AttackCharacter((Character)unit);
+    }
+    private void AttackCharacter(Character character)
+    { 
+        mainCharacter = character;  
+        mainCharacter.reciveDamage(); 
+        currentTimeToAttack = timeToAttack;
+        //var rigidbody = GetComponent<Rigidbody2D>();
+        //rigidbody.velocity = Vector3.zero;
+        //rigidbody.AddForce(transform.up + transform.right + (-direction) * 1.5f, ForceMode2D.Impulse);
+    }
+    //private void takeDamage(MonsterMovable monsterMov)
+    //{
+    //    monster = monsterMov;
+    //    if(monsterMov.lifes<lifes)
+    //    {
+    //        var rigidbody = GetComponent<Rigidbody2D>();
+    //        rigidbody.velocity = Vector3.zero;
+    //        rigidbody.AddForce(transform.up + transform.right + (-direction) * 1.5f, ForceMode2D.Impulse);
+    //    }
+    //}
 }

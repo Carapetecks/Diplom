@@ -305,3 +305,6 @@ N:\Проекты\2D_Platformer_New_Game\obj\Debug\Assembly-CSharp.csprojAssembl
 N:\Проекты\2D_Platformer_New_Game\obj\Debug\Assembly-CSharp.csproj.CopyComplete
 N:\Проекты\2D_Platformer_New_Game\obj\Debug\Assembly-CSharp.dll
 N:\Проекты\2D_Platformer_New_Game\obj\Debug\Assembly-CSharp.pdb
+C:\Users\opss_\Desktop\Second\Diplom\obj\Debug\Assembly-CSharp.csprojAssemblyReference.cache
+C:\Users\opss_\Desktop\Second\Diplom\obj\Debug\Assembly-CSharp.dll
+C:\Users\opss_\Desktop\Second\Diplom\obj\Debug\Assembly-CSharp.pdb

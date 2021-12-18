@@ -13,7 +13,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace>
     </RootNamespace>
-    <ProjectGuid>{63E68623-8D7C-F3D7-8A0B-ABA2C51C037A}</ProjectGuid>
+    <ProjectGuid>{EA0B1AC7-C448-6388-8A77-45941B4D1CFB}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp</AssemblyName>
@@ -72,6 +72,7 @@
     <Compile Include="Assets\Scripts\Parallax\ParallaxCamera.cs" />
     <Compile Include="Assets\Scripts\Parallax\ParallaxLayer.cs" />
     <Compile Include="Assets\Scripts\Pause_menu.cs" />
+    <Compile Include="Assets\Scripts\PlayerAttack.cs" />
     <Compile Include="Assets\Scripts\Trap.cs" />
     <Compile Include="Assets\Scripts\Unit.cs" />
     <Reference Include="UnityEngine">
@@ -603,85 +604,85 @@
       <HintPath>D:/Различные программы/2019.4.8f1/Editor/Data/NetStandard/compat/2.0.0/shims/netfx/System.Xml.Serialization.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Timeline.Editor">
-      <HintPath>N:/Проекты/2D_Platformer_New_Game/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
+      <HintPath>C:/Users/opss_/Desktop/Second/Diplom/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.2D.Animation.Runtime">
-      <HintPath>N:/Проекты/2D_Platformer_New_Game/Library/ScriptAssemblies/Unity.2D.Animation.Runtime.dll</HintPath>
+      <HintPath>C:/Users/opss_/Desktop/Second/Diplom/Library/ScriptAssemblies/Unity.2D.Animation.Runtime.dll</HintPath>
     </Reference>
     <Reference Include="Unity.2D.PixelPerfect.Editor">
-      <HintPath>N:/Проекты/2D_Platformer_New_Game/Library/ScriptAssemblies/Unity.2D.PixelPerfect.Editor.dll</HintPath>
+      <HintPath>C:/Users/opss_/Desktop/Second/Diplom/Library/ScriptAssemblies/Unity.2D.PixelPerfect.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.VSCode.Editor">
-      <HintPath>N:/Проекты/2D_Platformer_New_Game/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
+      <HintPath>C:/Users/opss_/Desktop/Second/Diplom/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.2D.SpriteShape.Editor">
-      <HintPath>N:/Проекты/2D_Platformer_New_Game/Library/ScriptAssemblies/Unity.2D.SpriteShape.Editor.dll</HintPath>
+      <HintPath>C:/Users/opss_/Desktop/Second/Diplom/Library/ScriptAssemblies/Unity.2D.SpriteShape.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro.Editor">
-      <HintPath>N:/Проекты/2D_Platformer_New_Game/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
+      <HintPath>C:/Users/opss_/Desktop/Second/Diplom/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.2D.Path.Editor">
-      <HintPath>N:/Проекты/2D_Platformer_New_Game/Library/ScriptAssemblies/Unity.2D.Path.Editor.dll</HintPath>
+      <HintPath>C:/Users/opss_/Desktop/Second/Diplom/Library/ScriptAssemblies/Unity.2D.Path.Editor.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.UI">
-      <HintPath>N:/Проекты/2D_Platformer_New_Game/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
+      <HintPath>C:/Users/opss_/Desktop/Second/Diplom/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Timeline">
-      <HintPath>N:/Проекты/2D_Platformer_New_Game/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
+      <HintPath>C:/Users/opss_/Desktop/Second/Diplom/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
     </Reference>
     <Reference Include="Unity.2D.Animation.Triangle.Runtime">
-      <HintPath>N:/Проекты/2D_Platformer_New_Game/Library/ScriptAssemblies/Unity.2D.Animation.Triangle.Runtime.dll</HintPath>
+      <HintPath>C:/Users/opss_/Desktop/Second/Diplom/Library/ScriptAssemblies/Unity.2D.Animation.Triangle.Runtime.dll</HintPath>
     </Reference>
     <Reference Include="PsdPlugin">
-      <HintPath>N:/Проекты/2D_Platformer_New_Game/Library/ScriptAssemblies/PsdPlugin.dll</HintPath>
+      <HintPath>C:/Users/opss_/Desktop/Second/Diplom/Library/ScriptAssemblies/PsdPlugin.dll</HintPath>
     </Reference>
     <Reference Include="Unity.CollabProxy.Editor">
-      <HintPath>N:/Проекты/2D_Platformer_New_Game/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
+      <HintPath>C:/Users/opss_/Desktop/Second/Diplom/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Rider.Editor">
-      <HintPath>N:/Проекты/2D_Platformer_New_Game/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
+      <HintPath>C:/Users/opss_/Desktop/Second/Diplom/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Mathematics">
-      <HintPath>N:/Проекты/2D_Platformer_New_Game/Library/ScriptAssemblies/Unity.Mathematics.dll</HintPath>
+      <HintPath>C:/Users/opss_/Desktop/Second/Diplom/Library/ScriptAssemblies/Unity.Mathematics.dll</HintPath>
     </Reference>
     <Reference Include="Unity.2D.Psdimporter.Editor">
-      <HintPath>N:/Проекты/2D_Platformer_New_Game/Library/ScriptAssemblies/Unity.2D.Psdimporter.Editor.dll</HintPath>
+      <HintPath>C:/Users/opss_/Desktop/Second/Diplom/Library/ScriptAssemblies/Unity.2D.Psdimporter.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.InternalAPIEngineBridge.001">
-      <HintPath>N:/Проекты/2D_Platformer_New_Game/Library/ScriptAssemblies/Unity.InternalAPIEngineBridge.001.dll</HintPath>
+      <HintPath>C:/Users/opss_/Desktop/Second/Diplom/Library/ScriptAssemblies/Unity.InternalAPIEngineBridge.001.dll</HintPath>
     </Reference>
     <Reference Include="Unity.2D.Sprite.Editor">
-      <HintPath>N:/Проекты/2D_Platformer_New_Game/Library/ScriptAssemblies/Unity.2D.Sprite.Editor.dll</HintPath>
+      <HintPath>C:/Users/opss_/Desktop/Second/Diplom/Library/ScriptAssemblies/Unity.2D.Sprite.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.2D.Common.Runtime">
-      <HintPath>N:/Проекты/2D_Platformer_New_Game/Library/ScriptAssemblies/Unity.2D.Common.Runtime.dll</HintPath>
+      <HintPath>C:/Users/opss_/Desktop/Second/Diplom/Library/ScriptAssemblies/Unity.2D.Common.Runtime.dll</HintPath>
     </Reference>
     <Reference Include="Unity.2D.Tilemap.Editor">
-      <HintPath>N:/Проекты/2D_Platformer_New_Game/Library/ScriptAssemblies/Unity.2D.Tilemap.Editor.dll</HintPath>
+      <HintPath>C:/Users/opss_/Desktop/Second/Diplom/Library/ScriptAssemblies/Unity.2D.Tilemap.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.2D.SpriteShape.Runtime">
-      <HintPath>N:/Проекты/2D_Platformer_New_Game/Library/ScriptAssemblies/Unity.2D.SpriteShape.Runtime.dll</HintPath>
+      <HintPath>C:/Users/opss_/Desktop/Second/Diplom/Library/ScriptAssemblies/Unity.2D.SpriteShape.Runtime.dll</HintPath>
     </Reference>
     <Reference Include="Unity.2D.PixelPerfect">
-      <HintPath>N:/Проекты/2D_Platformer_New_Game/Library/ScriptAssemblies/Unity.2D.PixelPerfect.dll</HintPath>
+      <HintPath>C:/Users/opss_/Desktop/Second/Diplom/Library/ScriptAssemblies/Unity.2D.PixelPerfect.dll</HintPath>
     </Reference>
     <Reference Include="Unity.2D.Animation.Editor">
-      <HintPath>N:/Проекты/2D_Platformer_New_Game/Library/ScriptAssemblies/Unity.2D.Animation.Editor.dll</HintPath>
+      <HintPath>C:/Users/opss_/Desktop/Second/Diplom/Library/ScriptAssemblies/Unity.2D.Animation.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Mathematics.Editor">
-      <HintPath>N:/Проекты/2D_Platformer_New_Game/Library/ScriptAssemblies/Unity.Mathematics.Editor.dll</HintPath>
+      <HintPath>C:/Users/opss_/Desktop/Second/Diplom/Library/ScriptAssemblies/Unity.Mathematics.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro">
-      <HintPath>N:/Проекты/2D_Platformer_New_Game/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
+      <HintPath>C:/Users/opss_/Desktop/Second/Diplom/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
     </Reference>
     <Reference Include="Unity.2D.Common.Editor">
-      <HintPath>N:/Проекты/2D_Platformer_New_Game/Library/ScriptAssemblies/Unity.2D.Common.Editor.dll</HintPath>
+      <HintPath>C:/Users/opss_/Desktop/Second/Diplom/Library/ScriptAssemblies/Unity.2D.Common.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.InternalAPIEditorBridge.001">
-      <HintPath>N:/Проекты/2D_Platformer_New_Game/Library/ScriptAssemblies/Unity.InternalAPIEditorBridge.001.dll</HintPath>
+      <HintPath>C:/Users/opss_/Desktop/Second/Diplom/Library/ScriptAssemblies/Unity.InternalAPIEditorBridge.001.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.UI">
-      <HintPath>N:/Проекты/2D_Platformer_New_Game/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
+      <HintPath>C:/Users/opss_/Desktop/Second/Diplom/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
