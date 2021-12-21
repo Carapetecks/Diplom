@@ -73,6 +73,7 @@
     <Compile Include="Assets\Scripts\Parallax\ParallaxLayer.cs" />
     <Compile Include="Assets\Scripts\Pause_menu.cs" />
     <Compile Include="Assets\Scripts\PlayerAttack.cs" />
+    <Compile Include="Assets\Scripts\StaticMonster.cs" />
     <Compile Include="Assets\Scripts\Trap.cs" />
     <Compile Include="Assets\Scripts\Unit.cs" />
     <Reference Include="UnityEngine">

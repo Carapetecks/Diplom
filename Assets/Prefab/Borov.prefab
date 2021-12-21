@@ -186,8 +186,8 @@ GameObject:
   - component: {fileID: 5889776744352557564}
   - component: {fileID: 3441497354747384594}
   - component: {fileID: 4076827500847326764}
-  m_Layer: 0
-  m_Name: MonsterMovable 1 1
+  m_Layer: 8
+  m_Name: Borov
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -294,4 +294,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 24bcf4c7e88f45c4f9e47be47cff4e16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lifes: 5
   speed: 1
+  timeToAttack: 1
+  faceRight: 1
+  isGrounded: 0

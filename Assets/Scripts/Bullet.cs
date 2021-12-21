@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
 public class Bullet : MonoBehaviour
 {
@@ -16,21 +17,32 @@ public class Bullet : MonoBehaviour
     private void Start()
     {
         
-        Destroy(gameObject, 1.0f);
+        
     }
     private void Update()
     {
         transform.position = Vector3.MoveTowards
             (transform.position, transform.position + direction, speed * Time.deltaTime);
+        BulletColliderCheck();
     }
     protected virtual void OnTriggerEnter2D(Collider2D collider)
     {
-        Unit unit = collider.GetComponent<Unit>();
-        if (unit != null)
+        Character character = collider.GetComponent<Character>();
+        if (character != null)
         {
-            unit.reciveDamage();        
-
-        }
-        
+            character.reciveDamage();
+            Destroy(gameObject);
+        }       
     }
+
+    protected void BulletColliderCheck()
+    {
+        Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position + transform.right * direction.x * 0.09f, 0.01f);
+        if (colliders.Length > 0 && colliders.All(x => !x.GetComponent<MonsterMovable>())
+            && colliders.All(x => !x.GetComponent<Character>()))
+        {
+            Destroy(gameObject);
+        }
+    }
+
 }
