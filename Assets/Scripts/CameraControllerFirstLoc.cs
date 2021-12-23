@@ -21,7 +21,7 @@ public class CameraControllerFirstLoc : MonoBehaviour
 
         Vector3 position = target.position;
         position.z = -10.0f;
-        position.y += 1f;
+        position.y +=  0.5f;
         transform.position = Vector3.Lerp(transform.position, position, speed * Time.deltaTime);
         transform.position = new Vector3(
             Mathf.Clamp(transform.position.x, leftLimit, rightLimit),
