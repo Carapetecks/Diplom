@@ -8,21 +8,26 @@ public class Inventory : MonoBehaviour
     public GameObject[] slots;
     public GameObject inventory;
     private bool inventoryOn;
-    public void Start()
+    private void Start()
     {
         inventoryOn = false;
     }
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Tab)) Chest();
+    }
     public void Chest()
     {
-        if (inventoryOn == false)
-        {
-            inventoryOn = true;
-            inventory.SetActive(true);
-        }
-        else if (inventoryOn == true)
-        {
-            inventoryOn = false;
-            inventory.SetActive(false);
-        }
+            if (inventoryOn == false)
+            {
+                inventoryOn = true;
+                inventory.SetActive(true);
+            }
+            else if (inventoryOn == true)
+            {
+                inventoryOn = false;
+                inventory.SetActive(false);
+            }
+        
     }
 }

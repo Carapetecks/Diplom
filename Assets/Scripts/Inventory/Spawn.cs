@@ -10,9 +10,14 @@ public class Spawn : MonoBehaviour
     {
         player = GameObject.FindGameObjectWithTag("Player").transform;
     }
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Q)) SpawnDroppedItem();
+    }
     public void SpawnDroppedItem()
     {
-        Vector2 playerPos = new Vector2(player.position.x + 0.5f, player.position.y);//
+        Vector2 playerPos = new Vector2(player.position.x + 0.5f, player.position.y + 0.2f);
         Instantiate(item, playerPos, Quaternion.identity);
+        Destroy(gameObject);
     }
 }

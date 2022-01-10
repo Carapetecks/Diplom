@@ -5,16 +5,18 @@ using UnityEngine;
 public class Pickup : MonoBehaviour
 {
     private Inventory inventory;
+    private bool CheckEnter = false;
     public GameObject slotButton;
     private void Start()
     {
         inventory = GameObject.FindGameObjectWithTag("Player").GetComponent<Inventory>();
+
     }
-    private void OnTriggerEnter2D(Collider2D other)
+    private void Update()
     {
-        if (other.CompareTag("Player"))
+       if (CheckEnter && Input.GetKeyDown(KeyCode.E))
         {
-            for(int i=0;i<inventory.slots.Length; i++)
+            for (int i = 0; i < inventory.slots.Length; i++)
             {
                 if (inventory.isFull[i] == false)
                 {
@@ -26,4 +28,14 @@ public class Pickup : MonoBehaviour
             }
         }
     }
-}//ТРИГГЕР НА КНОПКУ, А В UPDATE ПОДПИРАНИЕ ПРЕДМЕТОВ ЧЕРЕЗ КНОПКУ(ПОДСКАЗКА) ----- СДЕЛАТЬ
+    private void OnTriggerEnter2D(Collider2D other)
+    {        
+            if (other.CompareTag("Player"))
+            CheckEnter = true;
+    }
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.CompareTag("Player"))
+            CheckEnter = false;
+    }
+}//СДЕЛАТЬ КОРОБКУ ТИПО ИДТИ ЗА НЕЙ МОЖНО(ХАЙП)

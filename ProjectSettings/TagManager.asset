@@ -6,6 +6,7 @@ TagManager:
   tags:
   - DroppedTrap
   - CameraLimit
+  - Item
   layers:
   - Default
   - TransparentFX
@@ -16,7 +17,7 @@ TagManager:
   - 
   - 
   - monster
-  - 
+  - Item
   - 
   - 
   - 
@@ -45,4 +46,7 @@ TagManager:
     locked: 0
   - name: Player
     uniqueID: 3347813669
+    locked: 0
+  - name: Item
+    uniqueID: 348761031
     locked: 0
