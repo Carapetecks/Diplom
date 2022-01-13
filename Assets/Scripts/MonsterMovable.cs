@@ -43,7 +43,8 @@ public class MonsterMovable : Monster
     {
         Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position+ transform.up * 0.5f + transform.right * direction.x * 0.35f,  0.01f);
         if (colliders.Length > 0 && colliders.All(x => !x.GetComponent<Character>())
-            && colliders.All(x => !x.GetComponent<StaticMonster>())) direction *= -1.0f;         
+            && colliders.All(x => !x.GetComponent<StaticMonster>()
+            && colliders.All(x => !x.GetComponent<FallenTrap>()))) direction *= -1.0f;         
         transform.position = Vector3.MoveTowards(transform.position, transform.position + direction, speed * Time.deltaTime);
         //sprite.flipX = direction.x > 0.0f;
         if((direction.x < 0 && !faceRight ) || (direction.x > 0 && faceRight))

@@ -3,14 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-public class FallenTrap : Monster
+public class FallenTrap : MonoBehaviour
 {
-    Rigidbody2D rb;
+    Rigidbody2D rigidbody;
     
   
     void Start()
     {
-        rb = GetComponent<Rigidbody2D>();
+        rigidbody = GetComponent<Rigidbody2D>();
     }
 
     private void OnTriggerEnter2D(Collider2D collider)
@@ -18,10 +18,10 @@ public class FallenTrap : Monster
         Unit unit = collider.GetComponent<Unit>();
         if (unit && unit is Character)
         {
-            rb.isKinematic = false;
+            rigidbody.isKinematic = false;
             
         }
-        if(rb.isKinematic == false)
+        if(rigidbody.isKinematic == false)
         {
             Destroy(gameObject, 1f);
         }

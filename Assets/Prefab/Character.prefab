@@ -189,9 +189,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 472c94cbb456abd448f64165ec5da6b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lifes: 5
+  damage: 1
+  rigid: {fileID: 5508198809484698564}
+  sprite: {fileID: 5508198809551596638}
   speed: 2
   jumpForce: 5
-  lifes: 5
   faceRight: 1
 --- !u!114 &8582476102388392082
 MonoBehaviour:

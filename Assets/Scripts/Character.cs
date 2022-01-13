@@ -14,16 +14,10 @@ public class Character : Unit
     private bool isGrounded = false;
     public bool faceRight = true;    
     Vector3 direction;
-    new private Rigidbody2D rigidbody;
-    private Animator animator;
+    
     
 
-    private void Awake()
-    {
-        rigidbody = GetComponent<Rigidbody2D>();
-        animator = GetComponent<Animator>();
-        sprite = GetComponentInChildren<SpriteRenderer>();
-    }
+    
 
     private void FixedUpdate()
     {
@@ -58,17 +52,14 @@ public class Character : Unit
         Debug.Log(lifes);
         if (lifes <= 0)
         {         
-            base.Die();                  
+            base.Die(); 
             SceneManager.LoadScene("Menu");
-        
-        }
-
-        //Task.Delay(5000).GetAwaiter().GetResult(); //выражение дает урон каждые 5 сек, но останавливает процесс игры
+        }     
     }
 
     private void Jump()
     {
-        rigidbody.AddForce(transform.up * jumpForce, ForceMode2D.Impulse);
+        rigid.AddForce(transform.up * jumpForce, ForceMode2D.Impulse);
     }
    
     private void CheckGround()

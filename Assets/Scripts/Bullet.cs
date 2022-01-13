@@ -27,8 +27,7 @@ public class Bullet : MonoBehaviour
     }
     protected virtual void OnTriggerEnter2D(Collider2D collider)
     {
-        Character character = collider.GetComponent<Character>();
-        Debug.Log("character: " + character != null);
+        Character character = collider.GetComponent<Character>();    
         if (character != null)
         {
             character.reciveDamage(1);
