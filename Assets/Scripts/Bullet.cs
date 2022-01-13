@@ -28,9 +28,10 @@ public class Bullet : MonoBehaviour
     protected virtual void OnTriggerEnter2D(Collider2D collider)
     {
         Character character = collider.GetComponent<Character>();
+        Debug.Log("character: " + character != null);
         if (character != null)
         {
-            character.reciveDamage();
+            character.reciveDamage(1);
             Destroy(gameObject);
         }       
     }

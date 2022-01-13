@@ -9,7 +9,7 @@ public class Trap : MonoBehaviour
         Unit unit = collider.GetComponent<Unit>();
         if(unit && unit is Character)
         {
-            unit.reciveDamage();
+            unit.reciveDamage(1);
         }
     }
 }

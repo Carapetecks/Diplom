@@ -10,10 +10,9 @@ public class Character : Unit
     private float speed = 2.0f;
     [SerializeField]
     private float jumpForce = 5.0f;
-    [SerializeField]
-    private int lifes = 5;
+
     private bool isGrounded = false;
-    public bool faceRight = true;
+    public bool faceRight = true;    
     Vector3 direction;
     new private Rigidbody2D rigidbody;
     private Animator animator;
@@ -36,6 +35,7 @@ public class Character : Unit
         if (Input.GetButton("Horizontal")) Run();
         if (isGrounded && Input.GetButtonDown("Jump")) Jump();
         Reflect();
+
     }
     private void Run()
     {
@@ -52,11 +52,9 @@ public class Character : Unit
             faceRight = !faceRight;
         }
     }
-    public override void reciveDamage()
+    public override void reciveDamage(int damage)
     {
-        lifes--;
-        rigidbody.velocity = Vector3.zero;
-        rigidbody.AddForce(transform.up * 2.5f + transform.right + (-direction) * 2.5f, ForceMode2D.Impulse);
+        base.reciveDamage(damage);
         Debug.Log(lifes);
         if (lifes <= 0)
         {         
@@ -84,9 +82,11 @@ public class Character : Unit
     {      
         if (collision.gameObject.tag.Equals("DroppedTrap"))
         {
-            reciveDamage();
+            reciveDamage(1);
         }       
     }
+
+    
 
     
    

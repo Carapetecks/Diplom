@@ -10,6 +10,7 @@ public class PlayerAttack : MonoBehaviour
     public LayerMask monster;
     public float attackRange;
     public int damage;
+    private SpriteRenderer sprite;
     
     private void Update()
     {
@@ -40,6 +41,7 @@ public class PlayerAttack : MonoBehaviour
         Gizmos.color = Color.green;
         Gizmos.DrawWireSphere(punchDot.position, attackRange);
     }
+ 
 
-   
+
 }

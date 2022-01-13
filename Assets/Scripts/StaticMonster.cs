@@ -8,8 +8,11 @@ public class StaticMonster : Monster
     private Bullet bullet;
     Vector3 direction;
     public bool faceRight = true;
-    private SpriteRenderer sprite;
 
+    public StaticMonster():base()
+    {
+
+    }
     protected override void Start()
     {
         direction = transform.right;
@@ -22,7 +25,7 @@ public class StaticMonster : Monster
         bullet = Resources.Load<Bullet>("Bullet");
     }
 
-    private void Shoot() // стрельба
+    private void Shoot() // стрельба (можно сделать точку стрельбы) )
     {
         Vector3 position = transform.position;
         position.y += 0.35f;       

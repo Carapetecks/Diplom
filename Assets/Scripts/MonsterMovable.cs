@@ -7,7 +7,6 @@ public class MonsterMovable : Monster
 {
     [SerializeField] private float speed = 1.0f; 
     [SerializeField] private float timeToAttack = 1f;
-    private SpriteRenderer sprite;
     private float currentTimeToAttack = 0;
     private bool canAttack => currentTimeToAttack == 0;   
     private Character mainCharacter;
@@ -17,6 +16,11 @@ public class MonsterMovable : Monster
     public bool faceRight = true;
     public bool isGrounded = false;
     private Bullet bullet;
+
+    public MonsterMovable() :base()
+    {
+
+    }
 
 
     protected void FixedUpdate()
@@ -33,6 +37,7 @@ public class MonsterMovable : Monster
     }
     protected override void Update()
     {
+        
         if (currentTimeToAttack != 0)
             currentTimeToAttack -= Time.deltaTime;
         if (currentTimeToAttack < 0)
@@ -67,7 +72,7 @@ public class MonsterMovable : Monster
     private void AttackCharacter(Character character)
     { 
         mainCharacter = character;  
-        mainCharacter.reciveDamage(); 
+        mainCharacter.reciveDamage(damage); 
         currentTimeToAttack = timeToAttack;
     }
     private void CheckGround()
@@ -75,5 +80,6 @@ public class MonsterMovable : Monster
         Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, 0.3f);
         isGrounded = colliders.Length > 1;
     }
-    
+   
+
 }
