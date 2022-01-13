@@ -23,7 +23,7 @@ public class PlayerAttack : MonoBehaviour
                 Collider2D[] monsters = Physics2D.OverlapCircleAll(punchDot.position, attackRange, monster);
                 for (int i = 0; i < monsters.Length; i++)
                 {
-                    monsters[i].GetComponent<Monster>().reciveDamage(damage);
+                    monsters[i].GetComponent<Monster>().reciveDamage(damage);//
                     timeBtwAttack = startTimeBtwAttack;
                 }
             }
@@ -33,8 +33,6 @@ public class PlayerAttack : MonoBehaviour
         {
             timeBtwAttack -= Time.deltaTime;
         }
-
-
     }
    private void OnDrawGizmosSelected()
     {

@@ -20,8 +20,7 @@ public class StaticMonster : Monster
     }
 
     protected override void Awake()
-    {
-        sprite = GetComponentInChildren<SpriteRenderer>();
+    {        
         bullet = Resources.Load<Bullet>("Bullet");
     }
 

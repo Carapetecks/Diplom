@@ -3,10 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Monster : Unit
-{
-    
-    public int lifes;
-    Vector3 direction;
+{   
     protected virtual void Update(){} 
     protected virtual void Awake()
     {
@@ -16,18 +13,9 @@ public class Monster : Unit
     public override void reciveDamage(int damage)
     {
         base.reciveDamage(damage);
-        if (lifes <= 0)
-        {
-            base.Die();
-        }
     }
-
     public Monster() : base()
     {
 
     }
-
-
-
-
 }

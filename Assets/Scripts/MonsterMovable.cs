@@ -10,13 +10,9 @@ public class MonsterMovable : Monster
     private float currentTimeToAttack = 0;
     private bool canAttack => currentTimeToAttack == 0;   
     private Character mainCharacter;
-    Vector3 direction;
-    private Monster monster;
-    private Unit unit;
+    Vector3 direction;  
     public bool faceRight = true;
     public bool isGrounded = false;
-    private Bullet bullet;
-
     public MonsterMovable() :base()
     {
 
@@ -27,25 +23,20 @@ public class MonsterMovable : Monster
     {
         CheckGround();
     }
-    protected override void Awake()
-    {
-        sprite = GetComponentInChildren<SpriteRenderer>();
-    }
+    
     protected override void Start()
     {
         direction = transform.right;
     }
     protected override void Update()
-    {
-        
+    {        
         if (currentTimeToAttack != 0)
             currentTimeToAttack -= Time.deltaTime;
         if (currentTimeToAttack < 0)
             currentTimeToAttack = 0;
         if (mainCharacter && Vector2.Distance(transform.position, mainCharacter.transform.position) > 1)
             currentTimeToAttack = 0;       
-        if (isGrounded) Move();
-        
+        if (isGrounded) Move();        
     }
 
     private void Move()

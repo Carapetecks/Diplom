@@ -16,7 +16,7 @@ public class Character : Unit
     Vector3 direction;
     new private Rigidbody2D rigidbody;
     private Animator animator;
-    private SpriteRenderer sprite;
+    
 
     private void Awake()
     {
@@ -59,7 +59,7 @@ public class Character : Unit
         if (lifes <= 0)
         {         
             base.Die();                  
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            SceneManager.LoadScene("Menu");
         
         }
 

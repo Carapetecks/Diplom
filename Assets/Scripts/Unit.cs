@@ -16,7 +16,7 @@ public class Unit : MonoBehaviour
     public SpriteRenderer sprite;
     Vector3 direction;
 
-    public Unit()
+    public void Awake()
     {
         rigid = GetComponent<Rigidbody2D>();
         sprite = GetComponentInChildren<SpriteRenderer>();
@@ -28,13 +28,17 @@ public class Unit : MonoBehaviour
         rigid.velocity = Vector3.zero;
         rigid.AddForce(transform.up * 2.5f + transform.right + (-direction) * 2.5f, ForceMode2D.Impulse);
         StartCoroutine("DamageIdentification");
+        if(lifes<=0)
+        {
+            Die();
+        }
 
     }
 
     IEnumerator DamageIdentification()
     {
         sprite.color = new Color(255, 0, 0);
-        yield return new WaitForSeconds(0.2f);
+        yield return new WaitForSeconds(0.1f);
         sprite.color = new Color(255, 255, 255);
 
     }
