@@ -14,10 +14,6 @@ public class Character : Unit
     private bool isGrounded = false;
     public bool faceRight = true;    
     Vector3 direction;
-    
-    
-
-    
 
     private void FixedUpdate()
     {

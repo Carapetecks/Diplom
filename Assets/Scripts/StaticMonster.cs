@@ -33,7 +33,6 @@ public class StaticMonster : Monster
           (bullet, position, bullet.transform.rotation) as Bullet;
 
         newBullet.Direction = newBullet.transform.right * (sprite.flipX ? 1.0f : -1.0f);
-
     }
  
 

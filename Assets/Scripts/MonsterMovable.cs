@@ -5,7 +5,7 @@ using System.Linq;
 
 public class MonsterMovable : Monster
 {
-    [SerializeField] private float speed = 1.0f; 
+    public float speed = 1.0f; 
     [SerializeField] private float timeToAttack = 1f;
     private float currentTimeToAttack = 0;
     private bool canAttack => currentTimeToAttack == 0;   
@@ -72,6 +72,8 @@ public class MonsterMovable : Monster
         Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, 0.3f);
         isGrounded = colliders.Length > 1;
     }
+
+    
    
 
 }
