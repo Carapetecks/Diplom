@@ -74,6 +74,7 @@
     <Compile Include="Assets\Scripts\Inventory\Slot.cs" />
     <Compile Include="Assets\Scripts\Parallax\ParallaxCamera.cs" />
     <Compile Include="Assets\Scripts\Pause_menu.cs" />
+    <Compile Include="Assets\Scripts\Tip.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

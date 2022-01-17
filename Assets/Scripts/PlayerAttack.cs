@@ -25,10 +25,10 @@ public class PlayerAttack : MonoBehaviour
                 for (int i = 0; i < monsters.Length; i++)
                 {
                     monsters[i].GetComponent<Monster>().reciveDamage(damage);
-                    Kick(monsters[i].GetComponent<Monster>());
+                    Kick(monsters[i].GetComponent<Monster>()); // нужно сделат проверку на кинематику, через ригидбоди. подсказки
                     timeBtwAttack = startTimeBtwAttack;
                 }
-            }                     
+            }
         }
         else
         {
