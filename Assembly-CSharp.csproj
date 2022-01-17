@@ -54,6 +54,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\Inventory\Inventory.cs" />
+    <Compile Include="Assets\Scripts\Tip.cs" />
     <Compile Include="Assets\Scripts\FallenTrap.cs" />
     <Compile Include="Assets\Scripts\Parallax\ParallaxBackground.cs" />
     <Compile Include="Assets\Scripts\StaticMonster.cs" />
@@ -74,7 +75,6 @@
     <Compile Include="Assets\Scripts\Inventory\Slot.cs" />
     <Compile Include="Assets\Scripts\Parallax\ParallaxCamera.cs" />
     <Compile Include="Assets\Scripts\Pause_menu.cs" />
-    <Compile Include="Assets\Scripts\Tip.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
