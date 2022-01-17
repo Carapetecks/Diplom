@@ -42,7 +42,8 @@ public class MonsterMovable : Monster
     private void Move()
     {
         Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position+ transform.up * 0.5f + transform.right * direction.x * 0.35f,  0.01f);
-        if (colliders.Length > 0 && colliders.All(x => !x.GetComponent<Character>())
+        if (colliders.Length > 0 
+            && colliders.All(x => !x.GetComponent<Character>())
             && colliders.All(x => !x.GetComponent<StaticMonster>()
             && colliders.All(x => !x.GetComponent<FallenTrap>()))) direction *= -1.0f;
         transform.position = Vector3.MoveTowards(transform.position, transform.position + direction, speed * Time.deltaTime);
@@ -55,7 +56,7 @@ public class MonsterMovable : Monster
             faceRight = !faceRight;
         }
     }
-    protected virtual void OnTriggerStay2D(Collider2D collider)
+    protected virtual void OnTriggerStay2D(Collider2D collider) // переделать с помощью гизмоса
     {         
         Unit unit = collider.GetComponent<Unit>();
         if (unit && unit is Character && canAttack)

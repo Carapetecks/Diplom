@@ -59,7 +59,6 @@
     <Compile Include="Assets\Scripts\Parallax\ParallaxBackground.cs" />
     <Compile Include="Assets\Scripts\StaticMonster.cs" />
     <Compile Include="Assets\Scripts\Main_menu.cs" />
-    <Compile Include="Assets\Scripts\Inventory\Pickup.cs" />
     <Compile Include="Assets\Scripts\CameraControllerFirstLoc.cs" />
     <Compile Include="Assets\Scripts\PlayerAttack.cs" />
     <Compile Include="Assets\Scripts\MonsterMovable.cs" />
@@ -75,6 +74,8 @@
     <Compile Include="Assets\Scripts\Inventory\Slot.cs" />
     <Compile Include="Assets\Scripts\Parallax\ParallaxCamera.cs" />
     <Compile Include="Assets\Scripts\Pause_menu.cs" />
+    <Compile Include="Assets\Scripts\PickupTip.cs" />
+    <Compile Include="Assets\Scripts\Inventory\Item.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

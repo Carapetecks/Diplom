@@ -24,7 +24,7 @@ public class StaticMonster : Monster
         bullet = Resources.Load<Bullet>("Bullet");
     }
 
-    private void Shoot() // стрельба (можно сделать точку стрельбы) )
+    private void Shoot() // стрельба (можно сделать точку стрельбы) моб, который стреляет дробью)
     {
         Vector3 position = transform.position;
         position.y += 0.35f;       
