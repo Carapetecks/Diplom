@@ -11,11 +11,25 @@ public class Item : MonoBehaviour
     private void Start()
     {
         inventory = GameObject.FindGameObjectWithTag("Player").GetComponent<Inventory>();
-
     }
     private void Update()
     {
-       if (CheckEnter && Input.GetKeyDown(KeyCode.E))
+        Take();
+    }
+    private void OnTriggerEnter2D(Collider2D other)
+    {        
+        if (other.CompareTag("Player"))
+            CheckEnter = true;
+    }
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.CompareTag("Player"))
+            CheckEnter = false;
+    }
+
+    private void Take()
+    {
+        if (CheckEnter && Input.GetKeyDown(KeyCode.E))
         {
             for (int i = 0; i < inventory.slots.Length; i++)
             {
@@ -28,16 +42,6 @@ public class Item : MonoBehaviour
                 }
             }
         }
-    }
-    private void OnTriggerEnter2D(Collider2D other)
-    {        
-            if (other.CompareTag("Player"))
-            CheckEnter = true;
-    }
-    private void OnTriggerExit2D(Collider2D other)
-    {
-        if (other.CompareTag("Player"))
-            CheckEnter = false;
     }
 
     

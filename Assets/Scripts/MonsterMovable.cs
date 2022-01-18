@@ -13,6 +13,9 @@ public class MonsterMovable : Monster
     Vector3 direction;  
     public bool faceRight = true;
     public bool isGrounded = false;
+    public Transform mobAttackDot;
+    public float mobAttackRange;
+    public LayerMask character;
     public MonsterMovable() :base()
     {
 
@@ -47,7 +50,6 @@ public class MonsterMovable : Monster
             && colliders.All(x => !x.GetComponent<StaticMonster>()
             && colliders.All(x => !x.GetComponent<FallenTrap>()))) direction *= -1.0f;
         transform.position = Vector3.MoveTowards(transform.position, transform.position + direction, speed * Time.deltaTime);
-        //sprite.flipX = direction.x > 0.0f;
         if((direction.x < 0 && !faceRight ) || (direction.x > 0 && faceRight))
         { 
             Vector3 temp = transform.localScale;
@@ -57,7 +59,7 @@ public class MonsterMovable : Monster
         }
     }
     protected virtual void OnTriggerStay2D(Collider2D collider) // переделать с помощью гизмоса
-    {         
+    {
         Unit unit = collider.GetComponent<Unit>();
         if (unit && unit is Character && canAttack)
             AttackCharacter((Character)unit);
@@ -68,13 +70,25 @@ public class MonsterMovable : Monster
         mainCharacter.reciveDamage(damage);
         currentTimeToAttack = timeToAttack;
     }
-    private void CheckGround()
-    {
-        Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, 0.3f);
-        isGrounded = colliders.Length > 1;
-    }
+      
+    //private void MonsterAttack()
+    //{
+    //    Collider2D[] units = Physics2D.OverlapCircleAll(mobAttackDot.position, mobAttackRange, character);       
+    //    for (int i = 0; i < units.Length; i++)
+    //    {
+    //        units[i].GetComponent<Character>();
 
-    
-   
+    //    }      
+    //} НЕ ДОРАБОТАНО. НУЖНО ВЫЗВАТЬ МЕТОД И ПРОВЕРИТЬ ЕЩЕ РАЗ.
+    private void CheckGround()
+        {
+            Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, 0.3f);
+            isGrounded = colliders.Length > 1;
+        }
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.green;
+        Gizmos.DrawWireSphere(mobAttackDot.position, mobAttackRange);
+    }
 
 }

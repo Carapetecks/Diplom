@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using System.Threading.Tasks;
+using UnityEngine.UI;
 
 public class Character : Unit
 {
@@ -10,14 +11,20 @@ public class Character : Unit
     private float speed = 2.0f;
     [SerializeField]
     private float jumpForce = 5.0f;
-
     private bool isGrounded = false;
-    public bool faceRight = true;    
+    public bool faceRight = true;
     Vector3 direction;
+    public int numOfHeart;
+    public Image[] hearts;
+    public Sprite fullHeart;
+    public Sprite emptyHeart;
+    
+    //float direction;
 
     private void FixedUpdate()
     {
         CheckGround();
+        HeatPoint();
     }
 
     private void Update()
@@ -30,7 +37,10 @@ public class Character : Unit
     private void Run()
     {
         direction = transform.right * Input.GetAxis("Horizontal");
-        transform.position = Vector3.MoveTowards(transform.position, transform.position + direction, speed * Time.deltaTime);             
+        transform.position = Vector3.MoveTowards(transform.position, transform.position + direction, speed * Time.deltaTime);
+        //direction = Input.GetAxis("Horizontal");
+        //Vector2 moveVecX = new Vector2(direction * speed, rigid.velocity.y);
+        //rigid.velocity = moveVecX;
     }
     void Reflect()
     {
@@ -45,6 +55,7 @@ public class Character : Unit
     public override void reciveDamage(int damage)
     {
         base.reciveDamage(damage);
+        Kick(GetComponent<Character>());
         Debug.Log(lifes);
         if (lifes <= 0)
         {         
@@ -72,11 +83,44 @@ public class Character : Unit
             reciveDamage(1);
         }       
     }
+    private void HeatPoint()
+    {
+        if (lifes > numOfHeart)
+        {
+            lifes = numOfHeart;
+        }
+        for (int i = 0; i < hearts.Length; i++)
+        {
+            if (i < Mathf.RoundToInt(lifes))
+            {
+                hearts[i].sprite = fullHeart;
+            }
+            else
+            {
+                hearts[i].sprite = emptyHeart;
+            }
+        }
+    }
+    private void Kick(Character character)
+    {
+        rigid.velocity = Vector3.zero;
+        if (character.faceRight && rigid.isKinematic == false)
+        {
+            rigid.AddForce(transform.up * 2.5f + transform.right + (-direction) * 2.5f, ForceMode2D.Impulse);
+            
+        }
+        else if (!character.faceRight && rigid.isKinematic == false)
+        {
+            rigid.AddForce(transform.up * 2.5f + -transform.right + (-direction) * 2.5f, ForceMode2D.Impulse);
+            
+        }
 
-    
+    }
 
-    
-   
-        
-    
+
+
+
+
+
+
 }

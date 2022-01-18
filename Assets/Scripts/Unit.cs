@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Unit : MonoBehaviour
 {
@@ -10,12 +11,13 @@ public class Unit : MonoBehaviour
     //private new Rigidbody2D rigidbody;
     //Vector3 direction;
     [SerializeField]
-    public int lifes = 5;
+    public float lifes;
     public int damage = 1;
     public Rigidbody2D rigid;
     private Animator animator;
     public SpriteRenderer sprite;
     Vector3 direction;
+   
 
     public void Awake()
     {
@@ -26,8 +28,6 @@ public class Unit : MonoBehaviour
     public virtual void reciveDamage(int damage)
     {
         lifes -= damage;
-        //rigid.velocity = Vector3.zero;
-        //rigid.AddForce(transform.up * 2.5f + transform.right + (-direction) * 2.5f, ForceMode2D.Impulse);
         StartCoroutine("DamageIdentification");
         if(lifes<=0)
         {

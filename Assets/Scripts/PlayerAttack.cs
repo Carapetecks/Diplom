@@ -25,7 +25,7 @@ public class PlayerAttack : MonoBehaviour
                 for (int i = 0; i < monsters.Length; i++)
                 {
                     monsters[i].GetComponent<Monster>().reciveDamage(damage);
-                    Kick(monsters[i].GetComponent<Monster>()); // нужно сделат проверку на кинематику, через ригидбоди. подсказки
+                    Kick(monsters[i].GetComponent<Monster>());
                     timeBtwAttack = startTimeBtwAttack;
                 }
             }
@@ -44,15 +44,16 @@ public class PlayerAttack : MonoBehaviour
     {
         var rigid = monster.GetComponent<Rigidbody2D>();
         mainCharacter = GetComponent<Character>();
-        rigid.velocity = Vector3.zero;
-        StartCoroutine(MoveStoped(monster.GetComponent<MonsterMovable>()));
-        if (mainCharacter.faceRight)
+        rigid.velocity = Vector3.zero;       
+        if (mainCharacter.faceRight && rigid.isKinematic == false)
         { 
             rigid.AddForce(transform.up * 2.5f + transform.right + (-direction) * 2.5f, ForceMode2D.Impulse);
+            StartCoroutine(MoveStoped(monster.GetComponent<MonsterMovable>()));
         }
-        else if(!mainCharacter.faceRight)
+        else if(!mainCharacter.faceRight && rigid.isKinematic == false)
         {
             rigid.AddForce(transform.up * 2.5f + -transform.right + (-direction) * 2.5f, ForceMode2D.Impulse);
+            StartCoroutine(MoveStoped(monster.GetComponent<MonsterMovable>()));
         }
         
     }
