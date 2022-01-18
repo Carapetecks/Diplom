@@ -4553,7 +4553,8 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Item
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1641933698029217065, guid: 4a56c14a294cf824c8b11f4b7de78733, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 4a56c14a294cf824c8b11f4b7de78733, type: 3}
 --- !u!1 &1331532030 stripped
 GameObject:
@@ -5274,6 +5275,27 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1548353779 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7886897478795672720, guid: 4a56c14a294cf824c8b11f4b7de78733,
+    type: 3}
+  m_PrefabInstance: {fileID: 1321269577}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1548353780
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1548353779}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c1417e0ff681f0d44b4da2b2131a7f64, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  slotButton: {fileID: 3757542407270644922, guid: d1e699ebe3388234abd36ee98b0415ad,
+    type: 3}
+  tip: 0
 --- !u!1 &1615654996
 GameObject:
   m_ObjectHideFlags: 0
@@ -5500,7 +5522,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1684693018
 RectTransform:
   m_ObjectHideFlags: 0

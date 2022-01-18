@@ -214,8 +214,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 7886897478795672720}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ace18df9ca6f9234bb8bc656ffd76bea, type: 3}
+  m_Script: {fileID: 11500000, guid: c1417e0ff681f0d44b4da2b2131a7f64, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   slotButton: {fileID: 3757542407270644922, guid: d1e699ebe3388234abd36ee98b0415ad,
     type: 3}
+  tip: 0
