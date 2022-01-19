@@ -13,10 +13,10 @@ GameObject:
   - component: {fileID: 2792546249266879361}
   - component: {fileID: 445889555596054440}
   - component: {fileID: 1460019335008971779}
-  - component: {fileID: 1641933698029217065}
+  - component: {fileID: 2032002999992390413}
   m_Layer: 0
   m_Name: 47
-  m_TagString: Untagged
+  m_TagString: Item
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -205,7 +205,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &1641933698029217065
+--- !u!114 &2032002999992390413
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -219,4 +219,3 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   slotButton: {fileID: 3757542407270644922, guid: d1e699ebe3388234abd36ee98b0415ad,
     type: 3}
-  tip: 0

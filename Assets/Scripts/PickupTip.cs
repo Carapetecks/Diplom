@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class PickupTip : Tip
 {
-    public void pickupTip()
-    {
+    //public void PickupTip()
+    //{
        
         
-    }
+    //}
 }

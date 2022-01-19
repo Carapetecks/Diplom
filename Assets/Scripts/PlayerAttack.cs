@@ -17,23 +17,7 @@ public class PlayerAttack : MonoBehaviour
     
     private void Update()
     {
-        if (timeBtwAttack <= 0)
-        {
-            if (Input.GetKeyDown(KeyCode.X))
-            {
-                Collider2D[] monsters = Physics2D.OverlapCircleAll(punchDot.position, attackRange, monster);
-                for (int i = 0; i < monsters.Length; i++)
-                {
-                    monsters[i].GetComponent<Monster>().reciveDamage(damage);
-                    Kick(monsters[i].GetComponent<Monster>());
-                    timeBtwAttack = startTimeBtwAttack;
-                }
-            }
-        }
-        else
-        {
-            timeBtwAttack -= Time.deltaTime;
-        }
+        Attack();
     }
     private void OnDrawGizmosSelected()
     {
@@ -56,6 +40,27 @@ public class PlayerAttack : MonoBehaviour
             StartCoroutine(MoveStoped(monster.GetComponent<MonsterMovable>()));
         }
         
+    }
+    
+    private void Attack()
+    {
+        if (timeBtwAttack <= 0)
+        {
+            if (Input.GetKeyDown(KeyCode.X))
+            {
+                Collider2D[] monsters = Physics2D.OverlapCircleAll(punchDot.position, attackRange, monster);
+                for (int i = 0; i < monsters.Length; i++)
+                {
+                    monsters[i].GetComponent<Monster>().reciveDamage(damage);
+                    Kick(monsters[i].GetComponent<Monster>());
+                    timeBtwAttack = startTimeBtwAttack;
+                }
+            }
+        }
+        else
+        {
+            timeBtwAttack -= Time.deltaTime;
+        }
     }
     IEnumerator MoveStoped(MonsterMovable monster)
     {

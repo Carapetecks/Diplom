@@ -7,7 +7,6 @@ public class Item : MonoBehaviour
     private Inventory inventory;
     private bool CheckEnter = false;
     public GameObject slotButton;
-    public bool tip = false;
     private void Start()
     {
         inventory = GameObject.FindGameObjectWithTag("Player").GetComponent<Inventory>();

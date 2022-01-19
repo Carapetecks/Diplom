@@ -8,7 +8,12 @@ public class Tip : MonoBehaviour
     public float searchRange;
     public LayerMask item;
     private Character mainCharacter;
+    private bool TipOn;
 
+    private void Start()
+    {
+        TipOn = false;
+    }
     private void Update()
     {
         Search();
@@ -17,10 +22,13 @@ public class Tip : MonoBehaviour
     public void Search()
     {
         Collider2D[] items = Physics2D.OverlapCircleAll(searchDot.position, searchRange, item);
-        for (int i = 0; i < items.Length; i++)
+        if (items.Length == 1)
         {
-            items[i].GetComponent<Item>();
-            Debug.Log("калак найден");
+            for (int i = 0; i < items.Length; i++)
+            {
+                items[i].GetComponent<Item>();
+                Debug.Log("калак найден");
+            }
         }
     }
 

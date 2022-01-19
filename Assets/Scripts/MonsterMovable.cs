@@ -30,6 +30,7 @@ public class MonsterMovable : Monster
     protected override void Start()
     {
         direction = transform.right;
+        InvokeRepeating("MonsterAttack", 1, 0.8f);
     }
     protected override void Update()
     {        
@@ -40,6 +41,7 @@ public class MonsterMovable : Monster
         if (mainCharacter && Vector2.Distance(transform.position, mainCharacter.transform.position) > 1)
             currentTimeToAttack = 0;
         if (isGrounded) Move();
+        
     }
 
     private void Move()
@@ -58,28 +60,21 @@ public class MonsterMovable : Monster
             faceRight = !faceRight;
         }
     }
-    protected virtual void OnTriggerStay2D(Collider2D collider) // переделать с помощью гизмоса
-    {
-        Unit unit = collider.GetComponent<Unit>();
-        if (unit && unit is Character && canAttack)
-            AttackCharacter((Character)unit);
-    }
-    private void AttackCharacter(Character character)
-    { 
-        mainCharacter = character;
-        mainCharacter.reciveDamage(damage);
-        currentTimeToAttack = timeToAttack;
-    }
+    
       
-    //private void MonsterAttack()
-    //{
-    //    Collider2D[] units = Physics2D.OverlapCircleAll(mobAttackDot.position, mobAttackRange, character);       
-    //    for (int i = 0; i < units.Length; i++)
-    //    {
-    //        units[i].GetComponent<Character>();
-
-    //    }      
-    //} НЕ ДОРАБОТАНО. НУЖНО ВЫЗВАТЬ МЕТОД И ПРОВЕРИТЬ ЕЩЕ РАЗ.
+    private void MonsterAttack()
+    {
+        Collider2D[] units = Physics2D.OverlapCircleAll(mobAttackDot.position, mobAttackRange, character);
+        if(units.Length > 0)
+        {
+            for (int i = 0; i < units.Length; i++)
+            {
+                units[i].GetComponent<Character>().reciveDamage(damage);
+            }
+        }
+        
+        
+    } 
     private void CheckGround()
         {
             Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, 0.3f);
@@ -90,5 +85,20 @@ public class MonsterMovable : Monster
         Gizmos.color = Color.green;
         Gizmos.DrawWireSphere(mobAttackDot.position, mobAttackRange);
     }
+   
+    
+    //protected virtual void OnTriggerStay2D(Collider2D collider) // переделать с помощью гизмоса
+    //{
+    //    Unit unit = collider.GetComponent<Unit>();
+    //    if (unit && unit is Character && canAttack)
+    //        AttackCharacter((Character)unit);
+    //}
+    //private void AttackCharacter(Character character)
+    //{ 
+    //    mainCharacter = character;
+    //    mainCharacter.reciveDamage(1);
+    //    currentTimeToAttack = timeToAttack;
+    //}
+
 
 }

@@ -111,7 +111,7 @@ public class Character : Unit
         }
         else if (!character.faceRight && rigid.isKinematic == false)
         {
-            rigid.AddForce(transform.up * 2.5f + -transform.right + (-direction) * 2.5f, ForceMode2D.Impulse);
+           rigid.AddForce(transform.up * 2.5f + -transform.right + (-direction) * 2.5f, ForceMode2D.Impulse);
             
         }
 
