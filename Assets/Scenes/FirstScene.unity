@@ -920,6 +920,16 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 5508198809484698564, guid: 3c70fc0675d4d2841a39644de429d68b,
+        type: 3}
+      propertyPath: m_Mass
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5508198809484698564, guid: 3c70fc0675d4d2841a39644de429d68b,
+        type: 3}
+      propertyPath: m_GravityScale
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 5508198809484698566, guid: 3c70fc0675d4d2841a39644de429d68b,
         type: 3}
       propertyPath: m_RootOrder
@@ -4909,6 +4919,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_RootOrder
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3400329428291628012, guid: 4a56c14a294cf824c8b11f4b7de78733,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -9.427
+      objectReference: {fileID: 0}
+    - target: {fileID: 3400329428291628012, guid: 4a56c14a294cf824c8b11f4b7de78733,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 1.182
       objectReference: {fileID: 0}
     - target: {fileID: 7085198117314903739, guid: 4a56c14a294cf824c8b11f4b7de78733,
         type: 3}

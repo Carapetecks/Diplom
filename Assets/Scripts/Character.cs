@@ -11,6 +11,7 @@ public class Character : Unit
     private float speed = 2.0f;
     [SerializeField]
     private float jumpForce = 5.0f;
+    private float dashForce = 4.0f;
     private bool isGrounded = false;
     public bool faceRight = true;
     Vector3 direction;
@@ -31,7 +32,9 @@ public class Character : Unit
     {
         if (Input.GetButton("Horizontal")) Run();
         if (isGrounded && Input.GetButtonDown("Jump")) Jump();
+        if(isGrounded && Input.GetButtonDown("Dash"))Dash();
         Reflect();
+      
 
     }
     private void Run()
@@ -114,13 +117,36 @@ public class Character : Unit
            rigid.AddForce(transform.up * 2.5f + -transform.right + (-direction) * 2.5f, ForceMode2D.Impulse);
             
         }
-
     }
 
-
-
-
-
-
-
+    private void Dash()
+    {
+        if(faceRight)
+        {
+            rigid.AddForce(transform.right * dashForce, ForceMode2D.Impulse);
+            rigid.gravityScale = 0;
+            StartCoroutine(GravityScaleDrop());
+            rigid.gravityScale = 2;
+        }
+        else if(!faceRight)
+        {
+            rigid.AddForce(-transform.right * dashForce, ForceMode2D.Impulse);
+            rigid.gravityScale = 0;
+            StartCoroutine(GravityScaleDrop());
+            rigid.gravityScale = 2;
+        }
+    }
+    IEnumerator GravityScaleDrop()
+    {
+        yield return new WaitForSeconds(1f);
+    }
+    
 }
+
+
+
+
+
+
+
+
