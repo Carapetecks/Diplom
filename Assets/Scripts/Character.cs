@@ -11,7 +11,7 @@ public class Character : Unit
     private float speed = 2.0f;
     [SerializeField]
     private float jumpForce = 5.0f;
-    private float dashForce = 4.0f;
+    private float dashForce = 3.5f;
     private bool isGrounded = false;
     public bool faceRight = true;
     Vector3 direction;
@@ -19,6 +19,8 @@ public class Character : Unit
     public Image[] hearts;
     public Sprite fullHeart;
     public Sprite emptyHeart;
+    private float timeBtwDash;
+    public float startTimeBtwDash;
     
     //float direction;
 
@@ -32,7 +34,19 @@ public class Character : Unit
     {
         if (Input.GetButton("Horizontal")) Run();
         if (isGrounded && Input.GetButtonDown("Jump")) Jump();
-        if(isGrounded && Input.GetButtonDown("Dash"))Dash();
+        if (timeBtwDash<=0)
+        {
+            if (Input.GetButtonDown("Dash"))
+            {
+                Dash();
+                timeBtwDash = startTimeBtwDash;
+            }
+        }        
+        else
+        {
+            timeBtwDash -= Time.deltaTime;
+        }
+        
         Reflect();
       
 
@@ -121,21 +135,18 @@ public class Character : Unit
 
     private void Dash()
     {
-        if(faceRight)
+        if (faceRight)
         {
             rigid.AddForce(transform.right * dashForce, ForceMode2D.Impulse);
-            rigid.gravityScale = 0;
-            StartCoroutine(GravityScaleDrop());
-            rigid.gravityScale = 2;
+            timeBtwDash = startTimeBtwDash;
         }
-        else if(!faceRight)
+        else if (!faceRight)
         {
             rigid.AddForce(-transform.right * dashForce, ForceMode2D.Impulse);
-            rigid.gravityScale = 0;
-            StartCoroutine(GravityScaleDrop());
-            rigid.gravityScale = 2;
+            timeBtwDash = startTimeBtwDash;
         }
     }
+
     IEnumerator GravityScaleDrop()
     {
         yield return new WaitForSeconds(1f);
