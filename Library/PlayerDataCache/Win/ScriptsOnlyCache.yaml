@@ -4,6 +4,7 @@ ScriptsOnlyBuild:
     - Bullet
     - CameraController
     - CameraControllerFirstLoc
+    - CaveDarkScript
     - Character
     - FallenTrap
     - Inventory
@@ -27,6 +28,7 @@ ScriptsOnlyBuild:
     Unity.2D.IK.Runtime.dll:
     - UnityEditor.U2D.IK.IKEditorManagerHelper
     Unity.2D.Tilemap.Editor.dll:
+    - UnityEditor.Tilemaps.GridBrush
     - UnityEditor.Tilemaps.GridPaintingState
     - UnityEditor.Tilemaps.GridPaletteBrushes
     - UnityEditor.Tilemaps.GridPalettes
@@ -36,6 +38,12 @@ ScriptsOnlyBuild:
     - UnityEditor.Tilemaps.TilemapPrefabStageHelper
     Unity.Rider.Editor.dll:
     - Packages.Rider.Editor.UnitTesting.CallbackData
+    UnityEditor.Graphs.dll:
+    - UnityEditor.Graphs.AnimationBlendTree.Graph
+    - UnityEditor.Graphs.AnimationBlendTree.GraphGUI
+    - UnityEditor.Graphs.AnimationStateMachine.Graph
+    - UnityEditor.Graphs.AnimationStateMachine.GraphGUI
+    - UnityEditor.Graphs.AnimatorControllerTool
     UnityEditor.TestRunner.dll:
     - UnityEditor.TestTools.TestRunner.Api.CallbacksHolder
     - UnityEditor.TestTools.TestRunner.TestListCacheData
@@ -87,7 +95,7 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 632}
     - Class: 114
-      Script: {instanceID: 1524}
+      Script: {instanceID: 1464}
     - Class: 114
       Script: {instanceID: 1682}
     - Class: 114
@@ -109,31 +117,33 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 2640}
     - Class: 114
-      Script: {instanceID: 2802}
+      Script: {instanceID: 2740}
     - Class: 114
-      Script: {instanceID: 2888}
+      Script: {instanceID: 2804}
     - Class: 114
-      Script: {instanceID: 3024}
+      Script: {instanceID: 2890}
     - Class: 114
-      Script: {instanceID: 3060}
+      Script: {instanceID: 3026}
     - Class: 114
-      Script: {instanceID: 3270}
+      Script: {instanceID: 3062}
     - Class: 114
-      Script: {instanceID: 3382}
+      Script: {instanceID: 3272}
     - Class: 114
-      Script: {instanceID: 3398}
+      Script: {instanceID: 3384}
     - Class: 114
-      Script: {instanceID: 3468}
+      Script: {instanceID: 3400}
     - Class: 114
-      Script: {instanceID: 4156}
+      Script: {instanceID: 3470}
     - Class: 114
-      Script: {instanceID: 5306}
+      Script: {instanceID: 4158}
     - Class: 114
-      Script: {instanceID: 5568}
+      Script: {instanceID: 5308}
     - Class: 114
-      Script: {instanceID: 5592}
+      Script: {instanceID: 5570}
     - Class: 114
-      Script: {instanceID: 5666}
+      Script: {instanceID: 5594}
+    - Class: 114
+      Script: {instanceID: 5668}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -196,21 +206,21 @@ ScriptsOnlyBuild:
     - Class: 108
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 1524}
+      Script: {instanceID: 1464}
     - Class: 114
       Script: {instanceID: 2054}
     - Class: 114
       Script: {instanceID: 2640}
     - Class: 114
-      Script: {instanceID: 2802}
+      Script: {instanceID: 2804}
     - Class: 114
-      Script: {instanceID: 3024}
+      Script: {instanceID: 3026}
     - Class: 114
-      Script: {instanceID: 3270}
+      Script: {instanceID: 3272}
     - Class: 114
-      Script: {instanceID: 3382}
+      Script: {instanceID: 3384}
     - Class: 114
-      Script: {instanceID: 4096}
+      Script: {instanceID: 4098}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 157
@@ -261,19 +271,13 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 632}
     - Class: 114
-      Script: {instanceID: 1682}
-    - Class: 114
       Script: {instanceID: 1818}
     - Class: 114
       Script: {instanceID: 2580}
     - Class: 114
-      Script: {instanceID: 2634}
+      Script: {instanceID: 2890}
     - Class: 114
-      Script: {instanceID: 2888}
-    - Class: 114
-      Script: {instanceID: 3060}
-    - Class: 114
-      Script: {instanceID: 3504}
+      Script: {instanceID: 3506}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 157
@@ -301,16 +305,16 @@ ScriptsOnlyBuild:
   scriptHashData:
   - hash:
       serializedVersion: 2
-      Hash: 5ab533713adae59372fb3e10a585c186
-    assemblyName: Unity.Timeline.dll
-    namespaceName: UnityEngine.Timeline
-    className: AnimationPlayableAsset
-  - hash:
-      serializedVersion: 2
       Hash: a6e561615949734e9f12f9b61661f43e
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.UI
     className: Image
+  - hash:
+      serializedVersion: 2
+      Hash: 5ab533713adae59372fb3e10a585c186
+    assemblyName: Unity.Timeline.dll
+    namespaceName: UnityEngine.Timeline
+    className: AnimationPlayableAsset
   - hash:
       serializedVersion: 2
       Hash: 77aaaaa51f7a8d8ff333a879741e47d2
@@ -481,6 +485,12 @@ ScriptsOnlyBuild:
     className: CanvasScaler
   - hash:
       serializedVersion: 2
+      Hash: 1c88e46ac5a3931e83e85d16bf80c76f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: CaveDarkScript
+  - hash:
+      serializedVersion: 2
       Hash: cf9f5cf2c3145a37ac07f00e50e460f9
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.UI
@@ -547,7 +557,7 @@ ScriptsOnlyBuild:
     className: GraphicRaycaster
   - hash:
       serializedVersion: 2
-      Hash: fe44ae4677e108fe9aa7bbc20584a665
+      Hash: e739b59cb4994cbac567f95f0e2f93cb
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Character
@@ -901,7 +911,7 @@ ScriptsOnlyBuild:
     className: PickupTip
   - hash:
       serializedVersion: 2
-      Hash: fd68baa9ee9af88f590d2312240a0f40
+      Hash: a5061506fc9a4b74bc83fa6d317ca7b6
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Item
@@ -958,4 +968,4 @@ ScriptsOnlyBuild:
   - Assets/Scenes/Menu.unity
   - Assets/Scenes/FirstScene.unity
   - Assets/Scenes/PixelLvl.unity
-  playerPath: C:/Users/opss_/Desktop/Diplom/Game/2D_Platformer_New_Game.exe
+  playerPath: C:/Users/opss_/Desktop/Diplom/Game/kursachBuild/2D_Platformer_New_Game.exe
