@@ -46,6 +46,7 @@ public class Character : Unit
         {
             timeBtwDash -= Time.deltaTime;
         }
+        if (Input.GetKeyDown(KeyCode.H)) CheatHeal();
         
         Reflect();
       
@@ -145,6 +146,11 @@ public class Character : Unit
             rigid.AddForce(-transform.right * dashForce, ForceMode2D.Impulse);
             timeBtwDash = startTimeBtwDash;
         }
+    }
+
+    private void CheatHeal()
+    {
+        lifes++;
     }
 
     IEnumerator GravityScaleDrop()

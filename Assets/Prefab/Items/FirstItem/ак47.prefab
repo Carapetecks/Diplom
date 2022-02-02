@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 445889555596054440}
   - component: {fileID: 1460019335008971779}
   - component: {fileID: 1641933698029217065}
+  - component: {fileID: -8852938695008373972}
   m_Layer: 0
   m_Name: "\u0430\u043A47"
   m_TagString: Item
@@ -30,7 +31,7 @@ Transform:
   m_GameObject: {fileID: 7886897478795672720}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -8.562059, y: 0.7900425, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -74,8 +75,8 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -947153627
   m_SortingLayer: 1
-  m_SortingOrder: 2
-  m_Sprite: {fileID: 21300000, guid: 0a2ec431040d63945bd79ac139f4082b, type: 3}
+  m_SortingOrder: 1
+  m_Sprite: {fileID: 21300000, guid: 92b7fee71a82d9d449c6d1f5b3cf19a6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -99,18 +100,18 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.0025719926, y: 0.0034771338}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.54, y: 0.19}
+    oldSize: {x: 0.23, y: 0.18}
     newSize: {x: 0.54, y: 0.19}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.54, y: 0.19}
+  m_Size: {x: 0.24530567, y: 0.21642618}
   m_EdgeRadius: 0
 --- !u!60 &445889555596054440
 PolygonCollider2D:
@@ -119,7 +120,7 @@ PolygonCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7886897478795672720}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
@@ -129,7 +130,7 @@ PolygonCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.54, y: 0.19}
+    oldSize: {x: 0.23, y: 0.18}
     newSize: {x: 0.54, y: 0.19}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -214,4 +215,29 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   slotButton: {fileID: 3757542407270644922, guid: d1e699ebe3388234abd36ee98b0415ad,
     type: 3}
-  tip: 0
+--- !u!61 &-8852938695008373972
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7886897478795672720}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.0015899092, y: 0.0019453876}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.23, y: 0.18}
+    newSize: {x: 0.54, y: 0.19}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.20627376, y: 0.19583598}
+  m_EdgeRadius: 0

@@ -16,7 +16,7 @@ public class StaticMonster : Monster
     protected override void Start()
     {
         direction = transform.right;
-        InvokeRepeating("Shoot", 0, 5);
+        InvokeRepeating("Shoot", 0, 2);
     }
 
     protected override void Awake()

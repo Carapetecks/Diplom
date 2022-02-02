@@ -41,7 +41,8 @@ public class Bullet : MonoBehaviour
         if (colliders.Length > 0 
             && colliders.All(x => !x.GetComponent<Monster>())
             && colliders.All(x => !x.GetComponent<Character>()) 
-            && colliders.All(x => !x.GetComponent<FallenTrap>()))
+            && colliders.All(x => !x.GetComponent<FallenTrap>())
+            && colliders.All(x => !x.GetComponent<WalkTip>()))
         {
             Destroy(gameObject);
         }

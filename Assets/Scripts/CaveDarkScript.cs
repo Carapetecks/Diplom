@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class CaveDarkScript : MonoBehaviour
 {
@@ -19,8 +20,7 @@ public class CaveDarkScript : MonoBehaviour
         
         if (collision != null && unit && unit is Character)
         {
-            animator.SetBool("fade",true);
-            animator.SetBool("light",false);
+            StartCoroutine(OpenMenu());
         }
     }
     private void OnTriggerExit2D(Collider2D collision)
@@ -31,5 +31,12 @@ public class CaveDarkScript : MonoBehaviour
             animator.SetBool("light", true);
             animator.SetBool("fade", false);
         }
+    }
+    IEnumerator OpenMenu()
+    {
+        animator.SetBool("fade", true);
+        animator.SetBool("light", false);
+        yield return new WaitForSeconds(4);
+        SceneManager.LoadScene("Menu");
     }
 }

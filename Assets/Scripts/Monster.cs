@@ -18,4 +18,11 @@ public class Monster : Unit
     {
 
     }
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag.Equals("DroppedTrap"))
+        {
+            reciveDamage(1);
+        }
+    }
 }
