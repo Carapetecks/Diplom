@@ -16,7 +16,7 @@ public class Item : MonoBehaviour
         Take();
     }
     private void OnTriggerEnter2D(Collider2D other)
-    {        
+    {
         if (other.CompareTag("Player"))
             CheckEnter = true;
     }
@@ -42,6 +42,7 @@ public class Item : MonoBehaviour
             }
         }
     }
+   
 
     
 

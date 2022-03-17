@@ -152,7 +152,21 @@ public class Character : Unit
     {
         lifes++;
     }
+    
+    public void SaveCharacter()
+    {
+        SaveSystem.SaveCharacter(this);
+    }
+    public void LoadCharacter()
+    {
+        CharacterData data = SaveSystem.LoadCharacter();
+        lifes = data.lifes;
 
+        Vector2 position;
+        position.x = data.position[0];
+        position.y = data.position[1];
+        transform.position = position;
+    }
     IEnumerator GravityScaleDrop()
     {
         yield return new WaitForSeconds(1f);

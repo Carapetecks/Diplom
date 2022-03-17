@@ -11,7 +11,7 @@ public class Unit : MonoBehaviour
     //private new Rigidbody2D rigidbody;
     //Vector3 direction;
     [SerializeField]
-    public float lifes;
+    public int lifes;
     public int damage = 1;
     public Rigidbody2D rigid;
     private Animator animator;
@@ -46,5 +46,5 @@ public class Unit : MonoBehaviour
     {
         Destroy(gameObject);
     }
-    
+        
 }

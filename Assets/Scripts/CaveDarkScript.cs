@@ -8,6 +8,7 @@ public class CaveDarkScript : MonoBehaviour
     public SpriteRenderer sprite;
     public Animator animator;
     public float fadeTime = 5;
+
     private void Awake()
     {
         sprite = GetComponentInChildren<SpriteRenderer>();
@@ -20,7 +21,9 @@ public class CaveDarkScript : MonoBehaviour
         
         if (collision != null && unit && unit is Character)
         {
-            StartCoroutine(OpenMenu());
+            
+            StartCoroutine(LoadScene());
+           
         }
     }
     private void OnTriggerExit2D(Collider2D collision)
@@ -32,11 +35,13 @@ public class CaveDarkScript : MonoBehaviour
             animator.SetBool("fade", false);
         }
     }
-    IEnumerator OpenMenu()
-    {
+  
+    IEnumerator LoadScene()
+    {        
         animator.SetBool("fade", true);
         animator.SetBool("light", false);
-        yield return new WaitForSeconds(4);
-        SceneManager.LoadScene("Menu");
+        yield return new WaitForSeconds(3);
+        SceneManager.LoadScene("PixelLvl");
+      
     }
 }
