@@ -8,6 +8,8 @@ public class CaveDarkScript : MonoBehaviour
     public SpriteRenderer sprite;
     public Animator animator;
     public float fadeTime = 5;
+    public float[] position;
+    private int lifes;
 
     private void Awake()
     {
@@ -18,12 +20,12 @@ public class CaveDarkScript : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         Unit unit = collision.GetComponent<Unit>();
-        
+
         if (collision != null && unit && unit is Character)
         {
+
+            StartCoroutine(LoadScene(collision.GetComponent<Character>()));
             
-            StartCoroutine(LoadScene());
-           
         }
     }
     private void OnTriggerExit2D(Collider2D collision)
@@ -35,13 +37,20 @@ public class CaveDarkScript : MonoBehaviour
             animator.SetBool("fade", false);
         }
     }
-  
-    IEnumerator LoadScene()
-    {        
+
+    IEnumerator LoadScene(Character character)
+    {
+        SaveSystem.SaveCharacterOnFirstLocation(character);
         animator.SetBool("fade", true);
         animator.SetBool("light", false);
         yield return new WaitForSeconds(3);
+        CharacterData data = SaveSystem.LoadCharacterOnSecondLocation();
+        lifes = data.lifes;
+        Vector2 position;
+        position.x = data.position[0];
+        position.y = data.position[1];
+        transform.position = position;
         SceneManager.LoadScene("PixelLvl");
-      
+        
     }
 }

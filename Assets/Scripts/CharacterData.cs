@@ -6,8 +6,9 @@ public class CharacterData
 {
 
     public int lifes;
+    
     public float[] position;
-
+    //public float[] newPositon;
 
     public CharacterData(Character character)
     {
@@ -16,8 +17,7 @@ public class CharacterData
         position = new float[2];
         position[0] = character.transform.position.x;
         position[1] = character.transform.position.y;
-
-
+    
     }
     
 }

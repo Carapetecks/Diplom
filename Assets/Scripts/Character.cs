@@ -21,11 +21,12 @@ public class Character : Unit
     public Sprite emptyHeart;
     private float timeBtwDash;
     public float startTimeBtwDash;
-    
     //float direction;
 
+   
     private void FixedUpdate()
     {
+        
         CheckGround();
         HeatPoint();
     }
@@ -156,12 +157,12 @@ public class Character : Unit
     public void SaveCharacter()
     {
         SaveSystem.SaveCharacter(this);
+     
     }
     public void LoadCharacter()
     {
         CharacterData data = SaveSystem.LoadCharacter();
         lifes = data.lifes;
-
         Vector2 position;
         position.x = data.position[0];
         position.y = data.position[1];
