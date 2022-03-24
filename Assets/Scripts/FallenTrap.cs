@@ -6,8 +6,7 @@ using UnityEngine;
 public class FallenTrap : MonoBehaviour
 {
     Rigidbody2D rigidbody;
-    
-  
+      
     void Start()
     {
         rigidbody = GetComponent<Rigidbody2D>();
@@ -38,9 +37,5 @@ public class FallenTrap : MonoBehaviour
         //    Destroy(gameObject, 0.2f);
         //}
         //collision.gameObject.name.Equals("Character")
-    }
-    void Update()
-    {
-        
     }
 }

@@ -6,15 +6,20 @@ public class PlayerAttack : MonoBehaviour
 {
     private float timeBtwAttack;
     public float startTimeBtwAttack;
-    public Transform punchDot;
-    public LayerMask monster;
     public float attackRange;
     public int damage;
+    public Transform punchDot;
     private SpriteRenderer sprite;
     private Character mainCharacter;
-    Vector3 direction;
-    
-    
+    public Animator animator;
+    public Character character;
+    public LayerMask monster;
+    Vector3 direction; 
+
+    private void Start()
+    {
+        animator = character.GetComponentInChildren<Animator>();
+    }
     private void Update()
     {
         Attack();
@@ -48,6 +53,7 @@ public class PlayerAttack : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.X))
             {
+                animator.SetTrigger("Attack");
                 Collider2D[] monsters = Physics2D.OverlapCircleAll(punchDot.position, attackRange, monster);
                 for (int i = 0; i < monsters.Length; i++)
                 {
@@ -62,6 +68,7 @@ public class PlayerAttack : MonoBehaviour
             timeBtwAttack -= Time.deltaTime;
         }
     }
+    
     IEnumerator MoveStoped(MonsterMovable monster)
     {
         float maxSpeed = monster.speed;
@@ -70,7 +77,4 @@ public class PlayerAttack : MonoBehaviour
         monster.speed = 1;
         
     }
-
-
-
 }

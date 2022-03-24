@@ -10,11 +10,12 @@ public class CameraControllerFirstLoc : MonoBehaviour
     [SerializeField]  float rightLimit;
     [SerializeField]  float leftLimit;
     [SerializeField]  float upperLimit;
+   
     private void Awake()
     {
         if (!target) target = FindObjectOfType<Character>().transform;
-
     }
+   
     private void Update()
     {
         if (!target) return;

@@ -8,19 +8,18 @@ public class MonsterMovable : Monster
     public float speed = 1.0f; 
     [SerializeField] private float timeToAttack = 1f;
     private float currentTimeToAttack = 0;
+    public float mobAttackRange;      
     private bool canAttack => currentTimeToAttack == 0;   
-    private Character mainCharacter;
-    Vector3 direction;  
     public bool faceRight = true;
     public bool isGrounded = false;
     public Transform mobAttackDot;
-    public float mobAttackRange;
+    private Character mainCharacter;
     public LayerMask character;
+    Vector3 direction;
     public MonsterMovable() :base()
     {
 
     }
-
 
     protected void FixedUpdate()
     {
@@ -41,7 +40,6 @@ public class MonsterMovable : Monster
         if (mainCharacter && Vector2.Distance(transform.position, mainCharacter.transform.position) > 1)
             currentTimeToAttack = 0;
         if (isGrounded) Move();
-        
     }
 
     private void Move()
@@ -61,8 +59,7 @@ public class MonsterMovable : Monster
             faceRight = !faceRight;
         }
     }
-    
-      
+         
     private void MonsterAttack()
     {
         Collider2D[] units = Physics2D.OverlapCircleAll(mobAttackDot.position, mobAttackRange, character);
@@ -72,9 +69,7 @@ public class MonsterMovable : Monster
             {
                 units[i].GetComponent<Character>().reciveDamage(damage);
             }
-        }
-        
-        
+        }    
     } 
     private void CheckGround()
         {

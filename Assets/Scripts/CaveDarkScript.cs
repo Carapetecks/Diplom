@@ -18,12 +18,9 @@ public class CaveDarkScript : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         Unit unit = collision.GetComponent<Unit>();
-        
         if (collision != null && unit && unit is Character)
-        {
-            
+        {            
             StartCoroutine(LoadScene());
-           
         }
     }
     private void OnTriggerExit2D(Collider2D collision)
@@ -42,6 +39,5 @@ public class CaveDarkScript : MonoBehaviour
         animator.SetBool("light", false);
         yield return new WaitForSeconds(3);
         SceneManager.LoadScene("PixelLvl");
-      
     }
 }

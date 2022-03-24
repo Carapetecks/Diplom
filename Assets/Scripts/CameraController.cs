@@ -8,11 +8,13 @@ public class CameraController : MonoBehaviour
     private float speed = 5.0f;
     [SerializeField]
     private Transform target;
+    
     private void Awake()
     {
         if (!target) target = FindObjectOfType<Character>().transform; 
         
     }
+  
     private void Update()
     {
         Vector3 position = target.position;

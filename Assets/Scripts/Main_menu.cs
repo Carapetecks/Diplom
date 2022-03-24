@@ -6,11 +6,7 @@ public class Main_menu : MonoBehaviour
 {
     public static bool GameIsPaused = true;
     public GameObject mainMenuUI;   
-    void Update()
-    {
-       
-
-    }
+  
     public void Play()
     {
         SceneManager.LoadScene("FirstScene");

@@ -8,22 +8,29 @@ using UnityEngine.UI;
 public class Character : Unit
 {
     [SerializeField]
-    private float speed = 2.0f;
+    public float speed = 2.0f;
     [SerializeField]
     private float jumpForce = 5.0f;
     private float dashForce = 3.5f;
     private bool isGrounded = false;
     public bool faceRight = true;
-    Vector3 direction;
     public int numOfHeart;
+    private float timeBtwDash;
+    public float startTimeBtwDash;
     public Image[] hearts;
     public Sprite fullHeart;
     public Sprite emptyHeart;
-    private float timeBtwDash;
-    public float startTimeBtwDash;
-    
+    Vector3 direction;
+    public Animator animator;
+  
+
     //float direction;
 
+
+    private void Start()
+    {
+        animator = GetComponentInChildren<Animator>();
+    }
     private void FixedUpdate()
     {
         CheckGround();
@@ -32,25 +39,51 @@ public class Character : Unit
 
     private void Update()
     {
-        if (Input.GetButton("Horizontal")) Run();
-        if (isGrounded && Input.GetButtonDown("Jump")) Jump();
+
+///RUN
+        if (Input.GetButton("Horizontal")&& animator) 
+        { 
+            animator.SetBool("Run", true);
+            Run();
+        }
+        else
+        {
+            animator.SetBool("Run", false);
+        }
+///JUMP
+        if (isGrounded && Input.GetButtonDown("Jump") && animator)
+        {
+            
+            if (isGrounded)
+            {
+                animator.SetTrigger("JumpDown");
+                Jump();
+                if (isGrounded == true) animator.ResetTrigger("JumpDown");
+            }
+            
+        }
+///DASH
         if (timeBtwDash<=0)
         {
-            if (Input.GetButtonDown("Dash"))
+            if (Input.GetButtonDown("Dash")&& animator)
             {
+                
+          
+                animator.SetBool("Dash", true);
                 Dash();
                 timeBtwDash = startTimeBtwDash;
             }
+            else
+                animator.SetBool("Dash", false);
         }        
         else
         {
             timeBtwDash -= Time.deltaTime;
         }
-        if (Input.GetKeyDown(KeyCode.H)) CheatHeal();
         
+        
+        if (Input.GetKeyDown(KeyCode.H)) CheatHeal();
         Reflect();
-      
-
     }
     private void Run()
     {
