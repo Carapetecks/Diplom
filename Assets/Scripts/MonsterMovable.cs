@@ -82,19 +82,4 @@ public class MonsterMovable : Monster
         Gizmos.DrawWireSphere(mobAttackDot.position, mobAttackRange);
     }
    
-    
-    //protected virtual void OnTriggerStay2D(Collider2D collider) // переделать с помощью гизмоса
-    //{
-    //    Unit unit = collider.GetComponent<Unit>();
-    //    if (unit && unit is Character && canAttack)
-    //        AttackCharacter((Character)unit);
-    //}
-    //private void AttackCharacter(Character character)
-    //{ 
-    //    mainCharacter = character;
-    //    mainCharacter.reciveDamage(1);
-    //    currentTimeToAttack = timeToAttack;
-    //}
-
-
 }

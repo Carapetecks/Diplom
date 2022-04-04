@@ -6,14 +6,11 @@ using UnityEngine.UI;
 
 public class Unit : MonoBehaviour
 {
-    //private Unit unit;
-    //private Character character;
-    //private new Rigidbody2D rigidbody;
-    //Vector3 direction;
+  
     [SerializeField]
     public int lifes;
     public int damage = 1;
-    public Rigidbody2D rigid;
+    public Rigidbody2D rigidbody;
     private Animator animator;
     public SpriteRenderer sprite;
     Vector3 direction;
@@ -21,7 +18,7 @@ public class Unit : MonoBehaviour
 
     public void Awake()
     {
-        rigid = GetComponent<Rigidbody2D>();
+        rigidbody = GetComponent<Rigidbody2D>();
         sprite = GetComponentInChildren<SpriteRenderer>();
     }
 

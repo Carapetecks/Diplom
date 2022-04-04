@@ -53,7 +53,7 @@ public class PlayerAttack : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.X))
             {
-                animator.SetTrigger("Attack");
+                
                 Collider2D[] monsters = Physics2D.OverlapCircleAll(punchDot.position, attackRange, monster);
                 for (int i = 0; i < monsters.Length; i++)
                 {
@@ -61,6 +61,7 @@ public class PlayerAttack : MonoBehaviour
                     Kick(monsters[i].GetComponent<Monster>());
                     timeBtwAttack = startTimeBtwAttack;
                 }
+                animator.SetTrigger("Attack");
             }
         }
         else

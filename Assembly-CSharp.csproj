@@ -64,6 +64,7 @@
     <Compile Include="Assets\Scripts\CameraControllerFirstLoc.cs" />
     <Compile Include="Assets\Scripts\PlayerAttack.cs" />
     <Compile Include="Assets\Scripts\CaveDarkScript.cs" />
+    <Compile Include="Assets\Scripts\HeroAnimation.cs" />
     <Compile Include="Assets\Scripts\MonsterMovable.cs" />
     <Compile Include="Assets\Scripts\Monster.cs" />
     <Compile Include="Assets\Scripts\Unit.cs" />
@@ -82,7 +83,7 @@
     <Compile Include="Assets\Scripts\SaveSystem.cs" />
     <Compile Include="Assets\Scripts\Parallax\ParallaxCamera.cs" />
     <Compile Include="Assets\Scripts\Pause_menu.cs" />
-    <Compile Include="Assets\Scripts\HeroAnimation.cs" />
+    <Compile Include="Assets\Scripts\TESTmove.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

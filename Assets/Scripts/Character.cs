@@ -7,95 +7,113 @@ using UnityEngine.UI;
 
 public class Character : Unit
 {
-    [SerializeField]
+    
     public float speed = 2.0f;
-    [SerializeField]
     private float jumpForce = 5.0f;
-    private float dashForce = 3.5f;
+    private float dashForce = 3f;
+    float dirX, dirY;
+    public float boxX;
+    public float boxY;
+    public float wallBoxX;
+    public float wallBoxY;
+
     private bool isGrounded = false;
+    private bool isClimbing;
+    private bool isDashing;
     public bool faceRight = true;
+    
     public int numOfHeart;
+    
     private float timeBtwDash;
     public float startTimeBtwDash;
+
+    public Transform groundCheckPoint, wallCheckPoint;
+    public LayerMask ground, wall;
     public Image[] hearts;
     public Sprite fullHeart;
-    public Sprite emptyHeart;
-    Vector3 direction;
+    public Sprite emptyHeart;   
     public Animator animator;
-  
+    Vector2 moveVecX;
+    Vector3 direction;
 
-    //float direction;
+
 
 
     private void Start()
     {
+        rigidbody = GetComponent<Rigidbody2D>();
         animator = GetComponentInChildren<Animator>();
-    }
-    private void FixedUpdate()
-    {
-        CheckGround();
-        HeatPoint();
-    }
+    }   
 
     private void Update()
     {
-
-///RUN
-        if (Input.GetButton("Horizontal")&& animator) 
-        { 
-            animator.SetBool("Run", true);
-            Run();
-        }
-        else
-        {
-            animator.SetBool("Run", false);
-        }
+        isGrounded = Physics2D.OverlapBox(groundCheckPoint.position, new Vector2(boxX, boxY), 0, ground);
+        dirX = Input.GetAxis("Horizontal");
+        dirY = Input.GetAxis("Vertical");
+        
 ///JUMP
-        if (isGrounded && Input.GetButtonDown("Jump") && animator)
+        if (Input.GetButtonDown("Jump") && isGrounded)
         {
-            
-            if (isGrounded)
-            {
-                animator.SetTrigger("JumpDown");
-                Jump();
-                if (isGrounded == true) animator.ResetTrigger("JumpDown");
-            }
-            
+             Jump();
         }
+
 ///DASH
-        if (timeBtwDash<=0)
-        {
-            if (Input.GetButtonDown("Dash")&& animator)
+       if (timeBtwDash <= 0)
+        { 
+            if (Input.GetButtonDown("Dash") && animator)
             {
-                
-          
-                animator.SetBool("Dash", true);
-                Dash();
-                timeBtwDash = startTimeBtwDash;
-            }
-            else
-                animator.SetBool("Dash", false);
-        }        
-        else
+                animator.SetTrigger("Dash");
+                Dash();            
+            }        
+        }
+       
+        if (Input.GetKeyDown(KeyCode.H)) CheatHeal();
+       
+    }
+
+    private void FixedUpdate()
+    {
+       
+        if(!isDashing)
+        {
+           Run(); 
+        }
+
+        if (timeBtwDash > 0)
         {
             timeBtwDash -= Time.deltaTime;
         }
-        
-        
-        if (Input.GetKeyDown(KeyCode.H)) CheatHeal();
-        Reflect();
+        else if (isDashing)
+        {
+            isDashing = false;
+            if (isDashing == false)
+                Debug.Log(isDashing);
+        }
+        if(!isDashing)
+        Reflect();    
+        HeatPoint();        
     }
+
     private void Run()
-    {
-        direction = transform.right * Input.GetAxis("Horizontal");
-        transform.position = Vector3.MoveTowards(transform.position, transform.position + direction, speed * Time.deltaTime);
-        //direction = Input.GetAxis("Horizontal");
-        //Vector2 moveVecX = new Vector2(direction * speed, rigid.velocity.y);
-        //rigid.velocity = moveVecX;
+    {       
+        moveVecX = new Vector2(dirX * speed, rigidbody.velocity.y);
+        rigidbody.velocity = moveVecX;
+       
+        if (dirX != 0 && isGrounded)
+        {
+            animator.SetBool("Run", true);
+            
+        }
+        else
+        {
+            animator.SetBool("Run", false);        
+        }
     }
+   
+
     void Reflect()
     {
-        if ((direction.x > 0 && !faceRight) || (direction.x < 0 && faceRight))
+        if ((dirX > 0 && !faceRight) || (dirX < 0 && faceRight))
         {
             Vector3 temp = transform.localScale;
             temp.x *= -1;
@@ -103,6 +121,7 @@ public class Character : Unit
             faceRight = !faceRight;
         }
     }
+
     public override void reciveDamage(int damage)
     {
         base.reciveDamage(damage);
@@ -115,18 +134,34 @@ public class Character : Unit
         }     
     }
 
-    private void Jump()
-    {
-        rigid.AddForce(transform.up * jumpForce, ForceMode2D.Impulse);
+    private void Jump() // ПОЧИНИТЬ ИНЕРЦИЮ ПРЫЖКОВ
+    { 
+        rigidbody.velocity = new Vector2(0, 0);
+        rigidbody.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
+       
     }
-   
-    private void CheckGround()
+  
+     private void Dash() // ПЕРЕДЕЛАТЬ
     {
-        Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, 0.1f);
-        isGrounded = colliders.Length > 1;
+        if (!faceRight)
+        {
+            isDashing = true;
+            rigidbody.AddForce(Vector2.left * dashForce, ForceMode2D.Impulse);
+            timeBtwDash = startTimeBtwDash;
+
+        }
+        else if (faceRight)
+        {
+            isDashing = true;
+            rigidbody.AddForce(Vector2.right * dashForce, ForceMode2D.Impulse);
+            timeBtwDash = startTimeBtwDash;
+        }
+        if (isDashing == true)
+            Debug.Log(isDashing);
     }
 
-   
+
+    
     private void OnCollisionEnter2D(Collision2D collision)
     {      
         if (collision.gameObject.tag.Equals("DroppedTrap"))
@@ -152,32 +187,18 @@ public class Character : Unit
             }
         }
     }
-    private void Kick(Character character)
+    private void Kick(Character character) // нужна переменная направления
     {
-        rigid.velocity = Vector3.zero;
-        if (character.faceRight && rigid.isKinematic == false)
+        rigidbody.velocity = Vector3.zero;
+        if (character.faceRight && rigidbody.isKinematic == false)
         {
-            rigid.AddForce(transform.up * 2.5f + transform.right + (-direction) * 2.5f, ForceMode2D.Impulse);
-            
-        }
-        else if (!character.faceRight && rigid.isKinematic == false)
-        {
-           rigid.AddForce(transform.up * 2.5f + -transform.right + (-direction) * 2.5f, ForceMode2D.Impulse);
-            
-        }
-    }
+            rigidbody.AddForce(transform.up * 2.5f + transform.right + (-direction) * 2.5f, ForceMode2D.Impulse);
 
-    private void Dash()
-    {
-        if (faceRight)
-        {
-            rigid.AddForce(transform.right * dashForce, ForceMode2D.Impulse);
-            timeBtwDash = startTimeBtwDash;
         }
-        else if (!faceRight)
+        else if (!character.faceRight && rigidbody.isKinematic == false)
         {
-            rigid.AddForce(-transform.right * dashForce, ForceMode2D.Impulse);
-            timeBtwDash = startTimeBtwDash;
+            rigidbody.AddForce(transform.up * 2.5f + -transform.right + (-direction) * 2.5f, ForceMode2D.Impulse);
+
         }
     }
 
@@ -200,11 +221,16 @@ public class Character : Unit
         position.y = data.position[1];
         transform.position = position;
     }
-    IEnumerator GravityScaleDrop()
+
+    private void OnDrawGizmos()
     {
-        yield return new WaitForSeconds(1f);
+        Gizmos.color = Color.blue;
+        Gizmos.DrawWireCube(groundCheckPoint.position, new Vector3(boxX, boxY, 0));
+        Gizmos.DrawWireCube(wallCheckPoint.position, new Vector3(wallBoxX, wallBoxY, 0));
+       
     }
-    
+
+
 }
 
 

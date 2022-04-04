@@ -42,7 +42,7 @@ GameObject:
   m_Component:
   - component: {fileID: 570493340925442601}
   - component: {fileID: 570493340925442600}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: New Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -124,7 +124,7 @@ GameObject:
   m_Component:
   - component: {fileID: 570493341249360959}
   - component: {fileID: 570493341249360956}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: FlowerBase
   m_TagString: Untagged
   m_Icon: {fileID: 0}
