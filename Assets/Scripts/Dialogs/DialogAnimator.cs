@@ -4,15 +4,39 @@ using UnityEngine;
 
 public class DialogAnimator : MonoBehaviour
 {
-    public Animator fAnimation;
+    
     public DialogManager DialogManager;
-    public void OnTriggerEnter2D(Collider2D other)
+    public Dialog dialog;
+    private bool CheckEnter = false;
+    private void Update()
     {
-        fAnimation.SetBool("fOpen", true);
+        if (CheckEnter && Input.GetKeyDown(KeyCode.F)) TriggerDialog();
+        
     }
-    public void OnTriggerExit2D(Collider2D other)
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        fAnimation.SetBool("fOpen", false);
-        DialogManager.EndDialog();
+
+        if (other.CompareTag("Player"))
+        {
+            CheckEnter = true;
+           
+            
+        }
+           
+
     }
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            CheckEnter = false;
+          
+            DialogManager.EndDialog();
+        }
+            
+    }
+    public void TriggerDialog()
+    {
+        FindObjectOfType<DialogManager>().StartDialog(dialog);
+    }  
 }

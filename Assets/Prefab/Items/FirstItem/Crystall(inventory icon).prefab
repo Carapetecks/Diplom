@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 1370399358440649862}
   - component: {fileID: 7099799073124072091}
   m_Layer: 5
-  m_Name: BoxButton
+  m_Name: Crystall(inventory icon)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -88,4 +88,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f109fde79cb2e404cb0a217ea718e526, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  character: {fileID: 0}
   item: {fileID: 7886897478795672720, guid: 8d5672c6b3f07434bbe26518c25c81d4, type: 3}

@@ -1,14 +1,12 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using System.Threading.Tasks;
 using UnityEngine.UI;
 
 public class Character : Unit
 {
-    [SerializeField]
-    private float speed = 2.0f;
+    [SerializeField]    
+    public float speed = 2.0f;
     [SerializeField]
     private float jumpForce = 5.0f;
     private float dashForce = 3.5f;
@@ -18,12 +16,12 @@ public class Character : Unit
     public int numOfHeart;
     public Image[] hearts;
     public Sprite fullHeart;
-    public Sprite emptyHeart;
+    public Sprite emptyHeart;    
     private float timeBtwDash;
     public float startTimeBtwDash;
     //float direction;
 
-   
+    
     private void FixedUpdate()
     {
         
@@ -46,9 +44,7 @@ public class Character : Unit
         else
         {
             timeBtwDash -= Time.deltaTime;
-        }
-        if (Input.GetKeyDown(KeyCode.H)) CheatHeal();
-        
+        }       
         Reflect();
       
 
@@ -149,10 +145,11 @@ public class Character : Unit
         }
     }
 
-    private void CheatHeal()
-    {
-        lifes++;
-    }
+    //private void Heal()
+    //{
+    //    
+    //    lifes++;
+    //}
     
     public void SaveCharacter()
     {
