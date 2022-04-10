@@ -7,12 +7,17 @@ public class PlayerAttack : MonoBehaviour
     private float timeBtwAttack;
     public float startTimeBtwAttack;
     public float attackRange;
+
+    public bool isAttacking = false;
+
     public int damage;
+    
     public Transform punchDot;
     private SpriteRenderer sprite;
     private Character mainCharacter;
     public Animator animator;
     public Character character;
+   
     public LayerMask monster;
     Vector3 direction; 
 
@@ -20,7 +25,7 @@ public class PlayerAttack : MonoBehaviour
     {
         animator = character.GetComponentInChildren<Animator>();
     }
-    private void Update()
+    private void FixedUpdate()
     {
         Attack();
     }
@@ -52,16 +57,18 @@ public class PlayerAttack : MonoBehaviour
         if (timeBtwAttack <= 0)
         {
             if (Input.GetKeyDown(KeyCode.X))
-            {
+            { 
                 
                 Collider2D[] monsters = Physics2D.OverlapCircleAll(punchDot.position, attackRange, monster);
                 for (int i = 0; i < monsters.Length; i++)
                 {
                     monsters[i].GetComponent<Monster>().reciveDamage(damage);
                     Kick(monsters[i].GetComponent<Monster>());
-                    timeBtwAttack = startTimeBtwAttack;
+                    
+                    
                 }
                 animator.SetTrigger("Attack");
+                timeBtwAttack = startTimeBtwAttack;
             }
         }
         else

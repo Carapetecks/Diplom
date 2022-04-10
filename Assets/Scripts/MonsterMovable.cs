@@ -23,22 +23,28 @@ public class MonsterMovable : Monster
 
     protected void FixedUpdate()
     {
+        if (currentTimeToAttack > 0)
+        {
+            currentTimeToAttack -= Time.deltaTime;
+        }
         CheckGround();
     }
     
     protected override void Start()
     {
         direction = transform.right;
-        InvokeRepeating("MonsterAttack", 1, 0.8f);
+        //InvokeRepeating("MonsterAttack", 1, 0.8f);
     }
     protected override void Update()
     {        
-        if (currentTimeToAttack != 0)
-            currentTimeToAttack -= Time.deltaTime;
-        if (currentTimeToAttack < 0)
-            currentTimeToAttack = 0;
-        if (mainCharacter && Vector2.Distance(transform.position, mainCharacter.transform.position) > 1)
-            currentTimeToAttack = 0;
+        if(currentTimeToAttack<=0)
+        {
+            MonsterAttack();
+            currentTimeToAttack = timeToAttack;
+        }
+
+        //if (mainCharacter && Vector2.Distance(transform.position, mainCharacter.transform.position) > 1)
+        //    currentTimeToAttack = 0;
         if (isGrounded) Move();
     }
 
@@ -72,10 +78,10 @@ public class MonsterMovable : Monster
         }    
     } 
     private void CheckGround()
-        {
-            Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, 0.3f);
-            isGrounded = colliders.Length > 1;
-        }
+    {
+        Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, 0.3f);
+        isGrounded = colliders.Length > 1;
+    }
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.green;
