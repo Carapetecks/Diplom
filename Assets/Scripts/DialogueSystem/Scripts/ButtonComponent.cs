@@ -1,4 +1,7 @@
-﻿using UnityEngine;
+﻿// NULLcode Studio © 2016
+// null-code.ru
+
+using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
 

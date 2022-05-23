@@ -1,11 +1,14 @@
-﻿using UnityEngine;
+﻿// NULLcode Studio © 2016
+// null-code.ru
+
+using UnityEngine;
 using System.Collections;
 using System.IO;
 using System.Xml;
 
 public class DialogueGenerator : MonoBehaviour {
 	
-	public string fileName = "Stalker"; // имя генерируемого файла (без разрешения)
+	public string fileName = "Example"; // имя генерируемого файла (без разрешения)
 	public string folder = "Russian"; // подпапка в Resources, для записи
 	public DialogueNode[] node;
 

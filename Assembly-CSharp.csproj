@@ -91,6 +91,8 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Resources\Russian\Stalker.xml" />
+    <None Include="Assets\Scripts\DialogueSystem\NULLcode Studio.txt" />
+    <None Include="Assets\Resources\Russian\Example.xml" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

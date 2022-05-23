@@ -1,4 +1,7 @@
-﻿#if UNITY_EDITOR
+﻿// NULLcode Studio © 2016
+// null-code.ru
+
+#if UNITY_EDITOR
 using UnityEngine;
 using System.Collections;
 using UnityEditor;
