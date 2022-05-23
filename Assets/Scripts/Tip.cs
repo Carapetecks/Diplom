@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Tip : MonoBehaviour
-{
-    public Transform searchDot;
+{   
     public float searchRange;
     public LayerMask item;
     private Character mainCharacter;
+    public Transform searchDot;
     private bool TipOn;
 
     private void Start()
@@ -27,7 +27,7 @@ public class Tip : MonoBehaviour
             for (int i = 0; i < items.Length; i++)
             {
                 items[i].GetComponent<Item>();
-                Debug.Log("калак найден");
+                Debug.Log("Предмет найден");
             }
         }
     }

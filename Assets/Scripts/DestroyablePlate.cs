@@ -13,17 +13,13 @@ public class DestroyablePlate : MonoBehaviour
         Unit unit = collider.GetComponent<Unit>();
         if(unit is Character)
         {
-            StartCoroutine(Fall());
-            
+            StartCoroutine(Fall());          
         }
-
-
     }
     IEnumerator Fall()
     {
         yield return new WaitForSeconds(0.3f);
         rigidbody.isKinematic = false;
-        Destroy(gameObject, 0.5f);
-        
+        Destroy(gameObject, 0.5f);       
     }
 }

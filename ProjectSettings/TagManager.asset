@@ -22,10 +22,10 @@ TagManager:
   - 
   - NPC
   - monster
-  - Item
+  - item
   - character
-  - 
-  - 
+  - ground
+  - wall
   - 
   - 
   - 

@@ -15,9 +15,8 @@ GameObject:
   - component: {fileID: 1460019335008971779}
   - component: {fileID: 1641933698029217065}
   - component: {fileID: -8852938695008373972}
-  m_Layer: 0
-  m_Name: "Crystall(\u0442\u043E\u0442 \u043A\u043E\u0442\u043E\u0440\u044B\u0439
-    \u0432\u044B\u0431\u0440\u0430\u0441\u044B\u0432\u0430\u0435\u0442\u0441\u044F)"
+  m_Layer: 9
+  m_Name: "\u0430\u043A47"
   m_TagString: Item
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -101,7 +100,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.0025719926, y: 0.0034771338}
+  m_Offset: {x: -0.0019903034, y: 0.0026042126}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -112,7 +111,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.24530567, y: 0.21642618}
+  m_Size: {x: 0.30117604, y: 0.24843487}
   m_EdgeRadius: 0
 --- !u!60 &445889555596054440
 PolygonCollider2D:

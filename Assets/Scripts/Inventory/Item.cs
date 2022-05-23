@@ -27,7 +27,7 @@ public class Item : MonoBehaviour
 
     private void Take()
     {
-        if (CheckEnter && Input.GetKeyDown(KeyCode.E))
+        if (CheckEnter && Input.GetKeyDown(KeyCode.F))
         {
             for (int i = 0; i < inventory.slots.Length; i++)
             {

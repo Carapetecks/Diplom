@@ -9,9 +9,7 @@ public static class SaveSystem
         BinaryFormatter formatter = new BinaryFormatter();
         string path = Application.persistentDataPath + "/character.rofl";
         FileStream stream = new FileStream(path, FileMode.Create);
-
         CharacterData data = new CharacterData(character);
-
         formatter.Serialize(stream, data);
         stream.Close();
     }
@@ -44,7 +42,6 @@ public static class SaveSystem
         {
             BinaryFormatter formatter = new BinaryFormatter();
             FileStream stream = new FileStream(path, FileMode.Open);
-
             CharacterData data =  formatter.Deserialize(stream) as CharacterData;
             stream.Close();
             return data;

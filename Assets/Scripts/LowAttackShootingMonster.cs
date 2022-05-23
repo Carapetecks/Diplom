@@ -29,7 +29,6 @@ public class LowAttackShootingMonster : Monster
         position.x -= 0.1f;
         Bullet newBullet = Instantiate
           (bullet, position, bullet.transform.rotation) as Bullet;
-
         newBullet.Direction = newBullet.transform.right * (sprite.flipX ? 1.0f : -1.0f);
     }
 

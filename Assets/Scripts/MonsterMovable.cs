@@ -6,40 +6,44 @@ public class MonsterMovable : Monster
     public float speed = 1.0f; 
     [SerializeField] private float timeToAttack = 1f;
     private float currentTimeToAttack = 0;
+    public float mobAttackRange;      
     private bool canAttack => currentTimeToAttack == 0;   
-    private Character mainCharacter;
-    Vector3 direction;  
     public bool faceRight = true;
     public bool isGrounded = false;
     public Transform mobAttackDot;
-    public float mobAttackRange;
+    private Character mainCharacter;
     public LayerMask character;
+    Vector3 direction;
     public MonsterMovable() :base()
     {
 
     }
 
-
     protected void FixedUpdate()
     {
+        if (currentTimeToAttack > 0)
+        {
+            currentTimeToAttack -= Time.deltaTime;
+        }
         CheckGround();
     }
     
     protected override void Start()
     {
         direction = transform.right;
-        InvokeRepeating("MonsterAttack", 1, 0.8f);
+        //InvokeRepeating("MonsterAttack", 1, 0.8f);
     }
     protected override void Update()
     {        
-        if (currentTimeToAttack != 0)
-            currentTimeToAttack -= Time.deltaTime;
-        if (currentTimeToAttack < 0)
-            currentTimeToAttack = 0;
-        if (mainCharacter && Vector2.Distance(transform.position, mainCharacter.transform.position) > 1)
-            currentTimeToAttack = 0;
+        if(currentTimeToAttack<=0)
+        {
+            MonsterAttack();
+            currentTimeToAttack = timeToAttack;
+        }
+
+        //if (mainCharacter && Vector2.Distance(transform.position, mainCharacter.transform.position) > 1)
+        //    currentTimeToAttack = 0;
         if (isGrounded) Move();
-        
     }
 
     private void Move()
@@ -59,8 +63,7 @@ public class MonsterMovable : Monster
             faceRight = !faceRight;
         }
     }
-    
-      
+         
     private void MonsterAttack()
     {
         Collider2D[] units = Physics2D.OverlapCircleAll(mobAttackDot.position, mobAttackRange, character);
@@ -70,34 +73,17 @@ public class MonsterMovable : Monster
             {
                 units[i].GetComponent<Character>().reciveDamage(damage);
             }
-        }
-        
-        
+        }    
     } 
     private void CheckGround()
-        {
-            Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, 0.3f);
-            isGrounded = colliders.Length > 1;
-        }
+    {
+        Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, 0.3f);
+        isGrounded = colliders.Length > 1;
+    }
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.green;
         Gizmos.DrawWireSphere(mobAttackDot.position, mobAttackRange);
     }
    
-    
-    //protected virtual void OnTriggerStay2D(Collider2D collider) // переделать с помощью гизмоса
-    //{
-    //    Unit unit = collider.GetComponent<Unit>();
-    //    if (unit && unit is Character && canAttack)
-    //        AttackCharacter((Character)unit);
-    //}
-    //private void AttackCharacter(Character character)
-    //{ 
-    //    mainCharacter = character;
-    //    mainCharacter.reciveDamage(1);
-    //    currentTimeToAttack = timeToAttack;
-    //}
-
-
 }

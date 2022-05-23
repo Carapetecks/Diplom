@@ -2,9 +2,6 @@ using UnityEngine;
 
 public class CheatKill : MonoBehaviour
 {
-   
-    
-  
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.P))
@@ -13,7 +10,6 @@ public class CheatKill : MonoBehaviour
         }
     }
  
-
     public void KillAll()
     {
         Monster[] monsters = FindObjectsOfType<Monster>();   
