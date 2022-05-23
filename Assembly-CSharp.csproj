@@ -67,36 +67,30 @@
     <Compile Include="Assets\Scripts\MonsterMovable.cs" />
     <Compile Include="Assets\Scripts\Monster.cs" />
     <Compile Include="Assets\Scripts\Unit.cs" />
-    <Compile Include="Assets\NULLcode Studio\DialogueSystem\Scripts\DialogueGenerator.cs" />
+    <Compile Include="Assets\Scripts\DialogueSystem\Scripts\DialogueGenerator.cs" />
     <Compile Include="Assets\Scripts\Character.cs" />
     <Compile Include="Assets\Scripts\CheatKill.cs" />
     <Compile Include="Assets\Scripts\Tips\WalkTip.cs" />
-    <Compile Include="Assets\Scripts\Dialogs\DialogAnimator.cs" />
     <Compile Include="Assets\Scripts\Inventory\Spawn.cs" />
     <Compile Include="Assets\Scripts\Parallax\ParallaxLayer.cs" />
     <Compile Include="Assets\Scripts\CameraController.cs" />
     <Compile Include="Assets\Scripts\DestroyablePlate.cs" />
-    <Compile Include="Assets\Scripts\Dialogs\DialogTrigger.cs" />
     <Compile Include="Assets\Scripts\Bullet.cs" />
     <Compile Include="Assets\Scripts\Trap.cs" />
     <Compile Include="Assets\Scripts\Inventory\Slot.cs" />
     <Compile Include="Assets\Scripts\TransitionToFirstLocation.cs" />
-    <Compile Include="Assets\NULLcode Studio\DialogueSystem\Scripts\TestScript.cs" />
-    <Compile Include="Assets\Scripts\Dialogs\DialogManager.cs" />
-    <Compile Include="Assets\NULLcode Studio\DialogueSystem\Scripts\DialogueManager.cs" />
-    <Compile Include="Assets\Scripts\Dialogs\Dialog.cs" />
+    <Compile Include="Assets\Scripts\DialogueSystem\Scripts\TestScript.cs" />
+    <Compile Include="Assets\Scripts\DialogueSystem\Scripts\DialogueManager.cs" />
     <Compile Include="Assets\Scripts\Inventory\Item.cs" />
     <Compile Include="Assets\Scripts\SaveSystem.cs" />
-    <Compile Include="Assets\NULLcode Studio\DialogueSystem\Scripts\DialogueTrigger.cs" />
+    <Compile Include="Assets\Scripts\DialogueSystem\Scripts\DialogueTrigger.cs" />
     <Compile Include="Assets\Scripts\Parallax\ParallaxCamera.cs" />
-    <Compile Include="Assets\NULLcode Studio\DialogueSystem\Scripts\ButtonComponent.cs" />
+    <Compile Include="Assets\Scripts\DialogueSystem\Scripts\ButtonComponent.cs" />
     <Compile Include="Assets\Scripts\Pause_menu.cs" />
-    <Compile Include="Assets\NULLcode Studio\DialogueSystem\Scripts\DialogueGeneratorEditor.cs" />
+    <Compile Include="Assets\Scripts\DialogueSystem\Scripts\DialogueGeneratorEditor.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Resources\Russian\Stalker.xml" />
-    <None Include="Assets\NULLcode Studio\DialogueSystem\NULLcode Studio.txt" />
-    <None Include="Assets\Resources\Russian\Example.xml" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
