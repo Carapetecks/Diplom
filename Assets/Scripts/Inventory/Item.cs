@@ -1,9 +1,7 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class Item : MonoBehaviour
-{
+{    
     private Inventory inventory;
     private bool CheckEnter = false;
     public GameObject slotButton;
@@ -13,6 +11,7 @@ public class Item : MonoBehaviour
     }
     private void Update()
     {
+       //if(Input.GetButtonDown("Heal")) Heal();
         Take();
     }
     private void OnTriggerEnter2D(Collider2D other)
@@ -35,14 +34,14 @@ public class Item : MonoBehaviour
                 if (inventory.isFull[i] == false)
                 {
                     inventory.isFull[i] = true;
-                    Instantiate(slotButton, inventory.slots[i].transform);
+                    Instantiate(slotButton, inventory.slots[i].transform, false);
                     Destroy(gameObject);
                     break;
                 }
             }
         }
     }
-   
+    
 
     
 

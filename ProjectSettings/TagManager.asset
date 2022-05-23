@@ -8,6 +8,10 @@ TagManager:
   - CameraLimit
   - Item
   - Monster
+  - NPC
+  - HealingPotion
+  - SpeedPotion
+  - Menu
   layers:
   - Default
   - TransparentFX
@@ -16,7 +20,7 @@ TagManager:
   - Water
   - UI
   - 
-  - 
+  - NPC
   - monster
   - item
   - character
