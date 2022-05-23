@@ -5,7 +5,7 @@ using System.Xml;
 
 public class DialogueGenerator : MonoBehaviour {
 	
-	public string fileName = "Example"; // имя генерируемого файла (без разрешения)
+	public string fileName = "Stalker"; // имя генерируемого файла (без разрешения)
 	public string folder = "Russian"; // подпапка в Resources, для записи
 	public DialogueNode[] node;
 

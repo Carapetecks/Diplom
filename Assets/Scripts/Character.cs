@@ -261,6 +261,15 @@ public class Character : Unit
         Gizmos.DrawWireCube(groundCheckPoint.position, new Vector3(boxX, boxY, 0));
         Gizmos.DrawWireCube(itemCheckPoint.position, new Vector3(itemBoxX, itemBoxY, 0));
     }
+    public void SpeedTimer()
+    {
+        StartCoroutine(Speed());
+    }
+    IEnumerator Speed()
+    {
+        yield return new WaitForSeconds(5f);
+        speed -= 2f;
+    }
 }
 
 

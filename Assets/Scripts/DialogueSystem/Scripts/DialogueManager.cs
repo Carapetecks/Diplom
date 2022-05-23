@@ -32,7 +32,6 @@ public class DialogueManager : MonoBehaviour {
 	{
 		get{ return _internal; }
 	}
-
 	void Awake()
 	{
 		_internal = this;
@@ -152,7 +151,7 @@ public class DialogueManager : MonoBehaviour {
 		button.onClick.AddListener(() => CloseDialogue());
 	}
 
-	public void CloseDialogue()
+	void CloseDialogue()
 	{
 		scrollRect.gameObject.SetActive(false);
 		ClearDialogue();

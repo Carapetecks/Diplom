@@ -7,8 +7,6 @@ public class TestScript : MonoBehaviour {
 	private bool CheckEnter = false;
 	void Update()
 	{
-		Debug.Log(CheckEnter);
-		
 		if (CheckEnter && Input.GetKeyDown(KeyCode.F)) TriggerDialog();       
 	}
 	void TriggerDialog()
@@ -32,6 +30,6 @@ public class TestScript : MonoBehaviour {
 			CheckEnter = false;
 			
 		}
-		FindObjectOfType<DialogueManager>().CloseDialogue();
+		
 	}
 }
