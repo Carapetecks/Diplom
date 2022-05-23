@@ -1,0 +1,20 @@
+<dialogue name="Stalker">
+  <node id="0" npcText="Здарова сталкер">
+    <answer text="Ну привет" exit="True" />
+    <answer text="Ты кто?" toNode="1" />
+    <answer text="Давай анек" toNode="2" />
+  </node>
+  <node id="1" npcText="Я Богдан Богом Дан, а ты?">
+    <answer text="А я Наук Наукодан" exit="True" />
+  </node>
+  <node id="2" npcText="Идет медведь по лесу. Видит машина горит...">
+    <answer text="А, а...дальше то что?" toNode="3" />
+  </node>
+  <node id="3" npcText="Ну так он сел в нее и сгорел">
+    <answer text="Ахахаха, ну ты даешь" exit="True" />
+    <answer text="Так не смешно ведь" toNode="4" />
+  </node>
+  <node id="4" npcText="Да пошел ты нахуй">
+    <answer text="Пойти нахуй" exit="True" />
+  </node>
+</dialogue>

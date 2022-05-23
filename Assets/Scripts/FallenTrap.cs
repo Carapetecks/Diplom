@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 
 public class FallenTrap : MonoBehaviour
@@ -12,7 +10,10 @@ public class FallenTrap : MonoBehaviour
     {
         rigidbody = GetComponent<Rigidbody2D>();
     }
+    void Update()
+    {
 
+    }
     private void OnTriggerEnter2D(Collider2D collider)
     {
         Unit unit = collider.GetComponent<Unit>();
@@ -39,8 +40,5 @@ public class FallenTrap : MonoBehaviour
         //}
         //collision.gameObject.name.Equals("Character")
     }
-    void Update()
-    {
-        
-    }
+    
 }

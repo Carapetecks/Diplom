@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class Character : Unit
 {
+    public Pause_menu menu;
+    private Spawn spawn;
     [SerializeField]    
     public float speed = 2.0f;
     [SerializeField]
@@ -19,6 +21,7 @@ public class Character : Unit
     public Sprite emptyHeart;    
     private float timeBtwDash;
     public float startTimeBtwDash;
+    private int level;
     //float direction;
 
     
@@ -28,7 +31,10 @@ public class Character : Unit
         CheckGround();
         HeatPoint();
     }
-
+    private void Awake()
+    {
+        menu = GameObject.FindGameObjectWithTag("Menu").GetComponent<Pause_menu>();
+    }
     private void Update()
     {
         if (Input.GetButton("Horizontal")) Run();
@@ -46,9 +52,8 @@ public class Character : Unit
             timeBtwDash -= Time.deltaTime;
         }       
         Reflect();
-      
-
     }
+    
     private void Run()
     {
         direction = transform.right * Input.GetAxis("Horizontal");
@@ -142,15 +147,8 @@ public class Character : Unit
         {
             rigid.AddForce(-transform.right * dashForce, ForceMode2D.Impulse);
             timeBtwDash = startTimeBtwDash;
-        }
+        }        
     }
-
-    //private void Heal()
-    //{
-    //    
-    //    lifes++;
-    //}
-    
     public void SaveCharacter()
     {
         SaveSystem.SaveCharacter(this);
@@ -165,11 +163,20 @@ public class Character : Unit
         position.y = data.position[1];
         transform.position = position;
     }
+    public void SpeedTimer()
+    {
+        StartCoroutine(Speed());
+    }
     IEnumerator GravityScaleDrop()
     {
         yield return new WaitForSeconds(1f);
+    }    
+    IEnumerator Speed()
+    {        
+        yield return new WaitForSeconds(5f);        
+        speed -= 2f;
     }
-    
+
 }
 
 

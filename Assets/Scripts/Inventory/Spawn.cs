@@ -1,25 +1,21 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class Spawn : MonoBehaviour
 {
     public Slot slot;
     public Character character;
     public GameObject item;
-    private Transform player;
-    bool speedboost;
-   
+    private Transform player;      
     private void Start()
     {
         character = GameObject.FindGameObjectWithTag("Player").GetComponent<Character>();
         player = GameObject.FindGameObjectWithTag("Player").transform;
     }
     private void Update()
-    {      
+    {        
         if (Input.GetButtonDown("Heal")) Heal();
-        if (Input.GetButtonDown("Potion")) SpeedBoost();        
-        if (Input.GetKeyDown(KeyCode.Q)) SpawnDroppedItem();
+        if (Input.GetButtonDown("Potion")) SpeedBoost();
+        if (Input.GetKeyDown(KeyCode.Q)) SpawnDroppedItem();        
     }
     public void SpawnDroppedItem()
     {
@@ -27,7 +23,7 @@ public class Spawn : MonoBehaviour
         Instantiate(item, playerPos, Quaternion.identity);
         Destroy(gameObject);
     }
-    public void Heal()
+    public void Heal() //лечение
     {        
         if(gameObject.tag.Equals("HealingPotion"))
         {
@@ -39,22 +35,23 @@ public class Spawn : MonoBehaviour
         }        
         
     }
-    public void SpeedBoost()
+    public void SpeedBoost() //баф на скорость
     {
         if (gameObject.tag.Equals("SpeedPotion"))
-        {
-            speedboost = true;
+        {            
             character.speed += 2f;
             Destroy(gameObject);
-            StartCoroutine(Speed());            
+            character.SpeedTimer();
+        }       
+    }
+    public void JumpBoost() //баф на прыжок
+    {
+        if(gameObject.tag.Equals("JumpForce"))
+        {
+
         }
     }
-    IEnumerator Speed()
-    {
-        
-        yield return new WaitForSeconds(4f);
-        Debug.Log("speed-");
-        character.speed -= 2f;
-        speedboost = false;
-    }
+    
+    
+    
 }

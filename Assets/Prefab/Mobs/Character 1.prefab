@@ -103,6 +103,7 @@ MonoBehaviour:
   damage: 1
   rigid: {fileID: 4538828736394176315}
   sprite: {fileID: 4538828736862218401}
+  menu: {fileID: 0}
   speed: 2
   jumpForce: 5
   faceRight: 1

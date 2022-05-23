@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class Slot : Spawn
 {
@@ -37,7 +35,7 @@ public class Slot : Spawn
             child.GetComponent<Spawn>().Heal();
         }
         foreach (Transform child in transform)
-        {
+        {          
             child.GetComponent<Spawn>().SpeedBoost();
         }
     }

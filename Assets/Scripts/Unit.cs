@@ -1,23 +1,16 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
-using UnityEngine.UI;
+
 
 public class Unit : MonoBehaviour
 {
-    //private Unit unit;
-    //private Character character;
-    //private new Rigidbody2D rigidbody;
-    //Vector3 direction;
     [SerializeField]
     public int lifes;
     public int damage = 1;
     public Rigidbody2D rigid;
     private Animator animator;
     public SpriteRenderer sprite;
-    Vector3 direction;
-   
+    Vector3 direction;   
 
     public void Awake()
     {
@@ -34,7 +27,11 @@ public class Unit : MonoBehaviour
             Die();
         }
     }
-
+    protected virtual void Die()
+    {
+        Destroy(gameObject);
+    }  
+        
     IEnumerator DamageIdentification()
     {
         sprite.color = new Color(255, 0, 0);
@@ -42,9 +39,5 @@ public class Unit : MonoBehaviour
         sprite.color = new Color(255, 255, 255);
     }
 
-    protected virtual void Die()
-    {
-        Destroy(gameObject);
-    }
-        
+    
 }
