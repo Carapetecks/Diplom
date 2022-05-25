@@ -24,11 +24,28 @@ public class Unit : MonoBehaviour
 
     public virtual void reciveDamage(int damage)
     {
+        Unit unit = GetComponent<Unit>();
         lifes -= damage;
         StartCoroutine("DamageIdentification");
         if(lifes<=0)
         {
-            Die();
+            if(unit is LowAttackShootingMonster)
+            {
+                ScoreText.Score += 100;
+                Die();
+            }else if(unit is MonsterMovable)
+            {
+                ScoreText.Score += 150;
+                Die();
+            }else if(unit is StaticMonster)
+            {
+                ScoreText.Score += 75;
+                Die();
+            }else if (unit is UwU)
+            {
+                ScoreText.Score += 50;
+                Die();
+            }            
         }
     }
 

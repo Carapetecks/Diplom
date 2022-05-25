@@ -151,7 +151,7 @@ public class DialogueManager : MonoBehaviour {
 		button.onClick.AddListener(() => CloseDialogue());
 	}
 
-	void CloseDialogue()
+	public void CloseDialogue()
 	{
 		scrollRect.gameObject.SetActive(false);
 		ClearDialogue();

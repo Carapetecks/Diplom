@@ -27,6 +27,8 @@ public class Character : Unit
     private bool isJumping = false;
     public bool faceRight = true;
     public bool canTake;
+    public bool canTalk;
+    public bool canTakeScore;
     
     public int numOfHeart;
     
@@ -34,7 +36,7 @@ public class Character : Unit
     public float startTimeBtwDash;
 
     public Transform groundCheckPoint, wallCheckPoint, itemCheckPoint;
-    public LayerMask ground, wall, item;
+    public LayerMask ground, wall, item, character, NPC, scoreCrystall;
     public Image[] hearts;
     public Sprite fullHeart;
     public Sprite emptyHeart;   
@@ -57,9 +59,12 @@ public class Character : Unit
 
     private void Update()
     {
+        
 ///DEFINING FIELDS
         isGrounded = Physics2D.OverlapBox(groundCheckPoint.position, new Vector2(boxX, boxY), 0, ground);
         canTake = Physics2D.OverlapBox(itemCheckPoint.position, new Vector2(itemBoxX, itemBoxY), 0, item);
+        canTalk = Physics2D.OverlapBox(itemCheckPoint.position, new Vector2(itemBoxX, itemBoxY), 0, NPC);
+        canTakeScore = Physics2D.OverlapBox(itemCheckPoint.position, new Vector2(itemBoxX, itemBoxY), 0, scoreCrystall);
         dirX = Input.GetAxis("Horizontal");
         dirY = Input.GetAxis("Vertical");
 
@@ -83,11 +88,11 @@ public class Character : Unit
         if (Input.GetKeyDown(KeyCode.H)) CheatHeal();
         
         ItemSearch();
-
     }
 
     private void FixedUpdate()
-    {   
+    {
+        
         HeatPoint();
 ///RUN        
       if (!isDashing)
@@ -137,7 +142,8 @@ public class Character : Unit
         Kick(GetComponent<Character>());
         Debug.Log(lifes);
         if (lifes <= 0)
-        {         
+        {
+            ScoreText.Score = 0;
             base.Die(); 
             SceneManager.LoadScene("Menu");
         }     
@@ -148,7 +154,7 @@ public class Character : Unit
         rigidbody.velocity = new Vector2(0, 0);
         rigidbody.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
     }
-    private void Dash() // ПЕРЕДЕЛАТЬ
+    private void Dash() 
     {
         if (!faceRight)
         {
@@ -235,7 +241,7 @@ public class Character : Unit
     }
     public void ItemSearch()
     {
-        if(canTake == true)
+        if(canTake == true || canTalk==true || canTakeScore==true)
         {
             if (faceRight)
             {
@@ -270,6 +276,14 @@ public class Character : Unit
         yield return new WaitForSeconds(5f);
         speed -= 2f;
     }
+
+    /// IGNOR ITEMS LAYER
+    public void IgnorLayer()
+    {
+        Physics2D.IgnoreLayerCollision(9, 10);
+    }
+
+
 }
 
 

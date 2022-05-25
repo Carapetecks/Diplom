@@ -10,11 +10,11 @@ GameObject:
   m_Component:
   - component: {fileID: 3400329428291628012}
   - component: {fileID: 7190128584787011983}
-  - component: {fileID: 2792546249266879361}
   - component: {fileID: 445889555596054440}
   - component: {fileID: 1460019335008971779}
   - component: {fileID: 2032002999992390413}
   - component: {fileID: 3498058080377811955}
+  - component: {fileID: 3164778067930763738}
   m_Layer: 9
   m_Name: "Crystall(\u0442\u043E\u0442 \u043A\u043E\u0442\u043E\u0440\u044B\u0439
     \u043D\u0430 \u0437\u0435\u043C\u043B\u0435 \u043B\u0435\u0436\u0438\u0442)"
@@ -93,32 +93,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!61 &2792546249266879361
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7886897478795672720}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: -0.0019402504, y: 0.0053721443}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.23, y: 0.18}
-    newSize: {x: 0.54, y: 0.19}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.28952312, y: 0.24800985}
-  m_EdgeRadius: 0
 --- !u!60 &445889555596054440
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -247,3 +221,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.20627376, y: 0.19583598}
   m_EdgeRadius: 0
+--- !u!58 &3164778067930763738
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7886897478795672720}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.0030359626, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.16223752

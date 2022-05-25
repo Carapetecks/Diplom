@@ -35,6 +35,7 @@ public class Bullet : MonoBehaviour
         Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position + transform.right * direction.x * 0.09f, 0.01f);
         if (colliders.Length > 0 
             && colliders.All(x => !x.GetComponent<Monster>())
+            && colliders.All(x => !x.GetComponent<Item>())
             && colliders.All(x => !x.GetComponent<Character>()) 
             && colliders.All(x => !x.GetComponent<FallenTrap>())
             && colliders.All(x => !x.GetComponent<WalkTip>()))

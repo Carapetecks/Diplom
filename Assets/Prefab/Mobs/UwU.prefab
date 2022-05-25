@@ -93,8 +93,8 @@ GameObject:
   - component: {fileID: 2395684561706229715}
   - component: {fileID: 2395684561706229718}
   - component: {fileID: 2395684561706229545}
-  - component: {fileID: 5192742554140070137}
   - component: {fileID: 2045424493777726366}
+  - component: {fileID: 3272571755798192225}
   m_Layer: 8
   m_Name: UwU
   m_TagString: Monster
@@ -167,31 +167,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.54357743, y: 0.37961507}
   m_EdgeRadius: 0
---- !u!114 &5192742554140070137
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2395684561706229546}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 24bcf4c7e88f45c4f9e47be47cff4e16, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  lifes: 2
-  damage: 1
-  rigidbody: {fileID: 0}
-  sprite: {fileID: 2395684561441520910}
-  speed: 1
-  timeToAttack: 3
-  mobAttackRange: 0.39
-  faceRight: 1
-  isGrounded: 0
-  mobAttackDot: {fileID: 8107498389713165294}
-  character:
-    serializedVersion: 2
-    m_Bits: 1024
 --- !u!58 &2045424493777726366
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -208,6 +183,18 @@ CircleCollider2D:
   m_Offset: {x: 0.03277664, y: 0.4363942}
   serializedVersion: 2
   m_Radius: 0.20168634
+--- !u!114 &3272571755798192225
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2395684561706229546}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 593815c668e85814bab41ada543aec60, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5192742554310926053
 GameObject:
   m_ObjectHideFlags: 0

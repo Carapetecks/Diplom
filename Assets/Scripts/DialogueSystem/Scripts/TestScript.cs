@@ -7,13 +7,14 @@ public class TestScript : MonoBehaviour {
 	private bool CheckEnter = false;
 	void Update()
 	{
-		if (CheckEnter && Input.GetKeyDown(KeyCode.F)) TriggerDialog();       
+		if (CheckEnter && Input.GetKeyDown(KeyCode.F)) TriggerDialog();
+		CloseTrigger();
 	}
 	void TriggerDialog()
     {
 		DialogueTrigger dialogueTrigger = transform.GetComponent<DialogueTrigger>();
 		if(dialogueTrigger != null && dialogueTrigger.fileName != string.Empty)
-		FindObjectOfType<DialogueManager>().DialogueStart(dialogueTrigger.fileName);
+		FindObjectOfType<DialogueManager>().DialogueStart(dialogueTrigger.fileName);		
     }
 	private void OnTriggerEnter2D(Collider2D other)
 	{
@@ -28,8 +29,11 @@ public class TestScript : MonoBehaviour {
 		if (other.CompareTag("Player"))
 		{
 			CheckEnter = false;
-			
 		}
-		
+	}
+	public void CloseTrigger()
+    {
+		if(CheckEnter==false)
+		FindObjectOfType<DialogueManager>().CloseDialogue();
 	}
 }
