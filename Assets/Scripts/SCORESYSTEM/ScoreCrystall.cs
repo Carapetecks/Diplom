@@ -25,7 +25,7 @@ public class ScoreCrystall : MonoBehaviour
     {
         if(CheckEnter==true && Input.GetKeyDown(KeyCode.F))
         {
-            ScoreText.Score += 100;
+            ScoreText.Score += 500;
             Debug.Log(ScoreText.Score);
             Destroy(gameObject);
         }

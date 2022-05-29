@@ -12,25 +12,32 @@ public class Character : Unit
     private float jumpForce = 5.5f;
     private float dashForce;
     private float dashForceEnd = 0f;  
+    private float wallSlidingSpeed = -0.2f;  
+   
     public float boxX;
     public float boxY;
     public float wallBoxX;
     public float wallBoxY;
     public float itemBoxX;
     public float itemBoxY;
+    
     float normalGravity;
     float dirX, dirY;
 
     private bool isGrounded = true;
     private bool isClimbing;
+    private bool isSliding = false;
     private bool isDashing;
     private bool isJumping = false;
     public bool faceRight = true;
+   
     public bool canTake;
     public bool canTalk;
     public bool canTakeScore;
     
     public int numOfHeart;
+    public int maxClimbingJumpAmount = 1;
+    public int climbingJumpAmount;
     
     private float timeBtwDash;
     public float startTimeBtwDash;
@@ -62,9 +69,12 @@ public class Character : Unit
         
 ///DEFINING FIELDS
         isGrounded = Physics2D.OverlapBox(groundCheckPoint.position, new Vector2(boxX, boxY), 0, ground);
+        isClimbing = Physics2D.OverlapBox(wallCheckPoint.position, new Vector2(wallBoxX, wallBoxY), 0, wall);
+        
         canTake = Physics2D.OverlapBox(itemCheckPoint.position, new Vector2(itemBoxX, itemBoxY), 0, item);
         canTalk = Physics2D.OverlapBox(itemCheckPoint.position, new Vector2(itemBoxX, itemBoxY), 0, NPC);
         canTakeScore = Physics2D.OverlapBox(itemCheckPoint.position, new Vector2(itemBoxX, itemBoxY), 0, scoreCrystall);
+        
         dirX = Input.GetAxis("Horizontal");
         dirY = Input.GetAxis("Vertical");
 
@@ -73,11 +83,17 @@ public class Character : Unit
         {
              Jump();
         }
+        else if (Input.GetButtonDown("Jump") && isClimbing && climbingJumpAmount >=1)
+        {
+            rigidbody.velocity = Vector2.zero;
+            Jump();
+            climbingJumpAmount--;
+        }
 
 ///DASH
-       if (timeBtwDash <= 0)
+        if (timeBtwDash <= 0)
         {
-            if (Input.GetButtonDown("Dash") && animator)
+            if (Input.GetButtonDown("Dash") && animator && !isClimbing)
             {              
                 StartCoroutine("DashCoroutine");
                 animator.SetTrigger("Dash");
@@ -87,6 +103,9 @@ public class Character : Unit
        
         if (Input.GetKeyDown(KeyCode.H)) CheatHeal();
         
+        if (!isClimbing && climbingJumpAmount < maxClimbingJumpAmount)
+            climbingJumpAmount = maxClimbingJumpAmount;
+        
         ItemSearch();
     }
 
@@ -95,7 +114,7 @@ public class Character : Unit
         
         HeatPoint();
 ///RUN        
-      if (!isDashing)
+        if (!isDashing)
         {
             Run();
         }
@@ -104,10 +123,17 @@ public class Character : Unit
         {
             timeBtwDash -= Time.deltaTime;
         }
+///SLIDING
+        if (isClimbing && !isGrounded && rigidbody.velocity.y <= 0 && dirY >= 0 && dirX != 0)
+        {
+            isSliding = true;
+            Vector2 velocity = rigidbody.velocity;
+            velocity.y = wallSlidingSpeed;
+            rigidbody.velocity = velocity;
+        }
 
-        
 ///REFLECT CHARACTER DIRECTION      
-        if(!isDashing)
+        if (!isDashing)
         Reflect();           
     }
 
@@ -126,6 +152,9 @@ public class Character : Unit
             animator.SetBool("Run", false);        
         }
     } 
+
+    
+
     void Reflect()
     {
         if ((dirX > 0 && !faceRight) || (dirX < 0 && faceRight))
@@ -148,7 +177,7 @@ public class Character : Unit
             SceneManager.LoadScene("Menu");
         }     
     }
-    private void Jump() // ПОЧИНИТЬ ИНЕРЦИЮ ПРЫЖКОВ
+    private void Jump()
     {
         isJumping = true;
         rigidbody.velocity = new Vector2(0, 0);
@@ -265,6 +294,8 @@ public class Character : Unit
     {
         Gizmos.color = Color.blue;
         Gizmos.DrawWireCube(groundCheckPoint.position, new Vector3(boxX, boxY, 0));
+        Gizmos.DrawWireCube(wallCheckPoint.position, new Vector3(wallBoxX, wallBoxY, 0));
+        Gizmos.color = Color.magenta;
         Gizmos.DrawWireCube(itemCheckPoint.position, new Vector3(itemBoxX, itemBoxY, 0));
     }
     public void SpeedTimer()
