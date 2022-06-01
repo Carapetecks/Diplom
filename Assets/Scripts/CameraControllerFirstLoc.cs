@@ -43,7 +43,6 @@ public class CameraControllerFirstLoc : MonoBehaviour
             CameraDown();
 
         }
-
     }
 
     private void CameraUp()
