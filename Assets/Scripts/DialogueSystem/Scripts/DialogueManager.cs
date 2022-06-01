@@ -10,7 +10,7 @@ public class DialogueManager : MonoBehaviour {
 	public ScrollRect scrollRect;
 	public ButtonComponent button;
 	public string folder = "Russian"; // подпапка в Resources, для чтения
-	public int offset = 20;
+	public int offset = 100;
 
 	private string fileName, lastName;
 	private List<Dialogue> node;

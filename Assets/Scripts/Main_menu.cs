@@ -4,12 +4,20 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 public class Main_menu : MonoBehaviour
 {
-    public static bool GameIsPaused = true;
-    public GameObject mainMenuUI;   
-  
-    public void Play()
+    
+    public GameObject mainMenuUI;
+    private void Update()
     {
-        SceneManager.LoadScene("FirstScene");
+        if (Pause_menu.GameIsPaused == true)
+        {
+            Time.timeScale = 1;
+        }
+
+    }
+    
+public void Play()
+    {
+        SceneManager.LoadScene("FirstScene");     
     }
     public void QuitGame()
     {

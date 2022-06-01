@@ -50,6 +50,8 @@ public class Character : Unit
     public Animator animator;
     public GameObject FRight;
     public GameObject FLeft;
+    public GameObject Dead;
+    public GameObject Interface;
     Vector2 moveVecX;
     Vector3 direction;
 
@@ -173,8 +175,8 @@ public class Character : Unit
         if (lifes <= 0)
         {
             ScoreText.Score = 0;
-            base.Die(); 
-            SceneManager.LoadScene("Menu");
+            base.Die();
+            
         }     
     }
     private void Jump()
