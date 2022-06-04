@@ -12,6 +12,7 @@ TagManager:
   - HealingPotion
   - SpeedPotion
   - Menu
+  - DeadZone
   layers:
   - Default
   - TransparentFX

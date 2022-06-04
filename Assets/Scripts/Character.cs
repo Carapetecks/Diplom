@@ -83,10 +83,12 @@ public class Character : Unit
 ///JUMP
         if (Input.GetButtonDown("Jump") && isGrounded)
         {
-             Jump();
+            animator.SetTrigger("JumpDown");
+            Jump();
         }
         else if (Input.GetButtonDown("Jump") && isClimbing && climbingJumpAmount >=1)
         {
+           
             rigidbody.velocity = Vector2.zero;
             Jump();
             climbingJumpAmount--;
@@ -128,15 +130,19 @@ public class Character : Unit
 ///SLIDING
         if (isClimbing && !isGrounded && rigidbody.velocity.y <= 0 && dirY >= 0 && dirX != 0)
         {
+            animator.SetBool("Climbing", true);
             isSliding = true;
             Vector2 velocity = rigidbody.velocity;
             velocity.y = wallSlidingSpeed;
             rigidbody.velocity = velocity;
         }
+        else
+            animator.SetBool("Climbing", false);
 
-///REFLECT CHARACTER DIRECTION      
+        ///REFLECT CHARACTER DIRECTION      
         if (!isDashing)
-        Reflect();           
+        Reflect();
+
     }
 
     private void Run()
@@ -181,9 +187,15 @@ public class Character : Unit
     }
     private void Jump()
     {
-        isJumping = true;
-        rigidbody.velocity = new Vector2(0, 0);
-        rigidbody.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
+        if (!isDashing)
+        {
+            isJumping = true;
+            rigidbody.velocity = new Vector2(0, 0);
+            rigidbody.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
+        }
+
+        
+        
     }
     private void Dash() 
     {
@@ -216,11 +228,13 @@ public class Character : Unit
         isDashing = false;
     }
     private void OnCollisionEnter2D(Collision2D collision)
-    {      
+    {
         if (collision.gameObject.tag.Equals("DroppedTrap"))
         {
             reciveDamage(1);
-        }       
+        }
+        else if (collision.gameObject.tag.Equals("DeadZone"))
+            reciveDamage(100);
     }
     private void HeatPoint()
     {
