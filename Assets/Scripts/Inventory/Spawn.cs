@@ -37,12 +37,16 @@ public class Spawn : MonoBehaviour
     }
     public void SpeedBoost() //баф на скорость
     {
+
         if (gameObject.tag.Equals("SpeedPotion"))
-        {            
-            character.speed += 2f;
-            Destroy(gameObject);
-            character.SpeedTimer();
-        }       
+        {
+            if (character.speed == 2)
+            {
+                character.speed += 2f;
+                Destroy(gameObject);
+                character.SpeedTimer();
+            }
+        }                   
     }
     public void JumpBoost() //баф на прыжок
     {
