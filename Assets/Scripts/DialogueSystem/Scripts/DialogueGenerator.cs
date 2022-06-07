@@ -5,7 +5,7 @@ using System.Xml;
 
 public class DialogueGenerator : MonoBehaviour {
 	
-	public string fileName = "Stalker"; // имя генерируемого файла (без разрешения)
+	public string fileName = "Dialog"; // имя генерируемого файла (без разрешения)
 	public string folder = "Russian"; // подпапка в Resources, для записи
 	public DialogueNode[] node;
 
@@ -39,6 +39,8 @@ public class DialogueGenerator : MonoBehaviour {
 				element.SetAttribute("text", node[j].playerAnswer[i].text);
 				if(node[j].playerAnswer[i].toNode > 0) element.SetAttribute("toNode", node[j].playerAnswer[i].toNode.ToString());
 				if(node[j].playerAnswer[i].exit) element.SetAttribute("exit", node[j].playerAnswer[i].exit.ToString());
+				if (node[j].playerAnswer[i].testdamage) element.SetAttribute("testdamage", node[j].playerAnswer[i].testdamage.ToString());
+
 				userNode.AppendChild(element);
 			}
 
@@ -64,4 +66,5 @@ public class PlayerAnswer
 	public string text;
 	public int toNode;
 	public bool exit;
+	public bool testdamage;	
 }

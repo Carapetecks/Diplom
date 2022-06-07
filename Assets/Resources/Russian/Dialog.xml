@@ -1,5 +1,5 @@
 <dialogue name="Dialog">
   <node id="0" npcText="ky">
-    <answer text="privet" />
+    <answer text="privet" testdamage="True" />
   </node>
 </dialogue>

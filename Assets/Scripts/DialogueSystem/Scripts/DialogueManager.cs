@@ -16,11 +16,15 @@ public class DialogueManager : MonoBehaviour {
 	private List<Dialogue> node;
 	private Dialogue dialogue;
 	private Answer answer;
+	public Character character;
 	private List<RectTransform> buttons = new List<RectTransform>();
 	private float curY, height;
 	private static DialogueManager _internal;
 
-   
+    private void Start()
+    {
+        character = GameObject.FindGameObjectWithTag("Player").GetComponent<Character>();
+    }
     public void DialogueStart(string name)
 	{
 		if(name == string.Empty) return;
@@ -77,6 +81,7 @@ public class DialogueManager : MonoBehaviour {
 
 						bool result;
 						if(bool.TryParse(reader.GetAttribute("exit"), out result)) answer.exit = result; else answer.exit = false;
+						if (bool.TryParse(reader.GetAttribute("testdamage"), out result)) answer.testdamage = result; else answer.testdamage = false;
 
 						node[index].answer.Add(answer);
 					}
@@ -99,14 +104,14 @@ public class DialogueManager : MonoBehaviour {
 		BuildDialogue(0);
 	}
 
-	void AddToList(bool exit, int toNode, string text, bool isActive)
+	void AddToList(bool exit, int toNode, string text, bool isActive, bool testdamage)
 	{
-		BuildElement(exit, toNode, text, isActive);
+		BuildElement(exit, toNode, text, isActive, testdamage);
 		curY += height + offset;
 		RectContent();
 	}
 
-	void BuildElement(bool exit, int toNode, string text, bool isActiveButton)
+	void BuildElement(bool exit, int toNode, string text, bool isActiveButton, bool testdamage)
 	{
 		ButtonComponent clone = Instantiate(button) as ButtonComponent;
 		clone.gameObject.SetActive(true);
@@ -120,6 +125,8 @@ public class DialogueManager : MonoBehaviour {
 
 		if(toNode > 0) SetNextDialogue(clone.button, toNode);
 		if(exit) SetExitDialogue(clone.button);
+		if (testdamage) TestEvent(clone.button);
+		
 
 		buttons.Add(clone.rect);
 	}
@@ -150,7 +157,15 @@ public class DialogueManager : MonoBehaviour {
 	{
 		button.onClick.AddListener(() => CloseDialogue());
 	}
+	void TestEvent(Button button)
+    {
+		button.onClick.AddListener(() => TestTakeDamage());
 
+	}
+	public void TestTakeDamage()
+    {
+		character.reciveDamage(1);
+    }
 	public void CloseDialogue()
 	{
 		scrollRect.gameObject.SetActive(false);
@@ -160,10 +175,10 @@ public class DialogueManager : MonoBehaviour {
 	void BuildDialogue(int current)
 	{
 		ClearDialogue();
-		AddToList(false, 0, node[current].npcText, false);
-		for(int i = 0; i < node[current].answer.Count; i++)
+		AddToList(false, 0, node[current].npcText, false, false);
+		for (int i = 0; i < node[current].answer.Count; i++)
 		{
-			AddToList(node[current].answer[i].exit, node[current].answer[i].toNode, node[current].answer[i].text, true);
+			AddToList(node[current].answer[i].exit,  node[current].answer[i].toNode, node[current].answer[i].text, true, node[current].answer[i].testdamage);
 		}
 	}
 }
@@ -180,4 +195,6 @@ class Answer
 	public string text;
 	public int toNode;
 	public bool exit;
+	public bool testdamage;
+	
 }

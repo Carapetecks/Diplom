@@ -3308,6 +3308,7 @@ MonoBehaviour:
   button: {fileID: 704378661}
   folder: Russian
   offset: 20
+  character: {fileID: 214662313}
 --- !u!1 &281106286
 GameObject:
   m_ObjectHideFlags: 0
@@ -3651,7 +3652,7 @@ PrefabInstance:
     - target: {fileID: 2410159213087802982, guid: a0721950782ec0347bcf9f4cb5a91c89,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -0.00033569336
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2410159213418556451, guid: a0721950782ec0347bcf9f4cb5a91c89,
         type: 3}
@@ -8998,6 +8999,7 @@ MonoBehaviour:
     - text: privet
       toNode: 0
       exit: 0
+      testdamage: 1
 --- !u!4 &872097836
 Transform:
   m_ObjectHideFlags: 0
@@ -27529,12 +27531,12 @@ PrefabInstance:
     - target: {fileID: 3709460146445622630, guid: 41cb55c24c9a38e4585d9b292a31e5cc,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 13.76
+      value: 26.92
       objectReference: {fileID: 0}
     - target: {fileID: 3709460146445622630, guid: 41cb55c24c9a38e4585d9b292a31e5cc,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.36
+      value: 0.29
       objectReference: {fileID: 0}
     - target: {fileID: 3709460146445622630, guid: 41cb55c24c9a38e4585d9b292a31e5cc,
         type: 3}
