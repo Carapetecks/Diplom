@@ -8,8 +8,8 @@ public class PlayerAttack : MonoBehaviour
     public float attackRange;
 
     public bool isAttacking = false;
-
     public int damage;
+    
     
     public Transform punchDot;
     private SpriteRenderer sprite;

@@ -13,6 +13,7 @@ TagManager:
   - SpeedPotion
   - Menu
   - DeadZone
+  - EndPoint
   layers:
   - Default
   - TransparentFX

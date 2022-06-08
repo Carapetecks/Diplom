@@ -4,9 +4,10 @@ using UnityEngine.SceneManagement;
 public class Pause_menu : MonoBehaviour
 {
     public static bool GameIsPaused = false;
-    
+
     public GameObject pauseMenuUI;
     public GameObject Dead;
+    public GameObject ChitPanel;
     public GameObject Interface;
     public Character character;
     void Update()
@@ -22,10 +23,8 @@ public class Pause_menu : MonoBehaviour
                 Pause();
             }
         }
-        
-            
-
         DeadScreen();
+        ChitPanelTurn();
     }
 
     public void Pause()
@@ -55,7 +54,7 @@ public class Pause_menu : MonoBehaviour
 
     public void DeadScreen()
     {
-        if(character.lifes <=0)
+        if (character.lifes <= 0)
         {
             Dead.SetActive(true);
             Interface.SetActive(false);
@@ -64,4 +63,22 @@ public class Pause_menu : MonoBehaviour
 
         }
     }
+
+    public void ChitPanelTurn()
+    {
+        if (Input.GetKey(KeyCode.C) && Input.GetKey(KeyCode.M) && Input.GetKey(KeyCode.D))
+        {
+            ChitPanel.SetActive(true);
+            Interface.SetActive(false);
+
+        }
+    }
+
+    public void ChitPanelOff()
+    {
+        ChitPanel.SetActive(false);
+        Interface.SetActive(true);
+    }
+
+ 
 }

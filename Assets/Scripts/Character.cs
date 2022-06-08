@@ -9,7 +9,7 @@ public class Character : Unit
 {
     
     public float speed = 2.0f;
-    private float jumpForce = 5.5f;
+    public float jumpForce = 5.5f;
     private float dashForce;
     private float dashForceEnd = 0f;  
     private float wallSlidingSpeed = -0.2f;  

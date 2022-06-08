@@ -93,6 +93,7 @@
     <Compile Include="Assets\Scripts\DialogueSystem\Scripts\ButtonComponent.cs" />
     <Compile Include="Assets\Scripts\Pause_menu.cs" />
     <Compile Include="Assets\Scripts\DialogueSystem\Scripts\DialogueGeneratorEditor.cs" />
+    <Compile Include="Assets\Scripts\ChitPanel.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Resources\Russian\Dialog.xml" />

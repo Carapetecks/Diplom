@@ -195,6 +195,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 593815c668e85814bab41ada543aec60, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lifes: 2
+  damage: 1
+  rigidbody: {fileID: 0}
+  sprite: {fileID: 0}
+  speed: 1
+  timeToAttack: 1
+  mobAttackRange: 0
+  faceRight: 1
+  isGrounded: 0
+  mobAttackDot: {fileID: 0}
+  character:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!1 &5192742554310926053
 GameObject:
   m_ObjectHideFlags: 0
