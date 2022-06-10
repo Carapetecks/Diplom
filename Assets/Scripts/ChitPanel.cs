@@ -14,9 +14,11 @@ public class ChitPanel : MonoBehaviour
     public Text jumpForceCounter;
     public Text SpeedCounter;
     public Text DamageCounter;
+    public Text TimeScaleCounter;
     public static float JumpForce;
     public static float Speed;
     public static float Damage;
+    public static float TimeCount;
 
 
     private void Start()
@@ -27,6 +29,7 @@ public class ChitPanel : MonoBehaviour
         JumpForce = character.jumpForce;
         Speed = character.speed;
         Damage = characterAttackDamage.damage;
+        TimeCount = Time.timeScale;
 
     }
     private void Update()
@@ -34,9 +37,12 @@ public class ChitPanel : MonoBehaviour
         jumpForceCounter.text = JumpForce.ToString();
         SpeedCounter.text = Speed.ToString();
         DamageCounter.text = Damage.ToString();
+        TimeScaleCounter.text = TimeCount.ToString();
+        
         JumpForce = character.jumpForce;
         Speed = character.speed;
         Damage = characterAttackDamage.damage;
+        TimeCount = Time.timeScale;
     }
 
     public void TeleportToEnd()
@@ -97,7 +103,7 @@ public class ChitPanel : MonoBehaviour
         }
             
     }
-
+     
     public void BustSpeed()
     {
         character.speed += 1;
@@ -120,4 +126,16 @@ public class ChitPanel : MonoBehaviour
             characterAttackDamage.damage -= 1;
     }
 
+    public void TimeScaleBust()
+    {
+        Time.timeScale += 1;
+    }
+
+    public void TimeScaleDebuff()
+    {
+        if(Time.timeScale > 1)
+        {
+            Time.timeScale -= 1;
+        }
+    }
 }

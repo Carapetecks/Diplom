@@ -91,9 +91,10 @@
     <Compile Include="Assets\Scripts\DialogueSystem\Scripts\DialogueTrigger.cs" />
     <Compile Include="Assets\Scripts\Parallax\ParallaxCamera.cs" />
     <Compile Include="Assets\Scripts\DialogueSystem\Scripts\ButtonComponent.cs" />
+    <Compile Include="Assets\Scripts\ChitPanel.cs" />
     <Compile Include="Assets\Scripts\Pause_menu.cs" />
     <Compile Include="Assets\Scripts\DialogueSystem\Scripts\DialogueGeneratorEditor.cs" />
-    <Compile Include="Assets\Scripts\ChitPanel.cs" />
+    <Compile Include="Assets\Scripts\Rog.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Resources\Russian\Dialog.xml" />

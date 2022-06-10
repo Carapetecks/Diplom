@@ -18,8 +18,14 @@ public class Unit : MonoBehaviour
 
     public void Awake()
     {
-        rigidbody = GetComponent<Rigidbody2D>();
+
         sprite = GetComponentInChildren<SpriteRenderer>();
+        rigidbody = GetComponent<Rigidbody2D>();
+    }
+
+    public void Start()
+    {
+       
     }
 
     public virtual void reciveDamage(int damage)

@@ -9,12 +9,20 @@ public class UwU : Monster
     [SerializeField] private float timeToAttack = 1f;
     private float currentTimeToAttack = 0;
     public float mobAttackRange;
+
+    public float groundBoxX;
+    public float groundBoxY;
+    public float wallBoxX;
+    public float wallBoxY;
     private bool canAttack => currentTimeToAttack == 0;
     public bool faceRight = true;
-    public bool isGrounded = false;
-    public Transform mobAttackDot;
+    public bool isGrounded = true;
+    public bool canWalkGround = false;
+
+
+    public Transform mobAttackDot, groundCheckPoint, collidersCheckPoint;
     private Character mainCharacter;
-    public LayerMask character;
+    public LayerMask character, ground, wall, monster, item, scoreCrystall;
     Vector3 direction;
     public UwU() : base()
     {
@@ -27,37 +35,52 @@ public class UwU : Monster
         {
             currentTimeToAttack -= Time.deltaTime;
         }
-        CheckGround();
-    }
 
-    protected override void Start()
-    {
-        direction = transform.right;
-        //InvokeRepeating("MonsterAttack", 1, 0.8f);
-    }
-    protected override void Update()
-    {
+        if (isGrounded) Move();
+
         if (currentTimeToAttack <= 0)
         {
             MonsterAttack();
             currentTimeToAttack = timeToAttack;
         }
+    }
 
-        //if (mainCharacter && Vector2.Distance(transform.position, mainCharacter.transform.position) > 1)
-        //    currentTimeToAttack = 0;
-        if (isGrounded) Move();
+    protected override void Start()
+    {
+        direction = transform.right;
+
+    }
+    protected override void Update()
+    {
+
+        isGrounded = Physics2D.OverlapBox(groundCheckPoint.position, new Vector2(groundBoxX, groundBoxY), 0, ground);
     }
 
     private void Move()
     {
-        Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position + transform.up * 0.3f + transform.right * direction.x * 0.35f, 0.01f);
-        if (colliders.Length > 0
-            && colliders.All(x => !x.GetComponent<Character>())
-            && colliders.All(x => !x.GetComponent<StaticMonster>())
-            && colliders.All(x => !x.GetComponent<LowAttackShootingMonster>())
-            && colliders.All(x => !x.GetComponent<FallenTrap>())) direction *= -1.0f;
-        transform.position = Vector3.MoveTowards(transform.position, transform.position + direction, speed * Time.deltaTime);
-        if ((direction.x < 0 && !faceRight) || (direction.x > 0 && faceRight))
+        rigidbody.velocity = new Vector2(-speed, 0);
+        Collider2D[] groundColliders = Physics2D.OverlapBoxAll(collidersCheckPoint.position, new Vector2(wallBoxX, wallBoxY), 0, ground);
+        Collider2D[] monstersColliders = Physics2D.OverlapBoxAll(collidersCheckPoint.position, new Vector2(wallBoxX, wallBoxY), 0, monster);
+        Collider2D[] wallsColliders = Physics2D.OverlapBoxAll(collidersCheckPoint.position, new Vector2(wallBoxX, wallBoxY), 0, wall);
+        Collider2D[] itemsColliders = Physics2D.OverlapBoxAll(collidersCheckPoint.position, new Vector2(wallBoxX, wallBoxY), 0, item);
+        Collider2D[] scoreCollieders = Physics2D.OverlapBoxAll(collidersCheckPoint.position, new Vector2(wallBoxX, wallBoxY), 0, scoreCrystall);
+        if (groundColliders.Length > 0
+            || wallsColliders.Length > 0
+            || itemsColliders.Length > 0
+            || scoreCollieders.Length > 0)
+        {
+            direction *= -1;
+            speed *= -1;
+        }
+        if (monstersColliders.Length > 0
+            && monstersColliders.All(x => !x.GetComponent<StaticMonster>())
+            && monstersColliders.All(x => !x.GetComponent<LowAttackShootingMonster>()))
+        {
+            direction *= -1;
+            speed *= -1;
+        }
+
+        if ((direction.x > 0 && !faceRight) || (direction.x < 0 && faceRight))
         {
             Vector3 temp = transform.localScale;
             temp.x *= -1;
@@ -65,6 +88,7 @@ public class UwU : Monster
             faceRight = !faceRight;
         }
     }
+
     private void MonsterAttack()
     {
         Collider2D[] units = Physics2D.OverlapCircleAll(mobAttackDot.position, mobAttackRange, character);
@@ -76,14 +100,16 @@ public class UwU : Monster
             }
         }
     }
-    private void CheckGround()
+
+    private void OnDrawGizmos()
     {
-        Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, 0.3f);
-        isGrounded = colliders.Length > 1;
-    }
-    private void OnDrawGizmosSelected()
-    {
+        Gizmos.color = Color.magenta;
+        Gizmos.DrawWireCube(groundCheckPoint.position, new Vector3(groundBoxX, groundBoxY, 0));
+        Gizmos.color = Color.cyan;
+        Gizmos.DrawWireCube(collidersCheckPoint.position, new Vector3(wallBoxX, wallBoxY, 0));
         Gizmos.color = Color.green;
         Gizmos.DrawWireSphere(mobAttackDot.position, mobAttackRange);
+
     }
+
 }

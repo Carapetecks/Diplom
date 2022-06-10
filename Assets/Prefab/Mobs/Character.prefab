@@ -100,6 +100,7 @@ MonoBehaviour:
   rigidbody: {fileID: 0}
   sprite: {fileID: 3709460146913661694}
   speed: 2
+  jumpForce: 5.5
   boxX: 0.15
   boxY: 0.04
   wallBoxX: 0.29
@@ -666,7 +667,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8018182812931250670}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.03, y: 0.42, z: -0.09}
+  m_LocalPosition: {x: 0.03, y: 0.226, z: -0.09}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 3709460146445622630}

@@ -70,7 +70,6 @@ public class Pause_menu : MonoBehaviour
         {
             ChitPanel.SetActive(true);
             Interface.SetActive(false);
-
         }
     }
 
@@ -79,6 +78,8 @@ public class Pause_menu : MonoBehaviour
         ChitPanel.SetActive(false);
         Interface.SetActive(true);
     }
+
+    
 
  
 }

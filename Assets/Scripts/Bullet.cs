@@ -13,7 +13,7 @@ public class Bullet : MonoBehaviour
         sprite = GetComponentInChildren<SpriteRenderer>();
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         transform.position = Vector3.MoveTowards
             (transform.position, transform.position + direction, speed * Time.deltaTime);
