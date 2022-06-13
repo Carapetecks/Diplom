@@ -41,8 +41,4 @@ public class Item : MonoBehaviour
             }
         }
     }
-    
-
-    
-
 }//СДЕЛАТЬ КОРОБКУ ТИПО ИДТИ ЗА НЕЙ МОЖНО(ХАЙП)

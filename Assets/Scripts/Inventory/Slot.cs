@@ -1,11 +1,12 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 
 public class Slot : Spawn
 {
     private Inventory inventory;    
     public int i;
     private void Start()
-    {
+    {      
         inventory = GameObject.FindGameObjectWithTag("Player").GetComponent<Inventory>();
     }
     private void Update()
@@ -82,5 +83,9 @@ public class Slot : Spawn
         {
             child.GetComponent<Spawn>().SpeedBoost();
         }
+    }
+    public void Save()
+    {
+        
     }
 }

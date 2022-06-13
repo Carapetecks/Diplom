@@ -157,7 +157,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lifes: 10
   damage: 1
-  rigid: {fileID: 0}
+  rigidbody: {fileID: 0}
   sprite: {fileID: 0}
   faceRight: 1
 --- !u!50 &6806931546589696817

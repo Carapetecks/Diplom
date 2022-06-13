@@ -7,7 +7,8 @@ public class Pause_menu : MonoBehaviour
     public static bool GameIsPaused = false;
     
     public GameObject pauseMenuUI;
-    public GameObject settingsMenu;
+    public GameObject settingsMenuUI;
+    public GameObject resolutionMenuUI;
     public GameObject Dead;
     public GameObject Interface;
     public Character character;
@@ -41,7 +42,7 @@ public class Pause_menu : MonoBehaviour
     public void Resume()
     {
         pauseMenuUI.SetActive(false);
-        settingsMenu.SetActive(false);
+        settingsMenuUI.SetActive(false);
         Time.timeScale = 1f;
         GameIsPaused = false;
     }
@@ -59,7 +60,7 @@ public class Pause_menu : MonoBehaviour
     public void SettingsMenu()
     {
         pauseMenuUI.SetActive(false);
-        settingsMenu.SetActive(true);
+        settingsMenuUI.SetActive(true);
     }
     public void DeadScreen()
     {
@@ -71,5 +72,20 @@ public class Pause_menu : MonoBehaviour
             GameIsPaused = true;
 
         }
+    }
+    public void BackToPauseMenu() // Из настроек в меню паузы
+    {
+        pauseMenuUI.SetActive(true);
+        settingsMenuUI.SetActive(false);
+    }
+    public void BackToSettings() // Из настроек разрешения в настройки
+    {
+        settingsMenuUI.SetActive(true);
+        resolutionMenuUI.SetActive(false);
+    }    
+    public void ResolutionSettings()
+    {
+        settingsMenuUI.SetActive(false);
+        resolutionMenuUI.SetActive(true);
     }
 }

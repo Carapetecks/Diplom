@@ -1,0 +1,8 @@
+<dialogue name="dialogue1">
+  <node id="0" npcText="Тебе сюда нельзя!">
+    <answer text="Как это. А как пройти дальше?" toNode="1" />
+  </node>
+  <node id="1" npcText="Соберешь для меня 500 очков и мы в расчете">
+    <answer text="Понял принял" testdamage="true" exit="True" />
+  </node>
+</dialogue>

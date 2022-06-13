@@ -5,8 +5,7 @@ using UnityEngine.UI;
 public class ResolutionSettings : MonoBehaviour
 {
     public Dropdown dropdown;
-    Resolution[] resolutions;
-    // Start is called before the first frame update
+    Resolution[] resolutions;   
     void Start()
     {
         Resolution[] resolution = Screen.resolutions;
@@ -14,7 +13,7 @@ public class ResolutionSettings : MonoBehaviour
         string[] stringResolution = new string[resolutions.Length];
         for (int i = 0; i < resolutions.Length; i++)
         {
-            //stringResolution[i] = resolutions[i].ToString();
+          
             stringResolution[i] = resolutions[i].width.ToString() + " X " + resolutions[i].height.ToString();
         }
         dropdown.ClearOptions();

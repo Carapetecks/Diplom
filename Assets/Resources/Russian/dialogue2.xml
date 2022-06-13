@@ -1,0 +1,8 @@
+<dialogue name="dialogue2">
+  <node id="0" npcText="Хабар принес?">
+    <answer text="Вот погляди" toNode="1" />
+  </node>
+  <node id="1" npcText="Так это не 500 очков. Иди подкачайся">
+    <answer text="Да ты заебал" exit="True" />
+  </node>
+</dialogue>

@@ -24,6 +24,7 @@ public static class SaveSystem
         formatter.Serialize(stream, data);
         stream.Close();
     }
+    
     public static void SaveCharacterOnSecondLocation(Character character)
     {
         BinaryFormatter formatter = new BinaryFormatter();

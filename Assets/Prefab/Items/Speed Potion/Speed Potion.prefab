@@ -4818,6 +4818,7 @@ GameObject:
   - component: {fileID: 2592541982192789429}
   - component: {fileID: 6301712108173113943}
   - component: {fileID: 1515334906738461692}
+  - component: {fileID: 264773580123388597}
   m_Layer: 9
   m_Name: Speed Potion
   m_TagString: SpeedPotion
@@ -4990,3 +4991,16 @@ CircleCollider2D:
   m_Offset: {x: -0.0030359626, y: 0}
   serializedVersion: 2
   m_Radius: 0.16223752
+--- !u!114 &264773580123388597
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5961204309805385768}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b971eecf36402554687da831f5b1184e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objectName: SpeedPotion

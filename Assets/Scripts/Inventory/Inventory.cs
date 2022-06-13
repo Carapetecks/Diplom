@@ -28,4 +28,12 @@ public class Inventory : MonoBehaviour
             }
         
     }
+    public void Save()
+    {
+        
+    }
+    public void Load()
+    {
+        
+    }
 }

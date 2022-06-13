@@ -1,0 +1,8 @@
+<dialogue name="dialogue3">
+  <node id="0" npcText="Как делишки?">
+    <answer text="Сложно было, погляди" toNode="1" />
+  </node>
+  <node id="1" npcText="Собрал 500 очков? Хороош, а как на счет собрать вещи в армию?">
+    <answer text="Да пошел ты нахуй" testdamage="True" exit="True" />
+  </node>
+</dialogue>

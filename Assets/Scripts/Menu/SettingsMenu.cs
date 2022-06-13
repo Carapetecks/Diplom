@@ -22,22 +22,22 @@ public class SettingsMenu : MonoBehaviour
     }
     public void SetBrightness(float brightness)
     {
-        colorBSC.brightness = brightness * slider.value;
+        colorBSC.brightness = brightness * 1;
     }
     public void SetContrast(float contrast)
     {
-        colorBSC.contrast = contrast * slider.value;
+        colorBSC.contrast = contrast * 1;
     }
     public void SetSaturation(float saturation)
     {
-        colorBSC.saturation = saturation * slider.value;
+        colorBSC.saturation = saturation * 1;
     }
     public void DefaultSettings()
     {
         sliderBrightness.value = 1;
         sliderContrast.value = 1;
         sliderSaturation.value = 1;
-        sliderVolume.value = 1;
-        slider.value = 1;
+        sliderVolume.value = 1;       
     }
+   
 }

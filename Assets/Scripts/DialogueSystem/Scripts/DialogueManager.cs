@@ -12,24 +12,27 @@ public class DialogueManager : MonoBehaviour {
 	public string folder = "Russian"; // подпапка в Resources, для чтения
 	public int offset = 100;
 
-	private string fileName, lastName;
+	public string fileName, lastName;
 	private List<Dialogue> node;
 	private Dialogue dialogue;
 	private Answer answer;
 	public Character character;
+	public DialogueTrigger dialogueTrigger;	
 	private List<RectTransform> buttons = new List<RectTransform>();
 	private float curY, height;
-	private static DialogueManager _internal;
+	private static DialogueManager _internal;	
 
     private void Start()
     {
-        character = GameObject.FindGameObjectWithTag("Player").GetComponent<Character>();
+		dialogueTrigger = GameObject.FindGameObjectWithTag("NPC").GetComponent<DialogueTrigger>();
+		character = GameObject.FindGameObjectWithTag("Player").GetComponent<Character>();
     }
     public void DialogueStart(string name)
 	{
 		if(name == string.Empty) return;
-		fileName = name;
+		fileName = name;		
 		Load();
+		
 	}
 
 	public static DialogueManager Internal
@@ -164,8 +167,16 @@ public class DialogueManager : MonoBehaviour {
 	}
 	public void TestTakeDamage()
     {
-		character.reciveDamage(1);
-    }
+		if (ScoreText.Score < 500)
+		{
+			name = "dialogue2";
+			dialogueTrigger.fileName = name;			
+		}
+		if(ScoreText.Score >= 500)
+        {
+			ScoreText.Score -= 500;
+        }
+	}
 	public void CloseDialogue()
 	{
 		scrollRect.gameObject.SetActive(false);

@@ -111,6 +111,8 @@ MonoBehaviour:
   canTalk: 0
   canTakeScore: 0
   numOfHeart: 5
+  maxClimbingJumpAmount: 1
+  climbingJumpAmount: 0
   startTimeBtwDash: 0.76
   groundCheckPoint: {fileID: 5989371731000363850}
   wallCheckPoint: {fileID: 5989371732085404367}
@@ -144,6 +146,8 @@ MonoBehaviour:
   animator: {fileID: 0}
   FRight: {fileID: 7836147355956871531}
   FLeft: {fileID: 7836147356180432425}
+  Dead: {fileID: 0}
+  Interface: {fileID: 0}
 --- !u!114 &581174842891378226
 MonoBehaviour:
   m_ObjectHideFlags: 0

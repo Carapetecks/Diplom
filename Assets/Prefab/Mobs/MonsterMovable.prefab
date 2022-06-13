@@ -302,14 +302,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lifes: 6
   damage: 1
-  rigid: {fileID: 9128869791234841141}
+  rigidbody: {fileID: 0}
   sprite: {fileID: 9128869790971082989}
   speed: 1
   timeToAttack: 3
+  mobAttackRange: 0.36
   faceRight: 1
   isGrounded: 0
   mobAttackDot: {fileID: 3390350749951876621}
-  mobAttackRange: 0.36
   character:
     serializedVersion: 2
     m_Bits: 1024
