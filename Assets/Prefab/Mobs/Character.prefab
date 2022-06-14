@@ -102,8 +102,8 @@ MonoBehaviour:
   speed: 2
   boxX: 0.15
   boxY: 0.04
-  wallBoxX: 0
-  wallBoxY: 0
+  wallBoxX: 0.29
+  wallBoxY: 0.15
   itemBoxX: 0.48
   itemBoxY: 0.44
   faceRight: 1

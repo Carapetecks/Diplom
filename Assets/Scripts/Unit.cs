@@ -9,7 +9,7 @@ public class Unit : MonoBehaviour
   
     [SerializeField]
     public int lifes;
-    public int damage = 1;
+    public int damage;
     public Rigidbody2D rigidbody;
     private Animator animator;
     public SpriteRenderer sprite;

@@ -195,7 +195,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 593815c668e85814bab41ada543aec60, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lifes: 0
+  lifes: 2
   damage: 1
   rigidbody: {fileID: 0}
   sprite: {fileID: 0}
