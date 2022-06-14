@@ -1,0 +1,17 @@
+<dialogue name="dialogue3">
+	<node id="0" npcText="Ты справился?">
+		<answer text="Это то, что нужно?" toNode="1" />
+	</node>
+	<node id="1" npcText="Да, я помогу тебе.">
+		<answer text="И так..." toNode="2" />
+	</node>
+	<node id="2" npcText="Чтобы выбраться отсюда, тебе нужно набрать достаточно энергии, продолжай побеждать монстров и собирать кристаллы *(Цель: 5000)*">
+		<answer text="Спасибо за помощь." toNode="3" />
+	</node>
+	<node id="3" npcText="На пути тебе придется пройти через очень темную пещеру, поэтому, чтобы не заблудится возьми с собой этого святлечка.">
+		<answer text="Вы слишком щедры." toNode="4" />
+	</node>
+	<node id="4" npcText="И пусть все твои цели будут достигнуты.">
+		<answer text="*Уйти*" exit="True" testdamage="true" />
+	</node>
+</dialogue>

@@ -55,6 +55,7 @@ public class Character : Unit
     public GameObject Dead;
     public GameObject Interface;
     public GameObject parryObject;
+    public GameObject follower;
     public ParticleSystem parryEffect;
     Vector2 moveVecX;
     Vector3 direction;
@@ -67,7 +68,11 @@ public class Character : Unit
         rigidbody = GetComponent<Rigidbody2D>();
         animator = GetComponentInChildren<Animator>();
         normalGravity = rigidbody.gravityScale;
-       
+        if (DialogueManager.isQuestDone == true)
+        {
+            follower.SetActive(true);
+        }
+
     }   
 
     private void Update()
@@ -97,6 +102,11 @@ public class Character : Unit
             Jump();
             climbingJumpAmount--;
         }
+
+        if (Input.GetKeyDown(KeyCode.T))
+        {
+            follower.SetActive(true);
+        }           
 
 ///DASH
         if (timeBtwDash <= 0)
@@ -335,6 +345,16 @@ public class Character : Unit
     public void IgnorLayer()
     {
         Physics2D.IgnoreLayerCollision(9, 10);
+    }
+
+    public void ForceDamageTimer()
+    {
+        StartCoroutine(ForcePower());
+    }
+    IEnumerator ForcePower()
+    {
+        yield return new WaitForSeconds(5f);
+        damage -= 1;
     }
 
 

@@ -38,6 +38,10 @@ public class Slot : Spawn
         {          
             child.GetComponent<Spawn>().SpeedBoost();
         }
+        foreach (Transform child in transform)
+        {
+            child.GetComponent<Spawn>().ForcePower();
+        }
     }
     public void Slot2()
     {
@@ -48,6 +52,10 @@ public class Slot : Spawn
         foreach (Transform child in transform)
         {
             child.GetComponent<Spawn>().SpeedBoost();
+        }
+        foreach (Transform child in transform)
+        {
+            child.GetComponent<Spawn>().ForcePower();
         }
     }
     public void Slot3()
@@ -60,6 +68,10 @@ public class Slot : Spawn
         {
             child.GetComponent<Spawn>().SpeedBoost();
         }
+        foreach (Transform child in transform)
+        {
+            child.GetComponent<Spawn>().ForcePower();
+        }
     }
     public void Slot4()
     {
@@ -71,6 +83,10 @@ public class Slot : Spawn
         {
             child.GetComponent<Spawn>().SpeedBoost();
         }
+        foreach (Transform child in transform)
+        {
+            child.GetComponent<Spawn>().ForcePower();
+        }
     }
     public void Slot5()
     {
@@ -81,6 +97,10 @@ public class Slot : Spawn
         foreach (Transform child in transform)
         {
             child.GetComponent<Spawn>().SpeedBoost();
+        }
+        foreach (Transform child in transform)
+        {
+            child.GetComponent<Spawn>().ForcePower();
         }
     }
 }

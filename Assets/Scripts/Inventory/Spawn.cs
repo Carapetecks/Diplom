@@ -12,8 +12,10 @@ public class Spawn : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player").transform;
     }
     private void Update()
-    {        
+    {   
+        
         if (Input.GetButtonDown("Heal")) Heal();
+        if (Input.GetButtonDown("Force")) ForcePower();
         if (Input.GetButtonDown("Potion")) SpeedBoost();
         if (Input.GetKeyDown(KeyCode.Q)) SpawnDroppedItem();        
     }
@@ -51,7 +53,20 @@ public class Spawn : MonoBehaviour
 
         }
     }
-    
-    
-    
+
+    public void ForcePower() //баф на прыжок
+    {
+        if (gameObject.tag.Equals("ForcePower"))
+        {
+            if (character.damage == 1)
+            {
+                character.damage += 1;
+                Destroy(gameObject);
+                character.ForceDamageTimer();
+            }
+        }
+    }
+
+
+
 }

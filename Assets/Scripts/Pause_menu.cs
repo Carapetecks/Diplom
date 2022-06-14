@@ -10,6 +10,8 @@ public class Pause_menu : MonoBehaviour
     public GameObject ChitPanel;
     public GameObject Interface;
     public Character character;
+    public GameObject settingsMenuUI;
+    public GameObject resolutionMenuUI;
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
@@ -43,7 +45,7 @@ public class Pause_menu : MonoBehaviour
 
     public void LoadMenu()
     {
-        SceneManager.LoadScene("Menu");
+        SceneManager.LoadScene("Menu2");
         Time.timeScale = 1f;
         GameIsPaused = false;
     }
@@ -60,7 +62,6 @@ public class Pause_menu : MonoBehaviour
             Interface.SetActive(false);
             Time.timeScale = 0f;
             GameIsPaused = true;
-
         }
     }
 
@@ -78,8 +79,28 @@ public class Pause_menu : MonoBehaviour
         ChitPanel.SetActive(false);
         Interface.SetActive(true);
     }
+    public void BackToPauseMenu() // Из настроек в меню паузы
+    {
+        pauseMenuUI.SetActive(true);
+        settingsMenuUI.SetActive(false);
+    }
+    public void BackToSettings() // Из настроек разрешения в настройки
+    {
+        settingsMenuUI.SetActive(true);
+        resolutionMenuUI.SetActive(false);
+    }
+    public void ResolutionSettings()
+    {
+        settingsMenuUI.SetActive(false);
+        resolutionMenuUI.SetActive(true);
+    }
+    public void SettingsMenu()
+    {
+        pauseMenuUI.SetActive(false);
+        settingsMenuUI.SetActive(true);
+    }
 
-    
 
- 
+
+
 }

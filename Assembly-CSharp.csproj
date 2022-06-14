@@ -75,6 +75,7 @@
     <Compile Include="Assets\Scripts\DialogueSystem\Scripts\DialogueGenerator.cs" />
     <Compile Include="Assets\Scripts\Character.cs" />
     <Compile Include="Assets\Scripts\CheatKill.cs" />
+    <Compile Include="Assets\Scripts\InTheEnd.cs" />
     <Compile Include="Assets\Scripts\Tips\WalkTip.cs" />
     <Compile Include="Assets\UB\Simple2dWeatherEffects\Standard\EffectBase.cs" />
     <Compile Include="Assets\Scripts\Inventory\Spawn.cs" />
@@ -92,6 +93,7 @@
     <Compile Include="Assets\Scripts\DialogueSystem\Scripts\TestScript.cs" />
     <Compile Include="Assets\Scripts\TESTmove.cs" />
     <Compile Include="Assets\Scripts\DialogueSystem\Scripts\DialogueManager.cs" />
+    <Compile Include="Assets\Scripts\Follower.cs" />
     <Compile Include="Assets\UB\Simple2dWeatherEffects\Standard\D2FogsNoiseTexPE.cs" />
     <Compile Include="Assets\Scripts\Inventory\Item.cs" />
     <Compile Include="Assets\Scripts\SCORESYSTEM\ScoreCrystall.cs" />
@@ -103,14 +105,20 @@
     <Compile Include="Assets\Scripts\ChitPanel.cs" />
     <Compile Include="Assets\Scripts\Pause_menu.cs" />
     <Compile Include="Assets\Scripts\DialogueSystem\Scripts\DialogueGeneratorEditor.cs" />
-    <Compile Include="Assets\Scripts\Follower.cs" />
-    <Compile Include="Assets\Scripts\InTheEnd.cs" />
+    <Compile Include="Assets\Scripts\SettingsMenu.cs" />
+    <Compile Include="Assets\Scripts\ScreenPostEffectBase.cs" />
+    <Compile Include="Assets\Scripts\ColorBSC.cs" />
+    <Compile Include="Assets\Scripts\ResolutionSettings.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\UB\Simple2dWeatherEffects\Standard\D2Fogs.shader" />
     <None Include="Assets\Resources\Russian\Dialog.xml" />
     <None Include="Assets\Resources\Russian\Stalker.xml" />
     <None Include="Assets\UB\Simple2dWeatherEffects\Standard\D2FogsNoiseTex.shader" />
+    <None Include="Assets\Scripts\ColorBSC.shader" />
+    <None Include="Assets\Resources\Russian\dialogue3.xml" />
+    <None Include="Assets\Resources\Russian\dialogue1.xml" />
+    <None Include="Assets\Resources\Russian\dialogue2.xml" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

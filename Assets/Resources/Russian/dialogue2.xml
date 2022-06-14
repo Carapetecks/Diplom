@@ -1,0 +1,5 @@
+<dialogue name="dialogue2">
+  <node id="0" npcText="Ты справился?">
+    <answer text="Еще нет..." exit="true"/>
+  </node>  
+</dialogue>

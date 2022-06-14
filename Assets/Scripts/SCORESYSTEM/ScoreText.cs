@@ -7,7 +7,8 @@ public class ScoreText : MonoBehaviour
 {
     public static int Score;
     Text scoreText;
-
+    public DialogueManager dialogueManager;
+    public DialogueTrigger dialogueTrigger;
     private void Start()
     {
         scoreText = GetComponent<Text>();
@@ -15,6 +16,17 @@ public class ScoreText : MonoBehaviour
     private void Update()
     {
         scoreText.text = Score.ToString();
+        if (Score >= 500)
+        {
+
+            ChangeFileName(name);
+        }
     }
 
+    void ChangeFileName(string name)
+    {
+        dialogueManager.fileName = name;
+        name = "dialogue3";
+        dialogueTrigger.fileName = name;
+    }
 }

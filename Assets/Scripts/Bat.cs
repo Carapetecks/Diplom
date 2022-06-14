@@ -22,6 +22,7 @@ public class Bat : Monster
     private void Start()
     {
         animator = GetComponentInChildren<Animator>();
+        
     }
     private void Update()
     {
