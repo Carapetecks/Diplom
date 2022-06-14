@@ -1,5 +1,35 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1104308076
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1104308077}
+  m_Layer: 10
+  m_Name: BatAttackPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1104308077
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1104308076}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.25, y: 0.308, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 3709460146445622630}
+  m_RootOrder: 10
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3709460146445622627
 GameObject:
   m_ObjectHideFlags: 0
@@ -43,6 +73,8 @@ Transform:
   - {fileID: 7836147355997274561}
   - {fileID: 7836147356660238128}
   - {fileID: 7836147357015958882}
+  - {fileID: 1104308077}
+  - {fileID: 5878771029087891663}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -79,7 +111,7 @@ Rigidbody2D:
   m_AngularDrag: 0.05
   m_GravityScale: 2
   m_Material: {fileID: 0}
-  m_Interpolate: 1
+  m_Interpolate: 2
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 4
@@ -111,6 +143,7 @@ MonoBehaviour:
   canTake: 0
   canTalk: 0
   canTakeScore: 0
+  canGo: 0
   numOfHeart: 5
   maxClimbingJumpAmount: 1
   climbingJumpAmount: 0
@@ -136,6 +169,9 @@ MonoBehaviour:
   scoreCrystall:
     serializedVersion: 2
     m_Bits: 8192
+  transition:
+    serializedVersion: 2
+    m_Bits: 16384
   hearts:
   - {fileID: 0}
   - {fileID: 0}
@@ -149,6 +185,8 @@ MonoBehaviour:
   FLeft: {fileID: 7836147356180432425}
   Dead: {fileID: 0}
   Interface: {fileID: 0}
+  parryObject: {fileID: 0}
+  parryEffect: {fileID: 0}
 --- !u!114 &581174842891378226
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -326,6 +364,36 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!1 &4718959716388576471
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5878771029087891663}
+  m_Layer: 10
+  m_Name: LightPointFollower
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5878771029087891663
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4718959716388576471}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.422, y: 0.611, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 3709460146445622630}
+  m_RootOrder: 11
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5989371731000363845
 GameObject:
   m_ObjectHideFlags: 0

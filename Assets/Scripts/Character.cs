@@ -189,8 +189,9 @@ public class Character : Unit
             ScoreText.Score = 0;
             base.Die();
             
-        }     
+        }
     }
+
     private void Jump()
     {
         if (!isDashing)

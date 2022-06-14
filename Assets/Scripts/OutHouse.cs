@@ -43,7 +43,7 @@ public class OutHouse : MonoBehaviour
         animator.SetBool("fade", true);
         animator.SetBool("light", false);
         yield return new WaitForSeconds(3);
-        SceneManager.LoadScene("FirstScene");
+        
     }
 
 
