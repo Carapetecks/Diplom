@@ -1,8 +1,7 @@
 <dialogue name="FirstDialog">
   <node id="0" npcText="Приветствую тебя, путник">
-    <answer text="Ну привет" exit="True"/>
-    <answer text="Ты кто?" toNode="1"/>
-    <answer text="Давай анек" testdamage="true" exit="True"/>
+    <answer text="Ну привет" exit="True" />
+    <answer text="Ты кто?" toNode="1" />
   </node>
   
 	<node id="1" npcText="Я жрица - хранительница этого леса">

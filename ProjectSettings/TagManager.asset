@@ -12,7 +12,8 @@ TagManager:
   - HealingPotion
   - SpeedPotion
   - Menu
-  - ForcePower
+  - DeadZone
+  - EndPoint
   layers:
   - Default
   - TransparentFX
