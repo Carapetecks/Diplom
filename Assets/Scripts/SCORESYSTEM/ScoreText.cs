@@ -23,6 +23,7 @@ public class ScoreText : MonoBehaviour
     }
     void ChangeFileName(string name)
     {        
+        dialogueManager.fileName = name;
         name = "dialogue3";
         dialogueTrigger.fileName = name;
     }    

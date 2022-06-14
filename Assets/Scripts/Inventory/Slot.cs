@@ -84,8 +84,5 @@ public class Slot : Spawn
             child.GetComponent<Spawn>().SpeedBoost();
         }
     }
-    public void Save()
-    {
-        
-    }
+    
 }

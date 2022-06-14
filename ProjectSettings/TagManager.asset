@@ -12,6 +12,7 @@ TagManager:
   - HealingPotion
   - SpeedPotion
   - Menu
+  - ForcePower
   layers:
   - Default
   - TransparentFX

@@ -6,7 +6,7 @@ public class CaveDarkScript : MonoBehaviour
 {
     public SpriteRenderer sprite;
     public Animator animator;
-    Character character;
+    public Character character;
     public float fadeTime = 5;
     public float[] position;
     private int lifes;
@@ -15,7 +15,11 @@ public class CaveDarkScript : MonoBehaviour
     {       
         character = GameObject.FindGameObjectWithTag("Player").GetComponent<Character>();
         sprite = GetComponentInChildren<SpriteRenderer>();
-        animator = GetComponentInChildren<Animator>();
+        animator = GetComponentInChildren<Animator>();        
+    }
+    private void Update()
+    {
+        
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -24,7 +28,7 @@ public class CaveDarkScript : MonoBehaviour
         if (collision != null && unit && unit is Character)
         {            
             StartCoroutine(LoadScene(character.GetComponent<Character>()));
-            SceneManager.sceneLoaded += this.OnLoadCallback;
+            
         }
     }
     private void OnTriggerExit2D(Collider2D collision)
@@ -44,16 +48,16 @@ public class CaveDarkScript : MonoBehaviour
         animator.SetBool("light", false);
         yield return new WaitForSeconds(3);             
         SceneManager.LoadScene("PixelLvl");
-    }
-    public void OnLoadCallback(Scene scene, LoadSceneMode sceneMode)
-    {
-        CharacterData data = SaveSystem.LoadCharacterOnSecondLocation();
-        lifes = data.lifes;
-        Vector2 position;
-        position.x = data.position[0];
-        position.y = data.position[1];
-        transform.position = position;
-        Debug.Log("load data 1 loc");
-        SceneManager.sceneLoaded -= this.OnLoadCallback;
+        
+    }    
+    public void OnLevelWasLoaded(int level)
+    {   
+            CharacterData data = SaveSystem.LoadCharacterOnFirstLocation();
+            character.lifes = data.lifesForrest;
+            Vector2 position;
+            position.x = data.position[0];
+            position.y = data.position[1];
+            character.transform.position = position;
+            Debug.Log("load data 1 loc");
     }
 }

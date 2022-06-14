@@ -48,11 +48,16 @@ public class Spawn : MonoBehaviour
             }
         }                   
     }
-    public void JumpBoost() //баф на прыжок
+    public void ForcePower() //баф на прыжок
     {
-        if(gameObject.tag.Equals("JumpForce"))
+        if(gameObject.tag.Equals("ForcePower"))
         {
-
+            if (character.damage == 1)
+            {
+                character.damage += 1;
+                Destroy(gameObject);
+                character.ForceDamageTimer();
+            }
         }
     }
     

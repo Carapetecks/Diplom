@@ -66,7 +66,6 @@
     <Compile Include="Assets\Scripts\SCORESYSTEM\ScoreText.cs" />
     <Compile Include="Assets\Scripts\CameraControllerFirstLoc.cs" />
     <Compile Include="Assets\Scripts\PlayerAttack.cs" />
-    <Compile Include="Assets\Scripts\SaveSystem\GameHelper.cs" />
     <Compile Include="Assets\Scripts\CaveDarkScript.cs" />
     <Compile Include="Assets\Scripts\HeroAnimation.cs" />
     <Compile Include="Assets\Scripts\MonsterMovable.cs" />
@@ -80,7 +79,6 @@
     <Compile Include="Assets\Scripts\Parallax\ParallaxLayer.cs" />
     <Compile Include="Assets\Scripts\CameraController.cs" />
     <Compile Include="Assets\Scripts\DestroyablePlate.cs" />
-    <Compile Include="Assets\Scripts\SaveSystem\SaveableObject.cs" />
     <Compile Include="Assets\Scripts\Shader\ScreenPostEffectBase.cs" />
     <Compile Include="Assets\Scripts\UwU.cs" />
     <Compile Include="Assets\Scripts\Bullet.cs" />
@@ -99,6 +97,9 @@
     <Compile Include="Assets\Scripts\DialogueSystem\Scripts\ButtonComponent.cs" />
     <Compile Include="Assets\Scripts\Menu\Pause_menu.cs" />
     <Compile Include="Assets\Scripts\DialogueSystem\Scripts\DialogueGeneratorEditor.cs" />
+    <Compile Include="Assets\Scripts\VectorValue.cs" />
+    <Compile Include="Assets\Scripts\SceneLoader.cs" />
+    <Compile Include="Assets\Scripts\Lifes.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Resources\Russian\Dialog.xml" />

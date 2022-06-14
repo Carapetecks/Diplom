@@ -12,7 +12,7 @@ public static class SaveSystem
         CharacterData data = new CharacterData(character);
         formatter.Serialize(stream, data);
         stream.Close();
-    }
+    }    
     public static void SaveCharacterOnFirstLocation(Character character)
     {
         BinaryFormatter formatter = new BinaryFormatter();

@@ -55,7 +55,7 @@ public class Character : Unit
     Vector2 moveVecX;
     Vector3 direction;
 
-
+    
 
 
     private void Start()
@@ -63,7 +63,7 @@ public class Character : Unit
         rigidbody = GetComponent<Rigidbody2D>();
         animator = GetComponentInChildren<Animator>();
         normalGravity = rigidbody.gravityScale;
-
+        
     }   
 
     private void Update()
@@ -109,6 +109,7 @@ public class Character : Unit
             climbingJumpAmount = maxClimbingJumpAmount;
         
         ItemSearch();
+
     }
 
     private void FixedUpdate()
@@ -263,7 +264,7 @@ public class Character : Unit
     public void LoadCharacter()
     {
         CharacterData data = SaveSystem.LoadCharacter();
-        lifes = data.lifes;
+        lifes = data.lifesForrest;
 
         Vector2 position;
         position.x = data.position[0];
@@ -304,6 +305,15 @@ public class Character : Unit
     {
         StartCoroutine(Speed());
     }
+    public void ForceDamageTimer()
+    {
+        StartCoroutine(ForcePower());
+    }
+    IEnumerator ForcePower()
+    {
+        yield return new WaitForSeconds(5f);
+        damage -= 1;
+    }
     IEnumerator Speed()
     {
         yield return new WaitForSeconds(5f);
@@ -315,8 +325,7 @@ public class Character : Unit
     {
         Physics2D.IgnoreLayerCollision(9, 10);
     }
-
-
+   
 }
 
 
