@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5699278425899250594}
-  m_Layer: 10
+  m_Layer: 7
   m_Name: dialogCheckPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -43,7 +43,9 @@ GameObject:
   - component: {fileID: 5699278425957169148}
   - component: {fileID: 5699278425957169149}
   - component: {fileID: 5699278425957169147}
-  m_Layer: 10
+  - component: {fileID: 405780525}
+  - component: {fileID: 405780526}
+  m_Layer: 7
   m_Name: "\u041A\u0438\u0446\u0443\u043D\u0435"
   m_TagString: NPC
   m_Icon: {fileID: 0}
@@ -57,7 +59,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5699278425957169089}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 27.176, y: 0.296, z: 0.0882428}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -102,8 +104,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -947153627
-  m_SortingLayer: 1
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 21070dd9562cd6f42a7550c18de12dae, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -150,7 +152,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.022049904, y: 0}
+  m_Offset: {x: 0.25862122, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -161,7 +163,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.7618389, y: 0.6}
+  m_Size: {x: 0.9467087, y: 0.6}
   m_EdgeRadius: 0
 --- !u!70 &5699278425957169147
 CapsuleCollider2D:
@@ -179,3 +181,28 @@ CapsuleCollider2D:
   m_Offset: {x: 0.031076431, y: -0.0020815432}
   m_Size: {x: 0.29943466, y: 0.59583694}
   m_Direction: 0
+--- !u!114 &405780525
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5699278425957169089}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b27238e29355bc40b9e7c980dcc662d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fileName: Stalker
+--- !u!114 &405780526
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5699278425957169089}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 28dc09d36732651428b20688f58948f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

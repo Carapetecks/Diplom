@@ -14,6 +14,9 @@ TagManager:
   - Menu
   - DeadZone
   - EndPoint
+  - RogHome
+  - ParryObject
+  - RogBullet
   layers:
   - Default
   - TransparentFX
@@ -29,7 +32,7 @@ TagManager:
   - ground
   - wall
   - scoreCrystall
-  - 
+  - transition
   - 
   - 
   - 

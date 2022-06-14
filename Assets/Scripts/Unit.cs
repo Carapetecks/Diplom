@@ -51,6 +51,14 @@ public class Unit : MonoBehaviour
             {
                 ScoreText.Score += 50;
                 Die();
+            }else if (unit is Rog)
+            {
+                ScoreText.Score += 350;
+                Die();
+            }else if (unit is Bat)
+            {
+                ScoreText.Score += 25;
+                Die();
             }            
         }
     }

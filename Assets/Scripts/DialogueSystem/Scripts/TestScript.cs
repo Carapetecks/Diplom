@@ -35,5 +35,7 @@ public class TestScript : MonoBehaviour {
     {
 		if(CheckEnter==false)
 		FindObjectOfType<DialogueManager>().CloseDialogue();
+
+		
 	}
 }

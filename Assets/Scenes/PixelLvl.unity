@@ -27201,7 +27201,7 @@ PrefabInstance:
     - target: {fileID: 2251843555691789408, guid: 87f96939025e4bc4391aa09f1f866764,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -28.100006
+      value: -28.099976
       objectReference: {fileID: 0}
     - target: {fileID: 2251843555691789408, guid: 87f96939025e4bc4391aa09f1f866764,
         type: 3}
@@ -39783,6 +39783,21 @@ PrefabInstance:
       propertyPath: character
       value: 
       objectReference: {fileID: 992107280}
+    - target: {fileID: 892971970498982647, guid: 3694742bd6774544eab8f074d1ab7e58,
+        type: 3}
+      propertyPath: m_UiScaleMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 892971970498982647, guid: 3694742bd6774544eab8f074d1ab7e58,
+        type: 3}
+      propertyPath: m_ReferenceResolution.x
+      value: 1920
+      objectReference: {fileID: 0}
+    - target: {fileID: 892971970498982647, guid: 3694742bd6774544eab8f074d1ab7e58,
+        type: 3}
+      propertyPath: m_ReferenceResolution.y
+      value: 1080
+      objectReference: {fileID: 0}
     - target: {fileID: 8043458226115296614, guid: 3694742bd6774544eab8f074d1ab7e58,
         type: 3}
       propertyPath: character
@@ -41678,6 +41693,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Interface
+      objectReference: {fileID: 0}
+    - target: {fileID: 9054794690826182242, guid: d49926e852a41ba448f14dc777cd30fb,
+        type: 3}
+      propertyPath: m_UiScaleMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9054794690826182242, guid: d49926e852a41ba448f14dc777cd30fb,
+        type: 3}
+      propertyPath: m_ReferenceResolution.x
+      value: 1920
+      objectReference: {fileID: 0}
+    - target: {fileID: 9054794690826182242, guid: d49926e852a41ba448f14dc777cd30fb,
+        type: 3}
+      propertyPath: m_ReferenceResolution.y
+      value: 1080
       objectReference: {fileID: 0}
     - target: {fileID: 9054794690826182252, guid: d49926e852a41ba448f14dc777cd30fb,
         type: 3}

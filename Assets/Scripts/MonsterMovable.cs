@@ -4,6 +4,7 @@ using System.Linq;
 public class MonsterMovable : Monster
 {
     public float speed = 1.0f; 
+    public float lastSpeed; 
     [SerializeField] private float timeToAttack = 1f;
     private float currentTimeToAttack = 0;
     public float mobAttackRange;
@@ -69,6 +70,7 @@ public class MonsterMovable : Monster
         {
             direction *= -1;
             speed *= -1;
+            lastSpeed = speed;
         }
         if (monstersColliders.Length > 0
             && monstersColliders.All(x => !x.GetComponent<StaticMonster>())
@@ -76,6 +78,7 @@ public class MonsterMovable : Monster
         {
             direction *= -1;
             speed *= -1;
+            lastSpeed = speed;
         }
              
         if ((direction.x > 0 && !faceRight) || (direction.x < 0 && faceRight))

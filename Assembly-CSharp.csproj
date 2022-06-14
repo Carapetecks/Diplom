@@ -62,9 +62,12 @@
     <Compile Include="Assets\Scripts\Main_menu.cs" />
     <Compile Include="Assets\Scripts\CharacterData.cs" />
     <Compile Include="Assets\Scripts\SCORESYSTEM\ScoreText.cs" />
+    <Compile Include="Assets\Scripts\Rog.cs" />
     <Compile Include="Assets\Scripts\CameraControllerFirstLoc.cs" />
     <Compile Include="Assets\Scripts\PlayerAttack.cs" />
+    <Compile Include="Assets\Scripts\InHouse.cs" />
     <Compile Include="Assets\Scripts\CaveDarkScript.cs" />
+    <Compile Include="Assets\Scripts\OutHouse.cs" />
     <Compile Include="Assets\Scripts\HeroAnimation.cs" />
     <Compile Include="Assets\Scripts\MonsterMovable.cs" />
     <Compile Include="Assets\Scripts\Monster.cs" />
@@ -77,6 +80,8 @@
     <Compile Include="Assets\Scripts\Parallax\ParallaxLayer.cs" />
     <Compile Include="Assets\Scripts\CameraController.cs" />
     <Compile Include="Assets\Scripts\DestroyablePlate.cs" />
+    <Compile Include="Assets\Scripts\ParryObject.cs" />
+    <Compile Include="Assets\Scripts\Bat.cs" />
     <Compile Include="Assets\Scripts\UwU.cs" />
     <Compile Include="Assets\Scripts\Bullet.cs" />
     <Compile Include="Assets\Scripts\Trap.cs" />
@@ -87,6 +92,7 @@
     <Compile Include="Assets\Scripts\DialogueSystem\Scripts\DialogueManager.cs" />
     <Compile Include="Assets\Scripts\Inventory\Item.cs" />
     <Compile Include="Assets\Scripts\SCORESYSTEM\ScoreCrystall.cs" />
+    <Compile Include="Assets\Scripts\RogBullet.cs" />
     <Compile Include="Assets\Scripts\SaveSystem.cs" />
     <Compile Include="Assets\Scripts\DialogueSystem\Scripts\DialogueTrigger.cs" />
     <Compile Include="Assets\Scripts\Parallax\ParallaxCamera.cs" />
@@ -94,11 +100,15 @@
     <Compile Include="Assets\Scripts\ChitPanel.cs" />
     <Compile Include="Assets\Scripts\Pause_menu.cs" />
     <Compile Include="Assets\Scripts\DialogueSystem\Scripts\DialogueGeneratorEditor.cs" />
-    <Compile Include="Assets\Scripts\Rog.cs" />
+    <Compile Include="Assets\UB\Simple2dWeatherEffects\Standard\D2FogsNoiseTexPE.cs" />
+    <Compile Include="Assets\UB\Simple2dWeatherEffects\Standard\EffectBase.cs" />
+    <Compile Include="Assets\UB\Simple2dWeatherEffects\Standard\D2FogsPE.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Assets\UB\Simple2dWeatherEffects\Standard\D2Fogs.shader" />
     <None Include="Assets\Resources\Russian\Dialog.xml" />
     <None Include="Assets\Resources\Russian\Stalker.xml" />
+    <None Include="Assets\UB\Simple2dWeatherEffects\Standard\D2FogsNoiseTex.shader" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

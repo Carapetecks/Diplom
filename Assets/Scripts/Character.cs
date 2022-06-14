@@ -34,6 +34,8 @@ public class Character : Unit
     public bool canTake;
     public bool canTalk;
     public bool canTakeScore;
+    public bool canGo;
+
     
     public int numOfHeart;
     public int maxClimbingJumpAmount = 1;
@@ -43,7 +45,7 @@ public class Character : Unit
     public float startTimeBtwDash;
 
     public Transform groundCheckPoint, wallCheckPoint, itemCheckPoint;
-    public LayerMask ground, wall, item, character, NPC, scoreCrystall;
+    public LayerMask ground, wall, item, character, NPC, scoreCrystall, transition;
     public Image[] hearts;
     public Sprite fullHeart;
     public Sprite emptyHeart;   
@@ -52,6 +54,8 @@ public class Character : Unit
     public GameObject FLeft;
     public GameObject Dead;
     public GameObject Interface;
+    public GameObject parryObject;
+    public ParticleSystem parryEffect;
     Vector2 moveVecX;
     Vector3 direction;
 
@@ -63,12 +67,11 @@ public class Character : Unit
         rigidbody = GetComponent<Rigidbody2D>();
         animator = GetComponentInChildren<Animator>();
         normalGravity = rigidbody.gravityScale;
-
+       
     }   
 
     private void Update()
     {
-        
 ///DEFINING FIELDS
         isGrounded = Physics2D.OverlapBox(groundCheckPoint.position, new Vector2(boxX, boxY), 0, ground);
         isClimbing = Physics2D.OverlapBox(wallCheckPoint.position, new Vector2(wallBoxX, wallBoxY), 0, wall);
@@ -76,6 +79,7 @@ public class Character : Unit
         canTake = Physics2D.OverlapBox(itemCheckPoint.position, new Vector2(itemBoxX, itemBoxY), 0, item);
         canTalk = Physics2D.OverlapBox(itemCheckPoint.position, new Vector2(itemBoxX, itemBoxY), 0, NPC);
         canTakeScore = Physics2D.OverlapBox(itemCheckPoint.position, new Vector2(itemBoxX, itemBoxY), 0, scoreCrystall);
+        canGo = Physics2D.OverlapBox(itemCheckPoint.position, new Vector2(itemBoxX, itemBoxY), 0, transition);
         
         dirX = Input.GetAxis("Horizontal");
         dirY = Input.GetAxis("Vertical");
@@ -111,11 +115,11 @@ public class Character : Unit
             climbingJumpAmount = maxClimbingJumpAmount;
         
         ItemSearch();
+
     }
 
     private void FixedUpdate()
     {
-        
         HeatPoint();
 ///RUN        
         if (!isDashing)
@@ -139,9 +143,11 @@ public class Character : Unit
         else
             animator.SetBool("Climbing", false);
 
-        ///REFLECT CHARACTER DIRECTION      
+///REFLECT CHARACTER DIRECTION      
         if (!isDashing)
         Reflect();
+
+       
 
     }
 
@@ -192,10 +198,7 @@ public class Character : Unit
             isJumping = true;
             rigidbody.velocity = new Vector2(0, 0);
             rigidbody.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
-        }
-
-        
-        
+        }      
     }
     private void Dash() 
     {
@@ -254,6 +257,7 @@ public class Character : Unit
             }
         }
     }
+
     private void Kick(Character character) // нужна переменная направления
     {
         rigidbody.velocity = Vector3.zero;
@@ -266,6 +270,8 @@ public class Character : Unit
             rigidbody.AddForce(Vector2.up * 2, ForceMode2D.Impulse);
         }
     }
+
+    
     private void CheatHeal()
     {
         lifes++;
@@ -286,7 +292,7 @@ public class Character : Unit
     }
     public void ItemSearch()
     {
-        if(canTake == true || canTalk==true || canTakeScore==true)
+        if(canTake == true || canTalk==true || canTakeScore==true || canGo == true)
         {
             if (faceRight)
             {

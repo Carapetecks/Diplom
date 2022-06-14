@@ -81,7 +81,7 @@ public class PlayerAttack : MonoBehaviour
         float maxSpeed = monster.speed;
         monster.speed = 0;
         yield return new WaitForSeconds(0.5f);
-        monster.speed = 1;
+        monster.speed = monster.lastSpeed;
         
     }
 }
